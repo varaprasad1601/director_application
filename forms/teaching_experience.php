@@ -211,7 +211,7 @@
 
             
             <div class="form-group mt-4">
-                <input type="checkbox" id="agre" <?php echo (($td_row != null)) ? "checked disabled" : "" ?>>&nbsp; I Agree <label class="err_msg" id="agremsg"> * </label>
+                <input type="checkbox" id="agre" <?php echo (($td_row != null)) ? "checked disabled" : "" ?>>&nbsp;  <label for="agre">I Confirm to the above details</label> <label class="err_msg" id="agremsg"> * </label>
             </div>
 
             <!-- <input type="text" value="tab4()" name="tab" hidden> -->
@@ -870,6 +870,7 @@
                             if(data.trim()[data.length-1] =="y"){
                                 localStorage.setItem('myParameterValue', data);
                                 location.reload();
+                                $("#campus_focus").focus();
                             }else{
                                 alert("tryagain");
                             }

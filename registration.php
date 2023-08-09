@@ -52,7 +52,7 @@ if(isset($_SESSION['ApplicationId'])){
             top: -31px !important;
             left: 92% !important;
         }
-        @media screen and (max-width:400px) {
+        @media screen and (max-width:600px) {
             .d-flex{
                 flex-direction: column !important;
             }
@@ -85,6 +85,7 @@ if(isset($_SESSION['ApplicationId'])){
 <body>
     <div class="container-fluid p-0">
         <?php include './forms/navbar.php'; ?>
+        <?php include './header.php'; ?>
         <div class="col-md-12 d-flex justify-content-center align-items-center p-5 box">
             <div class="col-md-9 shadow rounded my-4 mt-4 d-flex align-items-center inner-box">
                 <div class="col-md-6 logo d-flex justify-content-center align-items-center p-5">

@@ -79,7 +79,7 @@
             </div>
 
 
-            <h5 class="pt-4">Other Details</h5>
+            <h5 class="pt-4">ACB / Vigilance / Criminal / Departmental Cases / Enquiries-Pending</h5>
             <hr>
 
             <!-- <form method="post" id="cs_form"> -->
@@ -157,7 +157,7 @@
             
 
             <div class="form-group mt-4">
-                <input type="checkbox" id="agreee" <?php echo (($arow != null)) ? "checked disabled" : "" ?>>&nbsp; I Agree <label class="err_msg" id="agreeemsg"> * </label>
+                <input type="checkbox" id="agreee" <?php echo (($arow != null)) ? "checked disabled" : "" ?>>&nbsp;  <label for="agreee">I Confirm to the above details</label> <label class="err_msg" id="agreeemsg"> * </label>
             </div>
             <div class="form-group d-flex justify-content-end my-4">
                 <?php if($arow){
@@ -468,10 +468,11 @@
 
         // agree ==================================================================================
         function check_campus(){
+            campus_check()
             if(alert_campus == 0){
                 alert("Select Campus");
-                $("#campus").css("border","1px solid red");
-                $("#campus").focus();
+                $("#nuzvid_campus").css("border","1px solid red !important");
+                $("#campus_focus").focus();
                     return false
             }
             else{

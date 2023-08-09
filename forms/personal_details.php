@@ -143,13 +143,21 @@
         // Category ==========================================================================
         function category_function(){
             category.addEventListener('change',category_function);
-            if (category.value == "-----"){
+            var regex = /^[a-z A-Z,\-_()]+$/;
+            if(category.value.length == 0){
                 category.style.border = "1px solid red";
-                fields("Select Category")
+                fields("Enter Social Status")
                 return false
             }
             else{
-                category.style.border = "1px solid lightgray";
+                if(!regex.test(category.value.trim())){
+                    category.style.border = "1px solid red";
+                    fields("Only these (Alphabets, '-' '_' '(s' ')' and ',') are allowed")
+                    return false
+                }
+                else{
+                    category.style.border = "1px solid lightgray";
+                }
             }
         };
         // Category ===========================================================================
@@ -353,24 +361,8 @@
                     </div>
                 </div>
                 <div class="col-md-5">
-                    <label>Category</label> <label class="err_msg" id="msg"> * </label>
-                    <select class="form-control" id="category" name="category" <?php if ($pd_row[9] != null) { echo 'disabled'; } ?>>
-                        <option value="-----">Select</option>
-                        <?php
-                        if ($pd_row != null) {
-                            echo '<option value="OC" id="OC" ' . (($pd_row[9] == 'OC') ? 'selected' : '') . '>OC</option>';
-                            echo '<option value="ST" id="ST" ' . (($pd_row[9] == 'ST') ? 'selected' : '') . '>ST</option>';
-                            echo '<option value="SC" id="SC" ' . (($pd_row[9] == 'SC') ? 'selected' : '') . '>SC</option>';
-                            echo '<option value="BC" id="BC" ' . (($pd_row[9] == 'BC') ? 'selected' : '') . '>BC</option>';
-                        } else {
-                            echo '<option value="OC" id="OC">OC</option>';
-                            echo '<option value="ST" id="ST">ST</option>';
-                            echo '<option value="SC" id="SC">SC</option>';
-                            echo '<option value="BC" id="BC">BC</option>';
-                        }
-                        ?>
-                    </select>
-
+                    <label>Social Status</label> <label class="err_msg" id="msg"> * </label>
+                    <input type="text" class="form-control" id="social_status" name="category" <?php if($pd_row != null){echo 'value="'. $pd_row[9]. '" disabled';}?>>
                 </div>
             </div>
 
@@ -387,7 +379,7 @@
                     <input type="text" class="form-control" id="p_designation" name="p_designation" <?php if($pd_row != null){echo 'value="'. $pd_row[11]. '" disabled';}?>>
                 </div>
                 <div class="col-md-5">
-                    <label>Which Department</label> <label class="err_msg" id="msg" > * </label>
+                    <label>Department</label> <label class="err_msg" id="msg" > * </label>
                     <input type="text" class="form-control" id="department" name="department" <?php if($pd_row != null){echo 'value="'. $pd_row[12]. '" disabled';}?>>
                 </div>
             </div>
@@ -401,9 +393,9 @@
 
             <div class="form-group mt-4">
             <?php if($pd_row != null){
-                    echo '<input type="checkbox" id="agree" checked disabled>&nbsp; I Agree <label class="err_msg" id="agreemsg"> * </label>';
+                    echo '<input type="checkbox" id="agree" checked disabled>&nbsp; <label for="agree">I Confirm to the above details</label> <label class="err_msg" id="agreemsg"> * </label>';
                 }else{
-                    echo '<input type="checkbox" id="agree"> Agree <label class="err_msg" id="agreemsg"> * </label>';
+                    echo '<input type="checkbox" id="agree"> <label for="agree">I Confirm to the above details</label><label class="err_msg" id="agreemsg"> * </label>';
                 }?>
             </div>
 
@@ -429,7 +421,7 @@
         var age = document.getElementById("age");
         var male = document.getElementById("male");
         var female = document.getElementById("female");
-        var category = document.getElementById("category");
+        var category = document.getElementById("social_status");
         var address = document.getElementById("address");
         var p_designation = document.getElementById("p_designation");
         var department = document.getElementById("department");
@@ -456,6 +448,7 @@
                             if(data.trim()[data.length-1] =="y"){
                                 localStorage.setItem('myParameterValue', data);
                                 location.reload()
+                                $("#campus_focus").focus();
                             }else{
                                 alert("tryagain");
                             }

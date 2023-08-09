@@ -19,6 +19,7 @@
     $img = $_FILES['photo']['name'];
     $tmp = $_FILES['photo']['tmp_name'];
     //----------------------------------------
+    
     $ext = pathinfo($img, PATHINFO_EXTENSION);
     if(in_array($ext, $valid_extensions)) {
         $dir_img = explode(".",$img);

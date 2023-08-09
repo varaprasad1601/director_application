@@ -37,7 +37,7 @@
             font-size: 14px;
             padding: 4px 30px;
         }
-        @media screen and (max-width: 400px){
+        @media screen and (max-width: 600px){
             .box{
                 width: 95% !important;
             }
@@ -83,6 +83,9 @@
             }
             .tabs{
                 width: 80% !important;
+            }
+            .nra{
+                margin-left: 0px !important;
             }
 
         }

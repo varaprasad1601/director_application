@@ -1,10 +1,3 @@
-<!--<html>-->
-<!--    <body bgcolor="">-->
-<!--        <center><h1>Website Under Maintainance</h1>-->
-<!--                <h3>Check back after 1 hour</h3>-->
-<!--                <h6>Regret for the inconvinience</h6></center>-->
-<!--    </body>-->
-<!--</html>-->
 <?php
 session_start();
 if(isset($_SESSION['ApplicationId'])){
@@ -58,7 +51,7 @@ else{
             top: -31px !important;
             left: 92% !important;
         }
-        @media screen and (max-width:400px) {
+        @media screen and (max-width:600px) {
             .d-flex{
                 flex-direction: column !important;
             }
@@ -72,8 +65,8 @@ else{
                 margin-top: -30px !important;
             }
             .inner-box{
-                padding: 20px 5px !important;
-                width: 93% !important;
+                padding: 20px 0px !important;
+                width: 90% !important;
                 margin-top: 0px !important;
             }
             .checkbox{
@@ -85,41 +78,45 @@ else{
                 top: -29px !important;
                 left: 90% !important;
             }
+            body{
+                overflow-x: hidden;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container-fluid p-0">
+<div class="container-fluid p-0">
         <?php include './forms/navbar.php'; ?>
+        <?php include './header.php'; ?>
         <div class="col-md-12 d-flex justify-content-center align-items-center p-5 box">
-        <div class="col-md-9 shadow rounded my-5 mt-5 d-flex align-items-center inner-box">
-            <div class="col-md-6 logo d-flex justify-content-center align-items-center p-5">
-                <img src="rgukt.png" class="image" width="100">
-            </div>
-            <div class="col-md-6 px-5 py-5 inner-box">
-                <h2 style="font-family: Calibri;"><b>Login</b></h2>
-                <label id="message"></label>
-                <div class="f">
-                    <div class="inputBox">
-                        <input type="email" name="u" class="form-control" placeholder="email id" id="id" required>
+                <div class="col-md-9 shadow rounded my-5 mt-5 d-flex align-items-center inner-box">
+                    <div class="col-md-6 logo d-flex justify-content-center align-items-center p-5">
+                        <img src="rgukt.png" class="image" width="100">
                     </div>
-                    <div class="inputBox mt-3">
-                        <input type="password" name="p" placeholder="password" class="form-control" id="password" required>
-                        <i class="fa fa-eye eye" id="pas_eye" onclick="pas_show()"></i>
-                    </div>
-                    <div class="inputBox my-2 mb-3">
-                        <button id="login" type="button" style="width: 100%;" class="btn btn-outline-dark rounded-pill">Login</button>
-                    </div>
-                    <div class="inputBox my-0 d-flex justify-content-center align-items-center">
-                        <label>Dont have an Account? <a href="registration.php" class="link">Register</a></label>
-                    </div>
-                    <div class="inputBox my-0 d-flex justify-content-center align-items-center">
-                        <label><a href="forgot1.php" class="link">forgot password?</a></label>
+                    <div class="col-md-6 px-5 py-5 inner-box">
+                        <h2 style="font-family: Calibri;"><b>Login</b></h2>
+                        <label id="message"></label>
+                        <div class="f">
+                            <div class="inputBox">
+                                <input type="email" name="u" class="form-control" placeholder="email id" id="id" required>
+                            </div>
+                            <div class="inputBox mt-3">
+                                <input type="password" name="p" placeholder="password" class="form-control" id="password" required>
+                                <i class="fa fa-eye eye" id="pas_eye" onclick="pas_show()"></i>
+                            </div>
+                            <div class="inputBox my-2 mb-3">
+                                <button id="login" type="button" style="width: 100%;" class="btn btn-outline-dark rounded-pill">Login</button>
+                            </div>
+                            <div class="inputBox my-0 d-flex justify-content-center align-items-center">
+                                <label>Dont have an Account? <a href="registration.php" class="link">Register</a></label>
+                            </div>
+                            <div class="inputBox my-0 d-flex justify-content-center align-items-center">
+                                <label><a href="forgot1.php" class="link">forgot password?</a></label>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        </div>
         <div class="mt-3"><?php include './forms/footer.php'; ?></div>
     </div>
 </body>

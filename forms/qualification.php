@@ -35,7 +35,7 @@
             <h5 class="pt-4">Under Graduation</h5><hr>
             <div class="form-group d-flex justify-content-between mt-2">
                 <div class="col-md-3">
-                    <label>Completed Year</label> <label class="err_msg" id="msg"> * </label>
+                    <label>Year of Completion</label> <label class="err_msg" id="msg"> * </label>
                     <input type="number" class="form-control" id="ug_cy0" <?php echo ($ug_row != null) ? 'value="' . $ucy_data[0] . '" disabled' : 'value=""'; ?>>
                 </div>
                 <div class="col-md-3">
@@ -58,7 +58,7 @@
                         if($ucy_data[$i]){?>
                             <div class="form-group d-flex justify-content-between mt-2" id="udiv_<?php echo $i ?>">
                                 <div class="col-md-3">
-                                    <label>Completed Year</label>
+                                    <label>Year of Completion</label>
                                     <input type="number" class="form-control" id="ug_cy<?php echo $i ?>" value="<?php echo $ucy_data[$i]?>" disabled>
                                 </div>
                                 <div class="col-md-3">
@@ -85,7 +85,7 @@
             <h5 class="pt-4">Post Graduation</h5><hr>
             <div class="form-group d-flex justify-content-between mt-2">
                 <div class="col-md-3">
-                    <label>Completed Year</label> <label class="err_msg" id="msg"> * </label>
+                    <label>Year of Completion</label> <label class="err_msg" id="msg"> * </label>
                     <input type="number" class="form-control" id="pg_cy0" <?php echo ($ug_row != null) ? 'value="' . $pcy_data[0] . '" disabled' : 'value=""'; ?>>
                 </div>
                 <div class="col-md-3">
@@ -107,7 +107,7 @@
                         if($pcy_data[$i]){?>
                             <div class="form-group d-flex justify-content-between mt-2" id="pdiv_<?php echo $i ?>">
                                 <div class="col-md-3">
-                                    <label>Completed Year</label>
+                                    <label>Year of Completion</label>
                                     <input type="number" class="form-control" id="pg_cy<?php echo $i ?>" value="<?php echo $pcy_data[$i]?>" disabled>
                                 </div>
                                 <div class="col-md-3">
@@ -134,7 +134,7 @@
             <h5 class="pt-4">Ph. D</h5><hr>
             <div class="form-group d-flex justify-content-between mt-2">
                 <div class="col-md-3">
-                    <label>Completed Year</label> <label class="err_msg" id="msg"> * </label>
+                    <label>Year of Completion</label> <label class="err_msg" id="msg"> * </label>
                     <input type="number" class="form-control" id="pd_cy0" <?php echo ($pd_row != null) ? 'value="' . $dcy_data[0] . '" disabled' : 'value=""'; ?>>
                 </div>
                 <div class="col-md-3">
@@ -156,7 +156,7 @@
                         if($dcy_data[$i]){?>
                             <div class="form-group d-flex justify-content-between mt-2" id="ddiv_<?php echo $i ?>">
                                 <div class="col-md-3">
-                                    <label>Completed Year</label>
+                                    <label>Year of Completion</label>
                                     <input type="number" class="form-control" id="pd_cy<?php echo $i ?>" value="<?php echo $dcy_data[$i]?>" disabled>
                                 </div>
                                 <div class="col-md-3">
@@ -181,9 +181,9 @@
 
             <div class="form-group mt-4">
             <?php if($ug_row != null){
-                    echo '<input type="checkbox" id="ag" checked disabled>&nbsp; I Agree <label class="err_msg" id="agmsg"> * </label>';
+                    echo '<input type="checkbox" id="ag" checked disabled>&nbsp; <label for="ag">I Confirm to the above details</label> <label class="err_msg" id="agmsg"> * </label>';
                 }else{
-                    echo '<input type="checkbox" id="ag"> Agree <label class="err_msg" id="agmsg"> * </label>';
+                    echo '<input type="checkbox" id="ag">  <label for="ag">I Confirm to the above details</label> <label class="err_msg" id="agmsg"> * </label>';
                 }?>
             </div>
 
@@ -271,7 +271,7 @@
                 var uc_label = document.createElement("label",)
                 uc_div.appendChild(uc_label)
 
-                uc_label.textContent = "Completed Year";
+                uc_label.textContent = "Year of Completion";
 
                 var ucy = document.createElement('input')
                 ucy.setAttribute("type","number")
@@ -377,7 +377,7 @@
                 var pc_label = document.createElement("label",)
                 pc_div.appendChild(pc_label)
 
-                pc_label.textContent = "Completed Year";
+                pc_label.textContent = "Year of Completion";
 
                 var pcy = document.createElement('input')
                 pcy.setAttribute("type","number")
@@ -483,7 +483,7 @@
                 var dc_label = document.createElement("label",)
                 dc_div.appendChild(dc_label)
 
-                dc_label.textContent = "Completed Year";
+                dc_label.textContent = "Year of Completion";
 
                 var dcy = document.createElement('input')
                 dcy.setAttribute("type","number")
@@ -803,6 +803,7 @@
                             if(data.trim()[data.length-1] =="y"){
                                 localStorage.setItem('myParameterValue', data);
                                 location.reload();
+                                $("#campus_focus").focus();
                             }else{
                                 alert("tryagain");
                             }

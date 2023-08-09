@@ -75,7 +75,7 @@
 
             <div class="form-group d-flex justify-content-between">
                 <div class="col-md-5">
-                    <label>Number of M. Phils Guided</label> <label class="err_msg" id="msg"> * </label>
+                    <label>Number of M. Phils/M. Tech Projects Guided</label> <label class="err_msg" id="msg"> * </label>
                     <input type="number" class="form-control" placeholder="M.Phils Guided" id="mpg" <?php echo(($row)) ? 'value="'.$row[10].'" disabled' : "" ?>>
                 </div>
                 <div class="col-md-5">
@@ -86,53 +86,58 @@
                 </div>
             </div>
 
-            <div class="form-group d-flex justify-content-between">
-                <div class="col-md-5">
-                    <label>Number of Reputed Awards</label> <label class="err_msg" id="msg"> * </label>
-                    <input type="number" class="form-control" placeholder="State/National" id="awards_national" onkeyup="total_awards()" <?php echo(($row)) ? 'value="'.$row[12].'" disabled' : "" ?>>
-                </div>
-                <div class="col-md-5">
-                    <label>&nbsp;</label>
-                    <input type="number" class="form-control" placeholder="International" id="awards_international" onkeyup="total_awards()" <?php echo(($row)) ? 'value="'.$row[13].'" disabled' : "" ?>>
-                </div>
-                <div class="col-md-1">
-                    <label>Total</label>
-                    <input type="text" class="form-control" id="awards_total" value="<?php if($row){echo $row[12]+$row[13];}else{echo "0";}?>" disabled>
-                </div>
-            </div>
 
             <div class="form-group d-flex justify-content-between">
                 <div class="col-md-5">
                     <label>Seminars/Conferences attended/Papers presented</label> <label class="err_msg" id="msg"> * </label>
-                    <input type="number" class="form-control" placeholder="National" id="seminars_national" onkeyup="total_seminars()" <?php echo(($row)) ? 'value="'.$row[14].'" disabled' : "" ?>>
+                    <input type="number" class="form-control" placeholder="National" id="seminars_national" onkeyup="total_seminars()" <?php echo(($row)) ? 'value="'.$row[15].'" disabled' : "" ?>>
                 </div>
                 <div class="col-md-5">
                     <label>&nbsp;</label>
-                    <input type="number" class="form-control" placeholder="International" id="seminars_international" onkeyup="total_seminars()" <?php echo(($row)) ? 'value="'.$row[15].'" disabled' : "" ?>>
+                    <input type="number" class="form-control" placeholder="International" id="seminars_international" onkeyup="total_seminars()" <?php echo(($row)) ? 'value="'.$row[16].'" disabled' : "" ?>>
                 </div>
                 <div class="col-md-1">
                     <label>Total</label>
-                    <input type="text" class="form-control" id="seminars_total" value="<?php if($row){echo $row[14]+$row[15];}else{echo "0";}?>" disabled>
+                    <input type="text" class="form-control" id="seminars_total" value="<?php if($row){echo $row[15]+$row[16];}else{echo "0";}?>" disabled>
                 </div>
             </div>
 
             <div class="form-group d-flex justify-content-between">
                 <div class="col-md-5">
                     <label>Details of Memberships in professional Socities/Bodies</label> <label class="err_msg" id="msg"> * </label>
-                    <input type="number" class="form-control" placeholder="National" id="bodies_national" onkeyup="total_bodies()" <?php echo(($row)) ? 'value="'.$row[16].'" disabled' : "" ?>>
+                    <input type="number" class="form-control" placeholder="National" id="bodies_national" onkeyup="total_bodies()" <?php echo(($row)) ? 'value="'.$row[17].'" disabled' : "" ?>>
                 </div>
                 <div class="col-md-5">
                     <label>&nbsp;</label>
-                    <input type="number" class="form-control" placeholder="International" id="bodies_international" onkeyup="total_bodies()" <?php echo(($row)) ? 'value="'.$row[17].'" disabled' : "" ?>>
+                    <input type="number" class="form-control" placeholder="International" id="bodies_international" onkeyup="total_bodies()" <?php echo(($row)) ? 'value="'.$row[18].'" disabled' : "" ?>>
                 </div>
                 <div class="col-md-1">
                     <label>Total</label>
-                    <input type="text" class="form-control" id="bodies_total" value="<?php if($row){echo $row[16]+$row[17];}else{echo "0";}?>" disabled>
+                    <input type="text" class="form-control" id="bodies_total" value="<?php if($row){echo $row[17]+$row[18];}else{echo "0";}?>" disabled>
+                </div>
+            </div>
+
+            <div class="form-group d-flex justify-content-between">
+                <div class="col-md-3">
+                    <label>Number of Reputed Awards</label> <label class="err_msg" id="msg"> * </label>
+                    <input type="number" class="form-control" placeholder="State" id="awards_state" onkeyup="total_awards()" <?php echo(($row)) ? 'value="'.$row[12].'" disabled' : "" ?>>
+                </div>
+                <div class="col-md-3 ms-3 nra">
+                    <label>&nbsp;</label>
+                    <input type="number" class="form-control" placeholder="National" id="awards_national" onkeyup="total_awards()" <?php echo(($row)) ? 'value="'.$row[13].'" disabled' : "" ?>>
+                </div>
+                <div class="col-md-3 ms-3 nra">
+                    <label>&nbsp;</label>
+                    <input type="number" class="form-control" placeholder="International" id="awards_international" onkeyup="total_awards()" <?php echo(($row)) ? 'value="'.$row[14].'" disabled' : "" ?>>
+                </div>
+                <div class="col-md-1">
+                    <label>Total</label>
+                    <input type="text" class="form-control" id="awards_total" value="<?php if($row){echo $row[12]+$row[13]+$row[14];}else{echo "0";}?>" disabled>
                 </div>
             </div>
 
             <div class="form-group mt-4">
-                <input type="checkbox" id="agr" <?php echo (($row != null)) ? "checked disabled" : "" ?>>&nbsp; I Agree <label class="err_msg" id="agrmsg"> * </label>
+                <input type="checkbox" id="agr" <?php echo (($row != null)) ? "checked disabled" : "" ?>>&nbsp;  <label for="agr">I Confirm to the above details</label>  <label class="err_msg" id="agrmsg"> * </label>
             </div>
             <div class="form-group d-flex justify-content-end my-4">
                 <?php if($row != null){
@@ -169,6 +174,7 @@
         var mpg = document.getElementById("mpg")
         var pdg = document.getElementById("pdg")
         
+        var awards_state = document.getElementById("awards_state")
         var awards_national = document.getElementById("awards_national")
         var awards_international = document.getElementById("awards_international")
         var awards_total = document.getElementById("awards_total")
@@ -346,6 +352,15 @@
         // awards ==========================================================================
         function awards(){
             awards_international.addEventListener('change',awards)
+            if(awards_state.value.length == 0){
+                awards_state.style.border = "1px solid red"
+                fields("Number of Reputed Awards")
+                return false
+            }
+            else{
+                awards_state.style.border = "1px solid lightgray"
+            }
+
             if(awards_national.value.length == 0){
                 awards_national.style.border = "1px solid red"
                 fields("Number of Reputed Awards")
@@ -366,11 +381,11 @@
         };
 
         function total_awards(){
-            if(awards_national.value.length == 0 || awards_international.value.length == 0){
+            if(awards_state.value.length == 0 || awards_national.value.length == 0 || awards_international.value.length == 0){
                 awards_total.value = 0
             }
             else{
-                awards_total.value = +awards_national.value + +awards_international.value
+                awards_total.value = +awards_state.value + +awards_national.value + +awards_international.value
             }
         };
         // awards ==========================================================================
@@ -489,6 +504,7 @@
             funds_minor.removeAttribute("disabled");
             mpg.removeAttribute("disabled");
             pdg.removeAttribute("disabled");
+            awards_state.removeAttribute("disabled");
             awards_national.removeAttribute("disabled");
             awards_international.removeAttribute("disabled");
             seminars_national.removeAttribute("disabled");
@@ -513,6 +529,7 @@
                         $("#funds_minor").val().trim()+";"+
                         $("#mpg").val().trim()+";"+
                         $("#pdg").val().trim()+";"+
+                        $("#awards_state").val().trim()+";"+
                         $("#awards_national").val().trim()+";"+
                         $("#awards_international").val().trim()+";"+
                         $("#seminars_national").val().trim()+";"+
@@ -532,6 +549,7 @@
                             if(data.trim()[data.length-1] =="y"){
                                 localStorage.setItem('myParameterValue', data);
                                 location.reload();
+                                $("#campus_focus").focus();
                             }else{
                                 alert("tryagain");
                             }

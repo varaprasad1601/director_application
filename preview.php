@@ -75,7 +75,7 @@
             .at{width: 25%;}
             <?php if(count($ucy_data)<5){ echo ".pgg{margin-top: 15px !important;}"; }?>
         }
-        @media screen and (max-width:400px){
+        @media screen and (max-width:600px){
             .heading{width:80%; padding-top: 15px !important;}
             .rgukt{width: 10% !important;}
             .logo{width: 85% !important;}
@@ -164,7 +164,7 @@
                         <div class="col-md-8 details">
                             <div class="col-md-12 d-flex mb-2" style="border-bottom: .5px solid #eeeee4">
                                 <div class="col-md-4 q"><label class="text">Name</label></div>
-                                <div class="col-md-8 a"><label class="text"><?php echo (($pd_row[8] == 'Male')) ? 'Mr. '. $pd_row[2] : 'Mrs. '.$pd_row[2] ?></label></div>
+                                <div class="col-md-8 a"><label class="text"><?php echo $pd_row[2] ?></label></div>
                             </div>
                             <div class="col-md-12 d-flex mb-2" style="border-bottom: .5px solid #eeeee4">
                                 <div class="col-md-4 q"><label class="text">Email Id</label></div>
@@ -187,7 +187,7 @@
                                 <div class="col-md-8 a"><label class="text"><?php echo $pd_row[8] ?></label></div>
                             </div>
                             <div class="col-md-12 d-flex mb-2" style="border-bottom: .5px solid #eeeee4">
-                                <div class="col-md-4 q"><label class="text">Category</label></div>
+                                <div class="col-md-4 q"><label class="text">Social Status</label></div>
                                 <div class="col-md-8 a"><label class="text"><?php echo $pd_row[9] ?></label></div>
                             </div>
                             <div class="col-md-12 d-flex mb-2" style="border-bottom: .5px solid #eeeee4">
@@ -222,7 +222,7 @@
                             <h5 class="">Under Graduation</h5>
                         </div>
                         <div class="col-md-12 d-flex mb-2 under_g" style="border-bottom: .5px solid #eeeee4">
-                            <div class="col-md-4 qd"><label class="text"><b>Completed Year</b></label></div>
+                            <div class="col-md-4 qd"><label class="text"><b>Year of Completion</b></label></div>
                             <div class="col-md-4 qd"><label class="text"><b>Specialization</b></label></div>
                             <div class="col-md-4 qd"><label class="text"><b>Awarded University</b></label></div>
                         </div>
@@ -239,7 +239,7 @@
                                 <h5 class="">Post Graduation</h5>
                             </div>
                             <div class="col-md-12 d-flex mb-2" style="border-bottom: .5px solid #eeeee4">
-                                <div class="col-md-4 qd"><label class="text"><b>Completed Year</b></label></div>
+                                <div class="col-md-4 qd"><label class="text"><b>Year of Completion</b></label></div>
                                 <div class="col-md-4 qd"><label class="text"><b>Specialization</b></label></div>
                                 <div class="col-md-4 qd"><label class="text"><b>Awarded University</b></label></div>
                             </div>
@@ -256,7 +256,7 @@
                                 <h5 class="">Ph. D</h5>
                             </div>
                             <div class="col-md-12 d-flex mb-2" style="border-bottom: .5px solid #eeeee4">
-                                <div class="col-md-4 qd"><label class="text"><b>Completed Year</b></label></div>
+                                <div class="col-md-4 qd"><label class="text"><b>Year of Completion</b></label></div>
                                 <div class="col-md-4 qd"><label class="text"><b>Specialization</b></label></div>
                                 <div class="col-md-4 qd"><label class="text"><b>Awarded University</b></label></div>
                             </div>
@@ -430,16 +430,22 @@
                             </div>
                             <div class="col-md-12 d-flex mb-2" style="border-bottom: .5px solid #eeeee4">
                                 <div class="col-md-4 d-flex qd">
-                                    <div class="col-md-5 n"><label class="text">State/National:</label></div>
+                                    <div class="col-md-5 n"><label class="text">State:</label></div>
                                     <div class="col-md-7 nv"><label class="text"><?php echo $row[12] ?></label></div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 d-flex mb-2" style="border-bottom: .5px solid #eeeee4">
+                                <div class="col-md-4 d-flex qd">
+                                    <div class="col-md-5 n"><label class="text">National:</label></div>
+                                    <div class="col-md-7 nv"><label class="text"><?php echo $row[13] ?></label></div>
                                 </div>
                                 <div class="col-md-4 d-flex qd">
                                     <div class="col-md-6 i"><label class="text">International:</label></div>
-                                    <div class="col-md-6 iv"><label class="text"><?php echo $row[13] ?></label></div>
+                                    <div class="col-md-6 iv"><label class="text"><?php echo $row[14] ?></label></div>
                                 </div>
                                 <div class="col-md-4 d-flex qd">
                                     <div class="col-md-4 t"><label class="text">Total:</label></div>
-                                    <div class="col-md-8 tv"><label class="text"><?php echo $row[12] + $row[13] ?></label></div>
+                                    <div class="col-md-8 tv"><label class="text"><?php echo $row[12] + $row[13] + $row[14] ?></label></div>
                                 </div>
                             </div>
                         </div>
@@ -451,15 +457,15 @@
                             <div class="col-md-12 d-flex mb-2" style="border-bottom: .5px solid #eeeee4">
                                 <div class="col-md-4 d-flex qd">
                                     <div class="col-md-5 n"><label class="text">National:</label></div>
-                                    <div class="col-md-7 nv"><label class="text"><?php echo $row[14] ?></label></div>
+                                    <div class="col-md-7 nv"><label class="text"><?php echo $row[15] ?></label></div>
                                 </div>
                                 <div class="col-md-4 d-flex qd">
                                     <div class="col-md-6 i"><label class="text">International:</label></div>
-                                    <div class="col-md-6 iv"><label class="text"><?php echo $row[15] ?></label></div>
+                                    <div class="col-md-6 iv"><label class="text"><?php echo $row[16] ?></label></div>
                                 </div>
                                 <div class="col-md-4 d-flex qd">
                                     <div class="col-md-4 t"><label class="text">Total:</label></div>
-                                    <div class="col-md-8 tv"><label class="text"><?php echo $row[14] + $row[15] ?></label></div>
+                                    <div class="col-md-8 tv"><label class="text"><?php echo $row[15] + $row[16] ?></label></div>
                                 </div>
                             </div>
                         </div>
@@ -471,15 +477,15 @@
                             <div class="col-md-12 d-flex mb-2" style="border-bottom: .5px solid #eeeee4">
                                 <div class="col-md-4 d-flex qd">
                                     <div class="col-md-5 n"><label class="text">National:</label></div>
-                                    <div class="col-md-7 nv"><label class="text"><?php echo $row[16] ?></label></div>
+                                    <div class="col-md-7 nv"><label class="text"><?php echo $row[17] ?></label></div>
                                 </div>
                                 <div class="col-md-4 d-flex qd">
                                     <div class="col-md-6 i"><label class="text">International:</label></div>
-                                    <div class="col-md-6 iv"><label class="text"><?php echo $row[17] ?></label></div>
+                                    <div class="col-md-6 iv"><label class="text"><?php echo $row[18] ?></label></div>
                                 </div>
                                 <div class="col-md-4 d-flex qd">
                                     <div class="col-md-4 t"><label class="text">Total:</label></div>
-                                    <div class="col-md-8 tv"><label class="text"><?php echo $row[16] + $row[17] ?></label></div>
+                                    <div class="col-md-8 tv"><label class="text"><?php echo $row[17] + $row[18] ?></label></div>
                                 </div>
                             </div>
                         </div>
@@ -500,7 +506,7 @@
                             </div>
                             <div class="col-md-12 d-flex mb-2" style="border-bottom: .5px solid #eeeee4">
                                 <div class="col-md-4 d-flex qd">
-                                    <div class="col-md-5 n"><label class="text">M. Phils Guided:</label></div>
+                                    <div class="col-md-5 n"><label class="text">M.Phils / M.Tech Projects Guided:</label></div>
                                     <div class="col-md-7 nv"><label class="text"><?php echo $row[10] ?></label></div>
                                 </div>
                                 <div class="col-md-4 d-flex qd">
@@ -584,7 +590,14 @@
                     <div>
                     <?php if($tab_num[0] == "tab7()"){?>
                     <div class="col-md-12 d-flex justify-content-end">
-                        <input type="button" class="btn btn-primary me-3 click_btn mt-5 hide_btn" style="width: 175px;" value="Print" onclick="window.print()">
+                        <select class="form-control me-3 mt-5" id="print_campus" style="width: 175px;">
+                            <option value="-----">Select Campus</option>
+                            <option value="Nuzvid">Nuzvid</option>
+                            <option value="RK Valley">RK Valley</option>
+                            <option value="Srikakulam">Srikakulam</option>
+                            <option value="Ongole">Ongole</option>
+                        </select>
+                        <input type="button" class="btn btn-primary me-3 click_btn mt-5 hide_btn" style="width: 175px;" value="Print" onclick="print_doc()">
                         <input type="button" class="btn btn-warning space click_btn mt-5 hide_btn" style="width: 175px;" value="Download" onclick="download()">
                     </div>
                     <?php }else{ ?>
@@ -627,9 +640,29 @@
     <!-- Modal ================================================== -->
 
     <script>
+        function print_doc(){
+            if($("#print_campus").val() != "-----"){
+                $("#print_campus").css("border","1px solid lightgray");
+                window.print()
+            }else{
+                alert("Select Campus")
+                $("#print_campus").css("border","1px solid red");
+            }
+        }
+
+
         function modal(){
-            $("#mymodal").fadeIn();
-            $("#mymodal").css("display","flex");
+            campus_check()
+            if(alert_campus == 0){
+                alert("Select Campus");
+                $("#nuzvid_campus").css("border","1px solid red !important");
+                $("#campus_focus").focus();
+                    return false
+            }
+            else{
+                $("#mymodal").fadeIn();
+                $("#mymodal").css("display","flex");
+            }
         }
 
         function agree_model(){

@@ -1,32 +1,30 @@
 <?php
-
-    // PHPMailer classes into the global namespace
-    use PHPMailer\PHPMailer\PHPMailer; 
+    $name = "Arun Teja";
+    $email = "aruntejamenda@gmail.com";
+    $subject = "MAIL TRAIL";
+    $message = "MAIL TRAIL";
+    //Import PHPMailer classes into the global namespace
+    //These must be at the top of your script, not inside a function
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\SMTP;
     use PHPMailer\PHPMailer\Exception;
-    // Base files 
-    require 'PHPMailer/Exception.php';
-    require 'PHPMailer/PHPMailer.php';
-    require 'PHPMailer/SMTP.php';
-    // create object of PHPMailer class with boolean parameter which sets/unsets exception.
-    $mail = new PHPMailer(true);                              
-    try {
-        $mail->isSMTP(); // using SMTP protocol                                     
-        $mail->Host = 'smtp.gmail.com'; // SMTP host as gmail 
-        $mail->SMTPAuth = true;  // enable smtp authentication                             
-        $mail->Username = 'n180574@rguktn.ac.in';  // sender gmail host              
-        $mail->Password = '@#%+53tedFyy'; // sender gmail host password                          
-        $mail->SMTPSecure = 'tls';  // for encrypted connection                           
-        $mail->Port = 587;   // port for SMTP     
+    //Load Composer's autoloader
+    require 'vendor/autoload.php';
 
-        $mail->setFrom('n180574@rguktn.ac.in', "Sender"); // sender's email and name
-        $mail->addAddress('aruntejamenda@gmail.com', "Receiver");  // receiver's email and name
-
-        $mail->Subject = 'Test subject';
-        $mail->Body    = 'Test body';
-
-        $mail->send();
-        echo 'Message has been sent';
-    } catch (Exception $e) { // handle error.
-        echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
-}
+    //Create an instance; passing `true` enables exceptions
+    $mail = new PHPMailer(true);
+    $mail -> SMTPDebug = SMTP::DEBUG_SERVER;
+    $mail -> isSMTP();
+    $mail -> SMTPAuth = true;
+    $mail -> Host = "smtp.example.com";
+    $mail -> SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    $mail -> Port =587;
+    $mail -> Username = "aruntejamenda@gmail.com";
+    $mail -> Password = "@#%+53tedFyy";
+    // $mail -> setForm ($email, $name);
+    $mail -> addAddress("n180574@rguktn.ac.in","N180574");
+    $mail -> Subject = $subject;
+    $mail -> Body = $message;
+    $mail -> send();
+    echo "email sent";
 ?>  
