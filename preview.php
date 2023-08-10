@@ -41,6 +41,8 @@
 
         @media print{
             :not(.preview), :not(.preview *){visibility: hidden;}
+            .selected_campuses{display: none !important;}
+            .print_campus{visibility: hidden !important;}
             .hide_btn{visibility: hidden !important;}
             .text{font-size: 14px;}
             .preview, .preview *{visibility: visible;}
@@ -57,6 +59,10 @@
             .details{width: 70% !important;}
             .head{padding: 0px;}
             .image{width: 25% !important;}
+            .signature{display: flex !important;}
+            .left-line{width: 42% !important;}
+            .right-line{width: 42% !important;}
+            .end-line{display: flex !important;}
             .q{width: 30%;}
             .a{width: 65%;}
             .tq{width: 45%;}
@@ -94,6 +100,8 @@
             .details{ justify-content: space-between;}
             .btns{width: 100% !important;}
             .click_btn{width: 100% !important; margin-top: 30px !important; margin-bottom: 50px;}
+            .print_campus{margin: 0px !important; width: 100% !important;}
+            .btns_height{flex-direction: column !important;}
             .q{width: 35%;}
             .a{width: 65%;}
             .tq{width: 65%;}
@@ -145,7 +153,7 @@
             </div>
             <div class="row pad">
                 <div class="col-md-12 justify-content-center mt-3 pad">
-                    <div><center><h5><b class="form-head">RGUKT Director Recruitment Application Form</b></h5></center></div>
+                    <div><center><h5><b class="form-head">RGUKT Director Recruitment Application</b></h5></center></div>
                     <div class="col-md-12 basic mt-5">
                         <label class="text">Application Id: <span style="color: red;"><?php echo $uid?></span></label>
                     </div>
@@ -153,7 +161,19 @@
                         <label class="text">Name of the Post: Director</label>
                     </div>
                     <div class="col-md-12">
-                    <label class="text">Selected Campus: <?php echo $campus[0] ?></label>
+                        <?php 
+                            $selected_campuses = explode(",",$campus[0]);
+                            // print_r($selected_campuses);
+                            $final_campuse = "";
+                            for($f= 0; $f<count($selected_campuses);$f++){
+                                if($selected_campuses[$f]){
+                                        $final_campuse = $final_campuse . $selected_campuses[$f].', ';
+                                }
+                            };
+                            $final_campuses = substr($final_campuse, 0, -2);
+                        ?>
+                    <label class="text selected_campuses">Selected Campuses: <?php echo $final_campuses ?></label>
+                    <label class="text selected_campus" id="selected_campus"></label>
                     </div>
 
                     <!-- Personal Details ================================================== -->
@@ -540,7 +560,7 @@
                     <?php if($cname_data[0] != "" | $cstatus_data[0] != ""){ ?>
                     <div class="col-md-12 pdetails justify-content-between px-5 py-4">
                         <div class="col-md-12 mb-3" style="border-bottom: 1px solid lightgray;">
-                            <h5 class="">Other Details</h5>
+                            <h5 class="">ACB / Vigilance / Criminal / Departmental Cases / Enquiries-Pending</h5>
                         </div>
                         <div class="col-md-12 d-flex mb-2 under_g" style="border-bottom: .5px solid #eeeee4">
                             <div class="col-md-4 qd"><label class="text"><b>Type of Case</b></label></div>
@@ -586,19 +606,35 @@
                     <?php } ?>
                     <!-- Declaration ================================================== -->
 
+
+                    <!-- Signature ================================================== -->
+                    <div class="col-md-12 justify-content-end signature" style="display: none; margin-top: 150px; padding-right:100px;">
+                        <label class="text">Signature</label>
+                    </div>
+                    <div class="col-md-12 justify-content-between align-items-center end-line mt-5 px-5" style="display: none;">
+                        <div class="col-md-5 left-line" style="border-bottom: 1px solid lightgray;"></div>
+                        <div class="col-md-2 d-flex justify-content-center align-items-center">*** End ***</div>
+                        <div class="col-md-5 right-line" style="border-bottom: 1px solid lightgray;"></div>
+                    </div>
+                    <!-- Signature ================================================== -->
+
+
                     <!-- Buttons ================================================== -->
                     <div>
                     <?php if($tab_num[0] == "tab7()"){?>
-                    <div class="col-md-12 d-flex justify-content-end">
-                        <select class="form-control me-3 mt-5" id="print_campus" style="width: 175px;">
-                            <option value="-----">Select Campus</option>
-                            <option value="Nuzvid">Nuzvid</option>
-                            <option value="RK Valley">RK Valley</option>
-                            <option value="Srikakulam">Srikakulam</option>
-                            <option value="Ongole">Ongole</option>
+                    <div class="col-md-12 d-flex justify-content-end btns_height">
+                        <select class="form-control me-3 mb-0 mt-5 print_campus" id="print_campus" style="width: 175px;">
+                        <option value="-----">Select Campus</option>
+                        <?php
+                            for($f= 0; $f<count($selected_campuses);$f++){
+                                if($selected_campuses[$f]){
+                                        echo '<option value="'.$selected_campuses[$f].'">'.$selected_campuses[$f].'</option>';
+                                }
+                            };
+                        ?>
                         </select>
                         <input type="button" class="btn btn-primary me-3 click_btn mt-5 hide_btn" style="width: 175px;" value="Print" onclick="print_doc()">
-                        <input type="button" class="btn btn-warning space click_btn mt-5 hide_btn" style="width: 175px;" value="Download" onclick="download()">
+                        <!-- <input type="button" class="btn btn-warning space click_btn mt-5 hide_btn" style="width: 175px;" value="Download" onclick="download()"> -->
                     </div>
                     <?php }else{ ?>
                         <div class="col-md-12 d-flex justify-content-end">
@@ -622,7 +658,7 @@
                     <label class="text">Name of the Post: Director</label>
                 </div>
                 <div class="col-md-12">
-                    <label class="text">Selected Campus: <?php echo $campus[0] ?></label>
+                    <label class="text">Selected Campus: <?php echo $final_campuses ?></label>
                 </div>
             </div>
             <h5>Declaration</h5>
@@ -641,8 +677,10 @@
 
     <script>
         function print_doc(){
+            var sel_cam = document.getElementById("print_campus").value;
             if($("#print_campus").val() != "-----"){
                 $("#print_campus").css("border","1px solid lightgray");
+                document.getElementById("selected_campus").innerText = "Selected Campus: "+sel_cam;
                 window.print()
             }else{
                 alert("Select Campus")

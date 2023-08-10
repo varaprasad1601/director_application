@@ -53,7 +53,7 @@ $campus_row = mysqli_query($con,"SELECT `appliedCampus` FROM `applied_campus` wh
 $campus_count = mysqli_num_rows($campus_row);
 if($campus_count > 0){
    $campus = mysqli_fetch_row($campus_row); 
-    $campus_data = explode(", ",$campus[0]);
+    $campus_data = explode(",",$campus[0]);
 }
 ?>
 
@@ -70,7 +70,7 @@ if($campus_count > 0){
         </div>
         <div class="che_che">
         <div class="che_box">
-            <div class="col-md-12 px-4"><label class="text"><b>Name of the Campus Applied for</b></label><input type="text" id="campus_focus" style="width: 0px; height:0px; opacity:0;"><label class="text" id="campus_msg"></label></div>
+            <div class="col-md-12 px-4"><label class="text"><b>Name of the Campus or Campuses Applied for</b></label><input type="text" id="campus_focus" style="width: 0px; height:0px; opacity:0;"><label class="text" id="campus_msg"></label></div>
                 <div class="col-md-12 px-4 field d-flex justify-content-between">
                     <div class="check_boxes" style="display: none;">
                         <input type="checkbox" class ="camp" name="campus" id="n_c" value="Nuzvid" <?php echo (($campus_data[0] == 'Nuzvid')) ? 'checked' : '' ?>>
@@ -145,7 +145,7 @@ if($campus_count > 0){
                 ong ='Ongole';
             }
 
-            var cStr = nzd+", "+rkv+", "+sri+", "+ong
+            var cStr = nzd+","+rkv+","+sri+","+ong
 
             $.ajax({
                 type:"POST",
