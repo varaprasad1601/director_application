@@ -27,7 +27,7 @@
             $dir_imgExt = $dir_img[count($dir_img)-1];
             $dir_img = $id.".jpeg";//.$dir_imgExt;
             $path = $path.$dir_img;
-            echo $path;
+            // echo $path;
             //
             $datacount = mysqli_num_rows(mysqli_query($con,"SELECT * FROM personneldetails where ApplicationId = '$id'"));
             //-----------INSERTION NEW------------
