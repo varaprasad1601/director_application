@@ -41,6 +41,7 @@
 
         @media print{
             :not(.preview), :not(.preview *){visibility: hidden;}
+            #print_heading{display:none !important;}
             .selected_campuses{display: none !important;}
             .print_campus{visibility: hidden !important;}
             .hide_btn{visibility: hidden !important;}
@@ -623,12 +624,13 @@
                     <div>
                     <?php if($tab_num[0] == "tab7()"){?>
                     <div class="col-md-12 d-flex justify-content-end btns_height">
-                        <select class="form-control me-3 mb-0 mt-5 print_campus" id="print_campus" style="width: 175px;">
+                        <label id="print_heading" for="camp" style="font-size:1em;display:flex;align-items:end;"> Print Application Form for &nbsp&nbsp</label>
+                        <select class="form-control me-3 mb-0 mt-5 print_campus" id="print_campus" style="width: 175px;" name = "camp">
                         <option value="-----">Select Campus</option>
                         <?php
                             for($f= 0; $f<count($selected_campuses);$f++){
                                 if($selected_campuses[$f]){
-                                        echo '<option value="'.$selected_campuses[$f].'">'.$selected_campuses[$f].'</option>';
+                                    echo '<option value="'.$selected_campuses[$f].'">'.$selected_campuses[$f].'</option>';
                                 }
                             };
                         ?>

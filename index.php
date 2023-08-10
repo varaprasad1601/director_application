@@ -111,7 +111,7 @@ else{
                                 <label>Dont have an Account? <a href="registration.php" class="link">Register</a></label>
                             </div>
                             <div class="inputBox my-0 d-flex justify-content-center align-items-center">
-                                <label><a href="forgot1.php" class="link">forgot password?</a></label>
+                                <label style="color:rgb(13, 110, 253);cursor:pointer;text-decoration:underline;text-decoration-color:rgb(13, 110, 253);" onclick="alert('Contact Technical Team: ***@rguktn.ac.in');"class="link">Forgot password?</label>
                             </div>
                         </div>
                     </div>
