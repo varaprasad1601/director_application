@@ -51,9 +51,9 @@
 $uid = $_SESSION['ApplicationId'];
 $campus_row = mysqli_query($con,"SELECT `appliedCampus` FROM `applied_campus` where `ApplicationId` = '$uid'");
 $campus = mysqli_fetch_row($campus_row);
-if($campus_row){
-    $campus_data = explode(", ",$campus[0]);
-}
+// if($campus_row){
+//     $campus_data = explode(", ",$campus[0]);
+// }
 ?>
 
 <div class="container-fluid">

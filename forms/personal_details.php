@@ -21,7 +21,6 @@
             var regex = /^[a-z A-Z]+$/;
             if (applicant_name.value.length == 0){
                 applicant_name.style.border = "1px solid red";
-                $("#applicant_name").focus();
                 fields("Enter Name");
                 return false
             }
