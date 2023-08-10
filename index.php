@@ -86,8 +86,8 @@ else{
 </head>
 <body>
 <div class="container-fluid p-0">
-        <?php include './forms/navbar.php'; ?>
         <?php include './header.php'; ?>
+        <?php include './forms/navbar.php'; ?>
         <div class="col-md-12 d-flex justify-content-center align-items-center p-5 box">
                 <div class="col-md-9 shadow rounded my-5 mt-5 d-flex align-items-center inner-box">
                     <div class="col-md-6 logo d-flex justify-content-center align-items-center p-5">
