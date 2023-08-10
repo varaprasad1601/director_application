@@ -25,6 +25,12 @@
     .text{
         font-size: 18px;
     }
+    .camp:hover{
+        background-color: whitesmoke !important;
+    }
+    .sel_camp:hover{
+        background-color: #118a40 !important;
+    }
     @media screen and (max-width:600px){
         .campus_detail{
             flex-direction: column !important;
@@ -78,10 +84,10 @@ if($campus_count > 0){
                         <input type="checkbox" class ="camp" name="campus" id="s_c" value="Srikakulam" <?php echo (($campus_data[2] == 'Srikakulam')) ? 'checked' : '' ?>>
                         <input type="checkbox" class ="camp" name="campus" id="o_c" value="Ongole" <?php echo (($campus_data[3] == 'Ongole')) ? 'checked' : '' ?>>
                     </div>
-                    <label class="btn btn-<?php echo (($campus_data[0] == 'Nuzvid')) ? 'success' : 'white' ?> border cc" style="width: 23%;" onclick="check_box('nuzvid_campus','n_c')" for="n_c" id="nuzvid_campus">Nuzvid</label>
-                    <label class="btn btn-<?php echo (($campus_data[1] == 'RK Valley')) ? 'success' : 'white' ?> border cc" style="width: 23%;" onclick="check_box('rk_campus','r_c')" for="r_c" id="rk_campus">RK Valley</label>
-                    <label class="btn btn-<?php echo (($campus_data[2] == 'Srikakulam')) ? 'success' : 'white' ?> border cc" style="width: 23%;" onclick="check_box('srikakulam_campus','s_c')" for="s_c" id="srikakulam_campus">Srikakulam</label>
-                    <label class="btn btn-<?php echo (($campus_data[3] == 'Ongole')) ? 'success' : 'white' ?> border" style="width: 23%;" onclick="check_box('ongole_campus','o_c')" for="o_c" id="ongole_campus">Ongole</label>
+                    <label class="btn btn-<?php echo (($campus_data[0] == 'Nuzvid')) ? 'success sel_camp' : 'white camp' ?> border cc" style="width: 23%;" onclick="check_box('nuzvid_campus','n_c')" for="n_c" id="nuzvid_campus">Nuzvid</label>
+                    <label class="btn btn-<?php echo (($campus_data[1] == 'RK Valley')) ? 'success sel_camp' : 'white camp' ?> border cc" style="width: 23%;" onclick="check_box('rk_campus','r_c')" for="r_c" id="rk_campus">RK Valley</label>
+                    <label class="btn btn-<?php echo (($campus_data[2] == 'Srikakulam')) ? 'success sel_camp' : 'white camp' ?> border cc" style="width: 23%;" onclick="check_box('srikakulam_campus','s_c')" for="s_c" id="srikakulam_campus">Srikakulam</label>
+                    <label class="btn btn-<?php echo (($campus_data[3] == 'Ongole')) ? 'success sel_camp' : 'white camp' ?> border" style="width: 23%;" onclick="check_box('ongole_campus','o_c')" for="o_c" id="ongole_campus">Ongole</label>
                 </div>
             </div>
         </div>

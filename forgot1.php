@@ -226,10 +226,6 @@ else
         {
             $('#message').html("<p style='color:red;font-size:14px;'>* Password must contains minimum 4 characters</p>");
         }
-        else if(newpassword.length > 8)
-        {
-            $('#message').html("<p style='color:red;font-size:14px;'>* Password contains maximum 8 characters</p>");
-        }
         else if(repassword.value == "")
         {
             $('#message').html("<p style='color:red;font-size:14px;'>* Enter Confirm Password</p>");

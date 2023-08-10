@@ -172,8 +172,6 @@ if(isset($_SESSION['ApplicationId'])){
             $('#message').html("<label style='color:red;'>* Enter password</label>");
         }else if(password.length < 4){
             $('#message').html("<label style='color:red;'>* Password must contains minimum 4 characters</label>");
-        }else if(password.length > 8){
-            $('#message').html("<label style='color:red;'>* Password contains maximum 8 characters</label>");
         }else if(repassword == ""){
             $('#message').html("<label style='color:red;'>* Enter Confirm Password</label>");
         }else if(password != repassword){
@@ -183,9 +181,6 @@ if(isset($_SESSION['ApplicationId'])){
             type:"POST",
             url:"reg_save.php",
             data:{u:id,p:password,m:mobile},
-            // beforeSend:function(){
-            // 	$('#message').html("<p style='color:red;'>processing...<p>");
-            //  },
             success:function(data){
                 if(data=="saved"){
                     alert("User Registerd Successfully..!!");

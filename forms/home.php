@@ -14,8 +14,8 @@
     <script src="../jquery.min.js"></script>
     <style>
         ::-webkit-scrollbar{
-            width: 5px;
-            background:gray;
+            width: 7px;
+            background:lightgray;
         }
         ::-webkit-scrollbar-thumb{
             background-color: black;

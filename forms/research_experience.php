@@ -104,7 +104,7 @@
 
             <div class="form-group d-flex justify-content-between">
                 <div class="col-md-5">
-                    <label>Details of Memberships in professional Socities/Bodies</label> <label class="err_msg" id="msg"> * </label>
+                    <label>Details of Memberships in professional Societies/Bodies</label> <label class="err_msg" id="msg"> * </label>
                     <input type="number" class="form-control" placeholder="National" id="bodies_national" onkeyup="total_bodies()" <?php echo(($row)) ? 'value="'.$row[17].'" disabled' : "" ?>>
                 </div>
                 <div class="col-md-5">
