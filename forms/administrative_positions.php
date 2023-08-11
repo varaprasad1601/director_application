@@ -440,7 +440,7 @@
                     if(todate.getTime() < fromdate.getTime()){
                         to.style.border = "1px solid red"
                         from.style.border = "1px solid red"
-                        alert("To Date must be less than From Date")
+                        alert("From Date must be less than To Date")
                         return false
                     }
                     else{
@@ -471,7 +471,7 @@
             campus_check()
             if(alert_campus == 0){
                 alert("Select Campus");
-                $("#nuzvid_campus").css("border","1px solid red !important");
+                // $("#nuzvid_campus").css("border","1px solid red !important");
                 $("#campus_focus").focus();
                     return false
             }

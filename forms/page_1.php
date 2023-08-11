@@ -50,6 +50,9 @@
             display: flex;
             justify-content: center;
         }
+        .sel_camp, .camp{
+            margin-bottom: 10px !important;
+        }
     }
 </style>
 
@@ -58,9 +61,12 @@ $uid = $_SESSION['ApplicationId'];
 $campus_row = mysqli_query($con,"SELECT `appliedCampus` FROM `applied_campus` where `ApplicationId` = '$uid'");
 $campus_count = mysqli_num_rows($campus_row);
 if($campus_count > 0){
-   $campus = mysqli_fetch_row($campus_row); 
+    $campus = mysqli_fetch_row($campus_row); 
     $campus_data = explode(",",$campus[0]);
 }
+
+$sta = mysqli_query($con,"SELECT `stage` from `reg_dir` where `ApplicationId` = '$uid'");
+$stage_num = mysqli_fetch_row($sta);
 ?>
 
 <div class="container-fluid">
@@ -103,11 +109,13 @@ if($campus_count > 0){
         var check_val = document.getElementById(c_id)
         var box_val = document.getElementById(b_id)
         if(check_val.checked){
-            box_val.style.background = "#F8F9FA" ;
+            box_val.style.background = "white" ;
             box_val.style.color = "black";
+            box_val.setAttribute("class","btn btn-white camp border")
         }else{
             box_val.style.background = "#198754" ;
             box_val.style.color = "white";
+            box_val.setAttribute("class","btn btn-success sel_camp")
             alert("Selected `"+check_val.value+"` campus for Application..!!");
         }
     }
@@ -123,6 +131,12 @@ if($campus_count > 0){
         }
     }
     campus_check()
+
+
+    <?php if($stage_num[0] == "tab6()"){ ?>
+        tab_num = 6
+    <?php } ?>
+    
 
 
 
@@ -160,7 +174,9 @@ if($campus_count > 0){
                 success:function(data){
                     if(data=="S"){
                         // alert("Selected `"+cStr+"` campus for Application..!!");
-                        location.reload();
+                        if (tab_num == 6){
+                            location.reload();
+                        }
                     }else{
                         alert(data);
                     }

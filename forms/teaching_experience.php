@@ -49,34 +49,26 @@
                     <input type="text" class="form-control" id="leftover" <?php echo (($td_row != null)) ? 'value="'.$td_row[4].'" disabled' : 'value=""' ?>>
                 </div>
             </div>
-            <h3 class="mt-4">Working Experience</h3>
-            <hr>
-            <div class="form-group d-flex justify-content-between">
-                <div class="col-md-5">
-                <label>Designation</label> <label class="err_msg" id="msg"> * </label>
-                    <select class="form-control" id="designation" name="designation" <?php echo (($td_row != null)) ? "disabled" : "" ?>>
-                        <option value="-----" >-----</option>
-                        <option value="Professor">Professor</option>
-                        <option value="Associate Professor">Associate Professor</option>
-                        <option value="Assistant Professor">Assistant Professor</option>
-                    </select>
-                </div>
-                <div class="col-md-2 d-flex justify-content-end align-items-center" style="margin-top: 1px !important;">
-                    <input type="button" value="Add Details" class="btn btn-dark px-5 mt-3" id="add_btn" onclick="add_designation()" <?php echo (($td_row != null)) ? "disabled" : "" ?>>
-                </div>
-            </div>
+
+
+            <!-- <h3 class="mt-4">Working Experience</h3> -->
+            <!-- <hr> -->
+
 
             <div class="col-md-12">
-
                 <!-- Professor -->
+                <hr class="mt-5">
+                <div class="col-md-12 d-flex justify-content-between" id="prof">
+                    <h5>Professor</h5>
+                    <div class="col-md-2">
+                        <input type="button" value="Add Details" class="btn btn-dark px-5" id="add_prof_btn" style="width:100%;" onclick="add_designation('Professor')" <?php echo (($td_row != null)) ? "disabled" : "" ?>>
+                    </div>
+                </div>
+                <hr>
                 <?php
                 if($pr_row != null){
                     if($pda_data[0] != null){
                     ?>
-                    <div class="col-md-12" id="prof">
-                        <h5 class="pt-4">Professor</h5>
-                        <hr>
-                    </div>
                     <div id="add_prof">
                         <?php for($i=0; $i<count($pda_data); $i++){?>
                             <div class="form-group d-flex justify-content-between mt-3" id="profdiv_<?php echo $i ?>">
@@ -114,15 +106,20 @@
                 };
                 ?>
 
+
                 <!-- Associate Professor -->
+                <hr class="mt-5">
+                <div class="col-md-12  d-flex justify-content-between" id="asso_prof">
+                    <h5>Associate Professor</h5>
+                    <div class="col-md-2">
+                        <input type="button" value="Add Details" class="btn btn-dark px-5" style="width:100%;" id="add_asso_btn" onclick="add_designation('Associate Professor')" <?php echo (($td_row != null)) ? "disabled" : "" ?>>
+                    </div>
+                </div>
+                <hr>
                 <?php
                 if($ad_row != null){
                     if($ada_data[0] != null){
                     ?>
-                    <div class="col-md-12" id="asso_prof">
-                        <h5 class="pt-4">Associate Professor</h5>
-                        <hr>
-                    </div>
                     <div class="col-md-12" id="add_asso">
                         <?php for($i=0; $i<count($ada_data); $i++){?>
                             <div class="form-group d-flex justify-content-between mt-3" id="assodiv_<?php echo $i ?>">
@@ -162,15 +159,20 @@
                 }
                 ?>
 
+
                 <!-- Assistant Professor -->
+                <hr class="mt-5">
+                <div class="col-md-12  d-flex justify-content-between" id="assi_prof">
+                    <h5>Assistant Professor</h5>
+                    <div class="col-md-2">
+                        <input type="button" value="Add Details" class="btn btn-dark px-5" id="add_assi_btn" style="width:100%;" onclick="add_designation('Assistant Professor')" <?php echo (($td_row != null)) ? "disabled" : "" ?>>
+                    </div>
+                </div>
+                <hr>
                 <?php
                 if($sd_row != null){
                     if($sda_data[0] != null){
                     ?>
-                    <div class="col-md-12" id="assi_prof">
-                        <h5 class="pt-4">Assistant Professor</h5>
-                        <hr>
-                    </div>
                     <div class="col-md-12" id="add_assi">
                         <?php for($i=0; $i<count($sda_data); $i++){?>
                             <div class="form-group d-flex justify-content-between mt-3" id="assidiv_<?php echo $i ?>">
@@ -356,7 +358,7 @@
         function fun_4(){
             <?php if($pr_row != null){?>
             if((pc == 1 & ac == 1 & sc == 1)){
-                designation.style.border = "1px solid red"
+                // designation.style.border = "1px solid red"
                 alert("Add Designation")
                 return false
             }else{
@@ -381,7 +383,7 @@
             }; 
             <?php }else {?>
             if(prof_id == 0 & asso_id == 0 & assi_id == 0){
-                designation.style.border = "1px solid red"
+                // designation.style.border = "1px solid red"
                 alert("Add Designation")
                 return false
             }else{
@@ -411,7 +413,6 @@
 
         // Check Designations =======================================================================
         function check_professor(){
-            designation.style.border = "1px solid lightgray"
             for(var i=0; i<prof_id; i++){
                 p_da = "p_da"+i;
                 p_un = "p_un"+i;
@@ -450,7 +451,6 @@
         }
 
         function check_associate(){
-            designation.style.border = "1px solid lightgray"
             for(var i=0; i<=asso_id; i++){
                 a_da = "a_da"+i;
                 a_un = "a_un"+i;
@@ -489,7 +489,6 @@
         }
 
         function check_assisstant(){
-            designation.style.border = "1px solid lightgray"
             for(var i=0; i<assi_id; i++){
                 s_da = "as_da"+i;
                 s_un = "as_un"+i;
@@ -531,16 +530,13 @@
 
 
         // Add Designation ==========================================================================
-        function add_designation(){
-            if(designation.value == "-----"){
-                designation.style.border = "1px solid red"
+        function add_designation(designationvalue){
+            if(designationvalue == "-----"){
                 alert("Select Designation")
                 return false
             }
             else{
-                designation.style.border = "1px solid lightgray"
-                if(designation.value == "Professor"){
-                    prof_head.style.display = "contents"
+                if(designationvalue == "Professor"){
                     var string = `<div class="col-md-3">
                                     <label>Date of Appoinment <label class="err_msg" id="msg"> * </label></label>
                                     <input type="date" class="form-control" id="p_da`+prof_id+`">
@@ -568,8 +564,7 @@
                     prof_h++;
                     pc++;
                 }
-                if(designation.value == "Associate Professor"){
-                    asso_head.style.display = "contents"
+                if(designationvalue == "Associate Professor"){
                     var string = `<div class="col-md-3">
                                     <label>Date of Appoinment <label class="err_msg" id="msg"> * </label></label>
                                     <input type="date" class="form-control" id="a_da`+asso_id+`">
@@ -597,8 +592,7 @@
                     asso_h++;
                     ac++;
                 }                    
-                if(designation.value == "Assistant Professor"){
-                    assi_head.style.display = "contents"
+                if(designationvalue == "Assistant Professor"){
                     var string = `<div class="col-md-3">
                                     <label>Date of Appoinment <label class="err_msg" id="msg"> * </label></label>
                                     <input type="date" class="form-control" id="as_da`+assi_id+`">
@@ -641,7 +635,6 @@
                     pc--;
                     if (prof_h == 0){
                         prof_id = 0
-                        prof_head.style.display = "none"
                     }
                 }
             }
@@ -657,7 +650,6 @@
                 pc--;
                 if (prof_h == 0){
                     prof_id = 1
-                    prof_head.style.display = "none"
                 }
             }
         }
@@ -674,7 +666,6 @@
                     ac--;
                     if (asso_h == 0){
                         asso_id = 0
-                        asso_head.style.display = "none"
                     }
                 }
             }
@@ -690,7 +681,6 @@
                 ac--;
                 if (asso_h == 0){
                     asso_id = 1
-                    asso_head.style.display = "none"
                 }
             }
         }
@@ -707,7 +697,6 @@
                     sc--;
                     if (assi_h == 0){
                         assi_id = 0 
-                        assi_head.style.display = "none"
                     }
                 }
             }
@@ -723,7 +712,6 @@
                 sc--;
                 if (assi_h == 0){
                     assi_id = 1
-                    assi_head.style.display = "none"
                 }
             }
         }
@@ -761,11 +749,12 @@
         function tenable(){
             document.getElementById("t_ebtn").style.display = "none";
             document.getElementById("t_ubtn").style.display = "block";
-            document.getElementById("add_btn").removeAttribute("disabled");
+            document.getElementById("add_prof_btn").removeAttribute("disabled");
+            document.getElementById("add_asso_btn").removeAttribute("disabled");
+            document.getElementById("add_assi_btn").removeAttribute("disabled");
             teaching_experience.removeAttribute("disabled");
             service.removeAttribute("disabled");
             leftover.removeAttribute("disabled");
-            designation.removeAttribute("disabled");
             agre.removeAttribute("disabled");
             agre.removeAttribute("checked");
             <?php
