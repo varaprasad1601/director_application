@@ -6,6 +6,7 @@
         $count = mysqli_num_rows($q1);
         if($count!=0){
             $row = mysqli_fetch_row($q1);
+            print_r($row);
         }
 ?>
 <html>
@@ -18,72 +19,89 @@
             <div class="form-group d-flex justify-content-between mt-4">
                 <div class="col-md-5">
                     <label>Papers Published in Peer Reviewed Journals</label> <label class="err_msg" id="msg"> * </label>
-                    <input type="number" class="form-control" placeholder="National" id="papers_national" onkeyup="total_papers()" <?php echo(($row)) ? 'value="'.$row[2].'" disabled' : "" ?>>
+                    <input type="number" class="form-control" placeholder="National" id="papers_national" onkeyup="total_papers()" <?php echo(($row)) ? 'value="'.$row[2].'"disabled' : "" ?>>
                 </div>
                 <div class="col-md-5">
                     <label>&nbsp;</label>
-                    <input type="number" class="form-control" placeholder="International" id="papers_international" onkeyup="total_papers()" <?php echo(($row)) ? 'value="'.$row[3].'" disabled' : "" ?>>
+                    <input type="number" class="form-control" placeholder="International" id="papers_international" onkeyup="total_papers()" <?php echo(($row)) ? 'value="'.$row[3].'"disabled' : "" ?>>
                 </div>
                 <div class="col-md-1">
                     <label>Total</label>
                     <input type="text" class="form-control" id="papers_total" value="<?php if($row){echo $row[2]+$row[3];}else{echo "0";}?>" disabled>
                 </div>
             </div>
-
+            <!-- ---------ARUN EDIT---------- -->
+            <div class="col-md-12">
+                <label>Mention the Journals/Papers/Articles Published</label> <label class="err_msg" id="msg"> * </label>
+                <textarea class="form-control" id="papers_info" name="papers_info" <?php if($row != null){echo '';}?>><?php if($row != null){echo $row[4];}?></textarea>
+            </div>
+            <!-- ---------------------------- -->
             <div class="form-group d-flex justify-content-between">
                 <div class="col-md-5">
                     <label>Number of Patents</label> <label class="err_msg" id="msg"> * </label>
-                    <input type="number" class="form-control" placeholder="Patents" id="patents" <?php echo(($row)) ? 'value="'.$row[4].'" disabled' : "" ?>>
+                    <input type="number" class="form-control" placeholder="Patents" id="patents" <?php echo(($row)) ? 'value="'.$row[5].'" disabled' : "" ?>>
                 </div>
                 <div class="col-md-5">
                     <label>Number of Books with ISBN</label> <label class="err_msg" id="msg"> * </label>
-                    <input type="number" class="form-control" placeholder="Books with ISBN" id="books" <?php echo(($row)) ? 'value="'.$row[5].'" disabled' : "" ?>>
+                    <input type="number" class="form-control" placeholder="Books with ISBN" id="books" <?php echo(($row)) ? 'value="'.$row[6].'" disabled' : "" ?>>
                 </div>
                 <div class="col-md-1">
+                </div>
+            </div>
+            <hr>
+            <div class="form-group d-flex justify-content-between">
+                <div class="col-md-5">
+                    <label>Number of Research Projects</label> <label class="err_msg" id="msg"> * </label>
+                    <input type="number" class="form-control" placeholder="Major" id="projects_major" onkeyup="total_projects()" <?php echo(($row)) ? 'value="'.$row[7].'" disabled' : "" ?>>
+                </div>
+                <div class="col-md-5">
+                    <label>&nbsp;</label>
+                    <input type="number" class="form-control" placeholder="Minor" id="projects_minor" onkeyup="total_projects()" <?php echo(($row)) ? 'value="'.$row[8].'" disabled' : "" ?>>
+                </div>
+                <div class="col-md-1">
+                    <label>Total</label>
+                    <input type="text" class="form-control" id="projects_total" value="<?php if($row){echo $row[7]+$row[8];}else{echo "0";}?>" disabled>
                 </div>
             </div>
 
             <div class="form-group d-flex justify-content-between">
                 <div class="col-md-5">
-                    <label>Number of Research Projects completed</label> <label class="err_msg" id="msg"> * </label>
-                    <input type="number" class="form-control" placeholder="Major" id="projects_major" onkeyup="total_projects()" <?php echo(($row)) ? 'value="'.$row[6].'" disabled' : "" ?>>
+                    <label>Funds Sanctioned/Utilized for research projects in (Rs. Lakhs)</label> <label class="err_msg" id="msg"> * </label>
+                    <input type="number" class="form-control" placeholder="Funds for Major" id="funds_major" onkeyup="total_funds()" <?php echo(($row)) ? 'value="'.$row[9].'" disabled' : "" ?>>
                 </div>
                 <div class="col-md-5">
                     <label>&nbsp;</label>
-                    <input type="number" class="form-control" placeholder="Minor" id="projects_minor" onkeyup="total_projects()" <?php echo(($row)) ? 'value="'.$row[7].'" disabled' : "" ?>>
+                    <input type="number" class="form-control" placeholder="Funds for Minor" id="funds_minor" onkeyup="total_funds()" <?php echo(($row)) ? 'value="'.$row[10].'" disabled' : "" ?>>
                 </div>
                 <div class="col-md-1">
                     <label>Total</label>
-                    <input type="text" class="form-control" id="projects_total" value="<?php if($row){echo $row[6]+$row[7];}else{echo "0";}?>" disabled>
+                    <input type="text" class="form-control" id="funds_total" value="<?php if($row){echo $row[9]+$row[10];}else{echo "0";}?>" disabled>
                 </div>
             </div>
-
+            <!--------------ARUN EDIT--------------->
             <div class="form-group d-flex justify-content-between">
                 <div class="col-md-5">
-                    <label>Funds Sanctioned (Rs. Lakhs) for research projects</label> <label class="err_msg" id="msg"> * </label>
-                    <input type="number" class="form-control" placeholder="Funds for Major" id="funds_major" onkeyup="total_funds()" <?php echo(($row)) ? 'value="'.$row[8].'" disabled' : "" ?>>
+                    <label>Number of Projects Completed</label> <label class="err_msg" id="msg"> * </label>
+                    <input type="number" class="form-control" placeholder="Projects Completed" id="projects_completed" <?php echo(($row)) ? 'value="'.$row[11].'"' : "" ?>>
                 </div>
                 <div class="col-md-5">
-                    <label>&nbsp;</label>
-                    <input type="number" class="form-control" placeholder="Funds for Minor" id="funds_minor" onkeyup="total_funds()" <?php echo(($row)) ? 'value="'.$row[9].'" disabled' : "" ?>>
+                    <label>Number of Reports Submitted for mentioned projects</label>
+                    <input type="number" class="form-control" placeholder="Reports Submitted" id="reports_submitted" <?php echo(($row)) ? 'value="'.$row[12].'"' : "" ?>>
                 </div>
-                <div class="col-md-1">
-                    <label>Total</label>
-                    <input type="text" class="form-control" id="funds_total" value="<?php if($row){echo $row[8]+$row[9];}else{echo "0";}?>" disabled>
-                </div>
+                <div class="col-md-1"></div>
             </div>
-
+            <!--------------------------------------->
+            <hr>
             <div class="form-group d-flex justify-content-between">
                 <div class="col-md-5">
                     <label>Number of M. Phils/M. Tech Projects Guided</label> <label class="err_msg" id="msg"> * </label>
-                    <input type="number" class="form-control" placeholder="M.Phils Guided" id="mpg" <?php echo(($row)) ? 'value="'.$row[10].'" disabled' : "" ?>>
+                    <input type="number" class="form-control" placeholder="M.Phils Guided" id="mpg" <?php echo(($row)) ? 'value="'.$row[13].'" disabled' : "" ?>>
                 </div>
                 <div class="col-md-5">
                     <label>Number of Ph. D's Guided</label> <label class="err_msg" id="msg"> * </label>
-                    <input type="number" class="form-control" placeholder="Ph. Ds Guided" id="pdg" <?php echo(($row)) ? 'value="'.$row[11].'" disabled' : "" ?>>
+                    <input type="number" class="form-control" placeholder="Ph. Ds Guided" id="pdg" <?php echo(($row)) ? 'value="'.$row[14].'" disabled' : "" ?>>
                 </div>
-                <div class="col-md-1">
-                </div>
+                <div class="col-md-1"></div>
             </div>
 
 
@@ -98,7 +116,7 @@
                 </div>
                 <div class="col-md-1">
                     <label>Total</label>
-                    <input type="text" class="form-control" id="seminars_total" value="<?php if($row){echo $row[15]+$row[16];}else{echo "0";}?>" disabled>
+                    <input type="text" class="form-control" id="seminars_total" value="<?php if($row){echo $row[14] +$row[15];}else{echo "0";}?>" disabled>
                 </div>
             </div>
 
@@ -120,19 +138,19 @@
             <div class="form-group d-flex justify-content-between">
                 <div class="col-md-3">
                     <label>Number of Reputed Awards</label> <label class="err_msg" id="msg"> * </label>
-                    <input type="number" class="form-control" placeholder="State" id="awards_state" onkeyup="total_awards()" <?php echo(($row)) ? 'value="'.$row[12].'" disabled' : "" ?>>
+                    <input type="number" class="form-control" placeholder="State" id="awards_state" onkeyup="total_awards()" <?php echo(($row)) ? 'value="'.$row[19].'" disabled' : "" ?>>
                 </div>
                 <div class="col-md-3 ms-3 nra">
                     <label>&nbsp;</label>
-                    <input type="number" class="form-control" placeholder="National" id="awards_national" onkeyup="total_awards()" <?php echo(($row)) ? 'value="'.$row[13].'" disabled' : "" ?>>
+                    <input type="number" class="form-control" placeholder="National" id="awards_national" onkeyup="total_awards()" <?php echo(($row)) ? 'value="'.$row[20].'" disabled' : "" ?>>
                 </div>
                 <div class="col-md-3 ms-3 nra">
                     <label>&nbsp;</label>
-                    <input type="number" class="form-control" placeholder="International" id="awards_international" onkeyup="total_awards()" <?php echo(($row)) ? 'value="'.$row[14].'" disabled' : "" ?>>
+                    <input type="number" class="form-control" placeholder="International" id="awards_international" onkeyup="total_awards()" <?php echo(($row)) ? 'value="'.$row[21].'" disabled' : "" ?>>
                 </div>
                 <div class="col-md-1">
                     <label>Total</label>
-                    <input type="text" class="form-control" id="awards_total" value="<?php if($row){echo $row[12]+$row[13]+$row[14];}else{echo "0";}?>" disabled>
+                    <input type="text" class="form-control" id="awards_total" value="<?php if($row){echo $row[19]+$row[20]+$row[21];}else{echo "0";}?>" disabled>
                 </div>
             </div>
 
@@ -521,22 +539,26 @@
                     //---------
                     var rData = $("#papers_national").val().trim()+";"+
                         $("#papers_international").val().trim()+";"+
+                        $("#papers_info").val().trim()+";"+
                         $("#patents").val().trim()+";"+
                         $("#books").val().trim()+";"+
                         $("#projects_major").val().trim()+";"+
                         $("#projects_minor").val().trim()+";"+
                         $("#funds_major").val().trim()+";"+
                         $("#funds_minor").val().trim()+";"+
+                        $("#projects_completed").val().trim()+";"+
+                        $("#reports_submitted").val().trim()+";"+
                         $("#mpg").val().trim()+";"+
                         $("#pdg").val().trim()+";"+
-                        $("#awards_state").val().trim()+";"+
-                        $("#awards_national").val().trim()+";"+
-                        $("#awards_international").val().trim()+";"+
                         $("#seminars_national").val().trim()+";"+
                         $("#seminars_international").val().trim()+";"+
                         $("#bodies_national").val().trim()+";"+
-                        $("#bodies_international").val().trim();
+                        $("#bodies_international").val().trim()+
+                        $("#awards_state").val().trim()+";"+
+                        $("#awards_national").val().trim()+";"+
+                        $("#awards_international").val().trim()+";";
                     //---------
+                    alert(rData)
                     $.ajax({
                         url: "apis/insert_researchDetails.php",
                         type: "POST",
