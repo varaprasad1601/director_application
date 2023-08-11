@@ -1,0 +1,6 @@
+alter table `researchexp` add column `papers_info` varchar(255) not null;
+ALTER TABLE `researchexp` CHANGE `papers_info` `papers_info` VARCHAR(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL AFTER `num_papersPublished_IntNat`;
+alter table `researchexp` add column `num_projectsCompleted` int not null;
+alter table `researchexp` add column `num_reportsSubmitted` int not null;
+ALTER TABLE `researchexp` CHANGE `num_projectsCompleted` `num_projectsCompleted` INT(11) NOT NULL AFTER AFTER `fundsFor_MinProjs`;
+ALTER TABLE `researchexp` CHANGE `num_reportsSubmitted` `num_reportsSubmitted` INT(11) NOT NULL AFTER AFTER `num_projectsCompleted`;
