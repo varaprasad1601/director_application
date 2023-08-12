@@ -65,7 +65,7 @@
             .left-line{width: 42% !important;}
             .right-line{width: 42% !important;}
             .end-line{display: flex !important;}
-            .texp{margin-top: 0px !important;}
+            /* .texp{margin-top: 0px !important;} */
             .otinf{margin-top: 0px !important;}
             .q{width: 30%;}
             .a{width: 65%;}
@@ -251,12 +251,12 @@
                     <div class="col-md-12 mt-4" style="border-bottom:1px solid lightgray;">
                         <h3>Qualification Details</h3>
                     </div>
-                    <div class="col-md-12 pdetails justify-content-between px-5 py-4 pb-5">
+                    <div class="col-md-12 pdetails justify-content-between px-5 py-4">
                         <div class="col-md-12 pdetails justify-content-between">
                             <div class="col-md-12 mb-3" style="border-bottom: 1px solid lightgray;">
                                 <h5 class="">Under Graduation</h5>
                             </div>
-                            <div class="col-md-12 d-flex justify-content-between mb-2 under_g" style="border-bottom: .5px solid #eeeee4">
+                            <div class="col-md-12 d-flex justify-content-between under_g" style="border-bottom: .5px solid #eeeee4">
                                 <div class="col-md-3 qd qyc"><label class="text"><b>Year of Completion</b></label></div>
                                 <div class="col-md-4 qd qpg"><label class="text"><b>Specialization</b></label></div>
                                 <div class="col-md-4 qd qpg"><label class="text"><b>Awarded University</b></label></div>
