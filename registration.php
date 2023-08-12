@@ -116,9 +116,9 @@ if(isset($_SESSION['ApplicationId'])){
                         <div class="inputBox my-0 d-flex justify-content-center align-items-center">
                             <label>Already have an Account? <a href="index.php" class="link">Login</a></label>
                         </div>
-                        <div class="inputBox my-0 d-flex justify-content-center align-items-center">
-                            <label><a href="forgot1.php" class="link">forgot password?</a></label>
-                        </div>
+                        <!-- <div class="inputBox my-0 d-flex justify-content-center align-items-center">
+                            <label style="color:rgb(13, 110, 253);cursor:pointer;text-decoration:underline;text-decoration-color:rgb(13, 110, 253);" onclick="alert('Contact Technical Team: ***@rguktn.ac.in');"class="link">Forgot password?</label>
+                        </div> -->
                     </div>
                 </div>
             </div>
