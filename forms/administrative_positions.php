@@ -151,7 +151,7 @@
             <div class="form-group d-flex justify-content-between">
                 <div class="col-md-12">
                     <!-- <label>Any other Information</label>  -->
-                    <textarea class="form-control" rows="5" id="anyInfo" <?php echo (($orow != null)) ? "disabled" : "" ?>><?php echo (($orow != null)) ? $orow[2] : "" ?></textarea>
+                    <textarea class="form-control" rows="5" id="anyInfo" <?php echo (($orow != null)) ? "disabled" : "" ?>><?php echo (($orow != null)) ? $orow[1] : "" ?></textarea>
                 </div>
             </div>
             

@@ -640,13 +640,13 @@
                     <!-- Cases ============================================================ -->
 
                     <!-- Other Information ================================================== -->
-                    <?php if($orow[2] != null){ ?>
+                    <?php if($orow[1] != null){ ?>
                     <div class="search">
                         <div class="col-md-12 mt-4" style="border-bottom:1px solid lightgray;">
                             <h3>Other Information</h3>
                         </div>
                         <div class="col-md-12 pdetails justify-content-between px-5 py-4" style="text-align: justify;">
-                            <label><?php echo $orow[2] ?></label>
+                            <label><?php echo $orow[1] ?></label>
                         </div>
                     </div>
                     <?php } ?>
