@@ -42,6 +42,7 @@
         @media print{
             :not(.preview), :not(.preview *){visibility: hidden;}
             #print_heading{display:none !important;}
+            .note_label{display: none !important;}
             .selected_campuses{display: none !important;}
             .print_campus{visibility: hidden !important;}
             .hide_btn{visibility: hidden !important;}
@@ -677,22 +678,32 @@
                     <!-- Signature ================================================== -->
 
 
+                    <!-- note ================================================== -->
+                    <div class="col-md-12 mt-3 d-flex justify-content-center print_campus">
+                        
+                    </div>
+                    <!-- note ================================================== -->
+
+
                     <!-- Buttons ================================================== -->
                     <div>
                     <?php if($tab_num[0] == "tab7()"){?>
-                    <div class="col-md-12 d-flex justify-content-end btns_height">
-                        <label id="print_heading" for="camp" style="font-size:1em;display:flex;align-items:end;"> Print Application Form for &nbsp&nbsp</label>
-                        <select class="form-control me-3 mb-0 mt-5 print_campus" id="print_campus" style="width: 175px;" name = "camp">
-                        <option value="-----">Select Campus</option>
-                        <?php
-                            for($f= 0; $f<count($selected_campuses);$f++){
-                                if($selected_campuses[$f]){
-                                    echo '<option value="'.$selected_campuses[$f].'">'.$selected_campuses[$f].'</option>';
-                                }
-                            };
-                        ?>
-                        </select>
-                        <input type="button" class="btn btn-primary me-3 click_btn mt-5 hide_btn" style="width: 175px;" value="Print" onclick="print_doc()">
+                    <div class="col-md-12 btns_height mt-5 note_label">
+                        <div class="col-md-12"><center><label class="text" style="color: red;">Note: Print this Application Separately for each Applied Campus</label></center></div>
+                        <div class="col-md-12 d-flex justify-content-end btns_height">
+                            <label id="print_heading" for="camp" style="font-size:1em;display:flex;align-items:end;"> Print Application Form for &nbsp&nbsp</label>
+                            <select class="form-control me-3 mb-0 mt-5 print_campus" id="print_campus" style="width: 175px;" name = "camp">
+                            <option value="-----">Select Campus</option>
+                            <?php
+                                for($f= 0; $f<count($selected_campuses);$f++){
+                                    if($selected_campuses[$f]){
+                                        echo '<option value="'.$selected_campuses[$f].'">'.$selected_campuses[$f].'</option>';
+                                    }
+                                };
+                            ?>
+                            </select>
+                            <input type="button" class="btn btn-primary me-3 click_btn mt-5 hide_btn" style="width: 175px;" value="Print" onclick="print_doc()">
+                        </div>
                         <!-- <input type="button" class="btn btn-warning space click_btn mt-5 hide_btn" style="width: 175px;" value="Download" onclick="download()"> -->
                     </div>
                     <?php }else{ ?>
@@ -737,7 +748,7 @@
     <script>
 
         $(document).ready(function (e) {
-            $(window).scrollTop(0);
+            $("#print_campus").focus();
         })
 
         function print_doc(){
