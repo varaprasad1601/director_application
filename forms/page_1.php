@@ -98,7 +98,7 @@ $stage_num = mysqli_fetch_row($sta);
                 </div>
             </div>
         </div>
-        </div>
+    
     </div>
 </div>
 </div>
