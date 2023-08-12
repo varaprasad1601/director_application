@@ -63,12 +63,12 @@
                 <!-- Professor -->
                 <hr class="mt-5">
                 <div class="col-md-12 d-flex justify-content-between" id="prof">
-                    <h5>Professor</h5>
+                    <h5>▸ Professor</h5>
                     <div class="col-md-2">
                         <input type="button" value="Add Details" class="btn btn-dark px-5" id="add_prof_btn" style="width:100%;" onclick="add_designation('Professor')" <?php echo (($td_row != null)) ? "disabled" : "" ?>>
                     </div>
                 </div>
-                <hr>
+                <!-- <hr> -->
                 <?php
                 if($pr_row != null){
                     if($pda_data[0] != null){
@@ -118,12 +118,12 @@
                 <!-- Associate Professor -->
                 <hr class="mt-5">
                 <div class="col-md-12  d-flex justify-content-between" id="asso_prof">
-                    <h5>Associate Professor</h5>
+                    <h5>▸ Associate Professor</h5>
                     <div class="col-md-2">
                         <input type="button" value="Add Details" class="btn btn-dark px-5" style="width:100%;" id="add_asso_btn" onclick="add_designation('Associate Professor')" <?php echo (($td_row != null)) ? "disabled" : "" ?>>
                     </div>
                 </div>
-                <hr>
+                <!-- <hr> -->
                 <?php
                 if($ad_row != null){
                     if($ada_data[0] != null){
@@ -175,12 +175,12 @@
                 <!-- Assistant Professor -->
                 <hr class="mt-5">
                 <div class="col-md-12  d-flex justify-content-between" id="assi_prof">
-                    <h5>Assistant Professor</h5>
+                    <h5>▸ Assistant Professor</h5>
                     <div class="col-md-2">
                         <input type="button" value="Add Details" class="btn btn-dark px-5" id="add_assi_btn" style="width:100%;" onclick="add_designation('Assistant Professor')" <?php echo (($td_row != null)) ? "disabled" : "" ?>>
                     </div>
                 </div>
-                <hr>
+                <!-- <hr> -->
                 <?php
                 if($sd_row != null){
                     if($sda_data[0] != null){
