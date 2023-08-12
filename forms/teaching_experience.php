@@ -12,22 +12,22 @@
         $sd_row = mysqli_fetch_row($sd_data);
 
         if($pr_row != null ){
-            $pda_data = explode("*",$pr_row[4]);
-            $pto_data = explode("*",$pr_row[5]);
-            $pun_data = explode("*",$pr_row[3]);
-            $ppc_data = explode("*",$pr_row[5]);
+            $pda_data = explode("*",$pr_row[3]);
+            $pto_data = explode("*",$pr_row[4]);
+            $pun_data = explode("*",$pr_row[5]);
+            $ppc_data = explode("*",$pr_row[6]);
         }
         if($ad_row != null ){
-            $ada_data = explode("*",$ad_row[4]);
-            $ato_data = explode("*",$ad_row[5]);
-            $aun_data = explode("*",$ad_row[3]);
-            $apc_data = explode("*",$ad_row[5]);
+            $ada_data = explode("*",$ad_row[3]);
+            $ato_data = explode("*",$ad_row[4]);
+            $aun_data = explode("*",$ad_row[5]);
+            $apc_data = explode("*",$ad_row[6]);
         }
         if($sd_row != null ){
-            $sda_data = explode("*",$sd_row[4]);
-            $sto_data = explode("*",$sd_row[5]);
-            $sun_data = explode("*",$sd_row[3]);
-            $spc_data = explode("*",$sd_row[5]);
+            $sda_data = explode("*",$sd_row[3]);
+            $sto_data = explode("*",$sd_row[4]);
+            $sun_data = explode("*",$sd_row[5]);
+            $spc_data = explode("*",$sd_row[6]);
         }
 
 ?>
@@ -40,19 +40,19 @@
         <form id="t_form" method="post">
             <div class="form-group d-flex justify-content-between mt-4">
                 <div class="col-md-3">
-                    <label>Total Teaching Experience <label class="err_msg" id="msg"> * </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <label>Total Teaching Experience (in Years)<label class="err_msg" id="msg"> * </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                     <input type="text" class="form-control" id="teaching_experience" <?php echo (($td_row != null)) ? 'value="'.$td_row[2].'" disabled' : 'value=""' ?>>
                 </div>
                 <div class="col-md-3">
-                    <label>Total Length of service as professor as on date <label class="err_msg" id="msg"> * </label></label>
+                    <label>Total Length of service as professor as on date (in Years)<label class="err_msg" id="msg"> * </label></label>
                     <input type="text" class="form-control" id="service" <?php echo (($td_row != null)) ? 'value="'.$td_row[3].'" disabled' : 'value=""' ?>>
                 </div>
                 <div class="col-md-3">
-                    <label>Total Leftover service before Super Annuation <label class="err_msg" id="msg"> * </label></label>
+                    <label>Total Leftover service before Super Annuation (in Years)<label class="err_msg" id="msg"> * </label></label>
                     <input type="text" class="form-control" id="leftover" <?php echo (($td_row != null)) ? 'value="'.$td_row[4].'" disabled' : 'value=""' ?>>
                 </div>
             </div>
-            <label class="text" style="color: red; font-size:15px;">Note: Total Teaching Experience should be matched withthe below data.</label>
+            <label class="text" style="color: red; font-size:15px;">Note: Total Teaching Experience should be matched with the below data.</label>
 
 
             <!-- <h3 class="mt-4">Working Experience</h3> -->
@@ -69,7 +69,6 @@
                     </div>
                 </div>
                 <hr>
-                <!-- <hr> -->
                 <?php
                 if($pr_row != null){
                     if($pda_data[0] != null){
@@ -793,32 +792,32 @@
 
 
         //Calculate Experience ===============================================================================
-        var p_totalyears = 0
-        var a_totalyears = 0
-        var as_totalyears = 0
         function fun_5(){
+            var p_totalyears = 0
+            var a_totalyears = 0
+            var as_totalyears = 0
             for(let i=0;i<prof_id;i++){
                 if(document.getElementById("p_da"+i)){
-                    pfrom = new Date($("#p_da"+i).val())
-                    pto = new Date($("#p_to"+i).val())
+                    var pfrom = new Date($("#p_da"+i).val())
+                    var pto = new Date($("#p_to"+i).val())
 
-                    p_dms = pto - pfrom;
-                    p_msy = 1000 * 60 * 60 * 24 * 365.25;
+                    var p_dms = pto - pfrom;
+                    var p_msy = 1000 * 60 * 60 * 24 * 365.25;
 
-                    p_total = p_dms/p_msy;
+                    var p_total = p_dms/p_msy;
                     p_totalyears = p_totalyears + p_total;
                 } 
             }
 
             for(let i=0;i<asso_id;i++){
                 if(document.getElementById("a_da"+i)){
-                    afrom = $("#a_da"+i).val();
-                    ato = $("#a_to"+i).val();
+                    var afrom = new Date($("#a_da"+i).val())
+                    var ato = new Date($("#a_to"+i).val())
 
-                    a_dms = ato - afrom;
-                    a_msy = 1000 * 60 * 60 * 24 * 365.25;
+                    var a_dms = ato - afrom;
+                    var a_msy = 1000 * 60 * 60 * 24 * 365.25;
 
-                    a_total = a_dms / a_msy;
+                    var a_total = a_dms/a_msy;
                     a_totalyears = a_totalyears + a_total
                 }
             }
@@ -827,23 +826,23 @@
 
             for(let i=0;i<assi_id;i++){
                 if(document.getElementById("as_da"+i)){
-                    asfrom = $("#as_da"+i).val();
-                    asto = $("#as_to"+i).val();
+                    asfrom = new Date($("#as_da"+i).val())
+                    asto = new Date($("#as_to"+i).val())
 
                     as_dms = asto - asfrom;
                     as_msy = 1000 * 60 * 60 * 24 * 365.25;
 
-                    as_total = as_dms / as_msy;
+                    as_total = as_dms/as_msy;
                     as_totalyears = as_totalyears + as_total
                 }
             }
 
 
-            total_years = (+p_totalyears + +a_totalyears + +as_totalyears)
-            alert(p_totalyears.toFixed(1))
-            alert(a_totalyears.toFixed(1))
-            alert(as_totalyears.toFixed(1))
-            // if(teaching_experience.value == )
+            total_years = +p_totalyears.toFixed(1) + +a_totalyears.toFixed(1) + +as_totalyears.toFixed(1)
+            if(teaching_experience.value != total_years){
+                alert("Total Teaching Experience not matched with the mentioned data")
+                return false
+            }
         }
         //Calculate Experience ===============================================================================
 
@@ -934,11 +933,13 @@
                 if(tvalidation()){
                     //-------------------
                     var p_da_str = "";
+                    var p_to_str = "";
                     var p_un_str = "";
                     var p_pc_str = "";
                     for(let i=0;i<prof_id;i++){
                         if(document.getElementById("p_da"+i)){
                             p_da_str = p_da_str + $("#p_da"+i).val()+"*";
+                            p_to_str = p_to_str + $("#p_to"+i).val()+"*";
                             p_un_str = p_un_str + $("#p_un"+i).val()+"*";
                             if($("#p_pc"+i).prop("checked")){
                                 p_pc_str = p_pc_str + "True" +"*";
@@ -948,11 +949,13 @@
                         }
                     }
                     var a_da_str = "";
+                    var a_to_str = "";
                     var a_un_str = "";
                     var a_pc_str = "";
                     for(let i=0;i<asso_id;i++){
                         if(document.getElementById("a_da"+i)){
                             a_da_str = a_da_str + $("#a_da"+i).val()+"*";
+                            a_to_str = a_to_str + $("#a_to"+i).val()+"*";
                             a_un_str = a_un_str + $("#a_un"+i).val()+"*";
                             if($("#a_pc"+i).prop("checked")){
                                 a_pc_str = a_pc_str + "True" +"*";
@@ -962,11 +965,13 @@
                         }
                     }
                     var as_da_str = "";
+                    var as_to_str = "";
                     var as_un_str = "";
                     var as_pc_str = "";
                     for(let i=0;i<assi_id;i++){
                         if(document.getElementById("as_da"+i)){
                             as_da_str = as_da_str + $("#as_da"+i).val()+"*";
+                            as_to_str = as_to_str + $("#as_to"+i).val()+"*";
                             as_un_str = as_un_str + $("#as_un"+i).val()+"*";
                             if($("#as_pc"+i).prop("checked")){
                                 as_pc_str = as_pc_str + "True" +"*";
@@ -979,7 +984,7 @@
                     var lenServ = $("#service").val().trim();
                     var leftServ = $("#leftover").val().trim();
                     
-                    var tData = '{"Professor":"'+p_da_str+";"+p_un_str+";"+p_pc_str+'","Associate Professor":"'+a_da_str+";"+a_un_str+";"+a_pc_str+'","Assistant Professor":"'+as_da_str+";"+as_un_str+";"+as_pc_str+'"}';
+                    var tData = '{"Professor":"'+p_da_str+";"+p_to_str+";"+p_un_str+";"+p_pc_str+'","Associate Professor":"'+a_da_str+";"+a_to_str+";"+a_un_str+";"+a_pc_str+'","Assistant Professor":"'+as_da_str+";"+as_to_str+";"+as_un_str+";"+as_pc_str+'"}';
                     console.log(tData);
                     $.ajax({
                         url: "apis/insert_teachingDetails.php",

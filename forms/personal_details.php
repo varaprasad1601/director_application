@@ -358,14 +358,16 @@
                         <?php
                         if ($pd_row != null) {
                             echo '<option value="OC" id="OC" ' . (($pd_row[9] == 'OC') ? 'selected' : '') . '>OC</option>';
-                            echo '<option value="ST" id="ST" ' . (($pd_row[9] == 'ST') ? 'selected' : '') . '>ST</option>';
+                            echo '<option value="OBC" id="OBC" ' . (($pd_row[9] == 'OBC') ? 'selected' : '') . '>OBC</option>';
                             echo '<option value="SC" id="SC" ' . (($pd_row[9] == 'SC') ? 'selected' : '') . '>SC</option>';
-                            echo '<option value="BC" id="BC" ' . (($pd_row[9] == 'BC') ? 'selected' : '') . '>BC</option>';
+                            echo '<option value="ST" id="ST" ' . (($pd_row[9] == 'ST') ? 'selected' : '') . '>ST</option>';
+                            echo '<option value="EWS" id="EWS" ' . (($pd_row[9] == 'EWS') ? 'selected' : '') . '>EWS</option>';
                         } else {
                             echo '<option value="OC" id="OC">OC</option>';
-                            echo '<option value="ST" id="ST">ST</option>';
+                            echo '<option value="OBC" id="OBC">OBC</option>';
                             echo '<option value="SC" id="SC">SC</option>';
-                            echo '<option value="BC" id="BC">BC</option>';
+                            echo '<option value="ST" id="ST">ST</option>';
+                            echo '<option value="EWS" id="EWS">EWS</option>';
                         }
                         ?>
                     </select>

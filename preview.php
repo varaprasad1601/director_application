@@ -111,8 +111,10 @@
             .tq{width: 65%;}
             .ta{width: 35%;}
             .qd{width: 35%;}
+            .qf{width: 20%;}
+            .qt{width: 20%;}
             .qu{width: 40%;}
-            .qc{width: 25%;}
+            .qc{width: 20%;}
             .n{width: 65%;}
             .nv{width: 35%;}
             .i{width: 65%;}
@@ -328,15 +330,17 @@
                                     <h5 class="">Professor</h5>
                                 </div>
                                 <div class="col-md-12 d-flex mb-2 under_g" style="border-bottom: .5px solid #eeeee4">
-                                    <div class="col-md-4 qd"><label class="text"><b>Date of Appoinment</b></label></div>
+                                    <div class="col-md-2 qf"><label class="text"><b>From</b></label></div>
+                                    <div class="col-md-2 qt"><label class="text"><b>To</b></label></div>
                                     <div class="col-md-5 qu"><label class="text"><b>University</b></label></div>
-                                    <div class="col-md-3 qc"><label class="text"><b>College Type</b></label></div>
+                                    <div class="col-md-2 qc"><label class="text"><b>College Type</b></label></div>
                                 </div>
                                 <?php for ($i=0; $i<count($pda_data); $i++){?>
                                     <div class="col-md-12 d-flex mb-2" style="border-bottom: .5px solid #eeeee4">
-                                        <div class="col-md-4 qd"><label class="text"><?php echo $pda_data[$i] ?></label></div>
+                                        <div class="col-md-2 qf"><label class="text"><?php echo $pda_data[$i] ?></label></div>
+                                        <div class="col-md-2 qt"><label class="text"><?php echo $pto_data[$i] ?></label></div>
                                         <div class="col-md-5 qu"><label class="text"><?php echo $pun_data[$i] ?></label></div>
-                                        <div class="col-md-3 qc"><label class="text"><?php echo (($ppc_data[$i] == "True")) ? "Private College" : "--" ?></label></div>
+                                        <div class="col-md-2 qc"><label class="text"><?php echo (($ppc_data[$i] == "True")) ? "Private College" : "--" ?></label></div>
                                     </div>
                                 <?php } } ?>
                             <?php  } ?>
@@ -347,15 +351,17 @@
                                     <h5 class="">Associate Professor</h5>
                                 </div>
                                 <div class="col-md-12 d-flex mb-2 under_g" style="border-bottom: .5px solid #eeeee4">
-                                    <div class="col-md-4 qd"><label class="text"><b>Date of Appoinment</b></label></div>
+                                    <div class="col-md-2 qf"><label class="text"><b>From</b></label></div>
+                                    <div class="col-md-2 qt"><label class="text"><b>To</b></label></div>
                                     <div class="col-md-5 qu"><label class="text"><b>University</b></label></div>
-                                    <div class="col-md-3 qc"><label class="text"><b>College Type</b></label></div>
+                                    <div class="col-md-2 qc"><label class="text"><b>College Type</b></label></div>
                                 </div>
                                 <?php for ($i=0; $i<count($ada_data); $i++){?>
                                     <div class="col-md-12 d-flex mb-2" style="border-bottom: .5px solid #eeeee4">
-                                        <div class="col-md-4 qd"><label class="text"><?php echo $ada_data[$i] ?></label></div>
+                                        <div class="col-md-2 qf"><label class="text"><?php echo $ada_data[$i] ?></label></div>
+                                        <div class="col-md-2 qt"><label class="text"><?php echo $ato_data[$i] ?></label></div>
                                         <div class="col-md-5 qu"><label class="text"><?php echo $aun_data[$i] ?></label></div>
-                                        <div class="col-md-3 qc"><label class="text"><?php echo (($apc_data[$i] == "True")) ? "Private College" : "--" ?></label></div>
+                                        <div class="col-md-2 qc"><label class="text"><?php echo (($apc_data[$i] == "True")) ? "Private College" : "--" ?></label></div>
                                     </div>
                                 <?php } } ?>
                             <?php  } ?>
@@ -366,15 +372,17 @@
                                     <h5 class="">Assistant Professor</h5>
                                 </div>
                                 <div class="col-md-12 d-flex mb-2 under_g" style="border-bottom: .5px solid #eeeee4">
-                                    <div class="col-md-4 qd"><label class="text"><b>Date of Appoinment</b></label></div>
+                                    <div class="col-md-2 qf"><label class="text"><b>From</b></label></div>
+                                    <div class="col-md-2 qt"><label class="text"><b>To</b></label></div>
                                     <div class="col-md-5 qu"><label class="text"><b>University</b></label></div>
-                                    <div class="col-md-3 qc"><label class="text"><b>College Type</b></label></div>
+                                    <div class="col-md-2 qc"><label class="text"><b>College Type</b></label></div>
                                 </div>
                                 <?php for ($i=0; $i<count($sda_data); $i++){?>
                                     <div class="col-md-12 d-flex mb-2" style="border-bottom: .5px solid #eeeee4">
-                                        <div class="col-md-4 qd"><label class="text"><?php echo $sda_data[$i] ?></label></div>
+                                        <div class="col-md-2 qf"><label class="text"><?php echo $sda_data[$i] ?></label></div>
+                                        <div class="col-md-2 qt"><label class="text"><?php echo $sto_data[$i] ?></label></div>
                                         <div class="col-md-5 qu"><label class="text"><?php echo $sun_data[$i] ?></label></div>
-                                        <div class="col-md-3 qc"><label class="text"><?php echo (($spc_data[$i] == "True")) ? "Private College" : "--" ?></label></div>
+                                        <div class="col-md-2 qc"><label class="text"><?php echo (($spc_data[$i] == "True")) ? "Private College" : "--" ?></label></div>
                                     </div>
                                 <?php } } ?>
                             <?php  } ?>

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 10, 2023 at 08:15 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.1
+-- Generation Time: Aug 12, 2023 at 12:30 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -62,10 +62,10 @@ CREATE TABLE `applied_campus` (
 INSERT INTO `applied_campus` (`ApplicationId`, `appliedCampus`) VALUES
 ('DIR2K238D10', 'Nuzvid'),
 ('DIR2K23BD93', 'Nuzvid'),
-('DIR2K23DB21', 'Nuzvid, , Srikakulam, Ongole'),
+('DIR2K23DB21', ',,,'),
 ('DIR2K23232A', ', , , '),
 ('DIR2K233FA1', ', RK Valley, , '),
-('DIR2K2362CC', ', , Srikakulam, ');
+('DIR2K2362CC', ', RK Valley, , ');
 
 -- --------------------------------------------------------
 
@@ -122,12 +122,12 @@ CREATE TABLE `personneldetails` (
   `ApplicationId` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `phone` varchar(10) NOT NULL,
+  `phone` varchar(255) NOT NULL,
   `picture` varchar(255) NOT NULL,
   `dob` date NOT NULL,
   `age` int(11) NOT NULL,
   `gender` varchar(6) NOT NULL,
-  `category` varchar(2) NOT NULL,
+  `category` varchar(255) NOT NULL,
   `address` varchar(255) NOT NULL,
   `designation` varchar(255) NOT NULL,
   `department` varchar(255) NOT NULL,
@@ -141,8 +141,9 @@ CREATE TABLE `personneldetails` (
 INSERT INTO `personneldetails` (`sno`, `ApplicationId`, `name`, `email`, `phone`, `picture`, `dob`, `age`, `gender`, `category`, `address`, `designation`, `department`, `university`) VALUES
 (1, 'DIR2K238D10', 'aruntejamenda', 'aruntejamenda@gmail.com', '9000599108', 'DIR2K238D10.jpeg', '2002-08-02', 21, 'Female', 'BC', 'm fk ', 'ikn', 'knj', 'on'),
 (14, 'DIR2K23BD93', 'finalyes', 'final@gmail.com', '8999999999', 'DIR2K23BD93.jpeg', '2023-07-30', 0, 'Male', 'OC', 'final_add', 'final_des', 'finaldep', 'finaluni'),
-(21, 'DIR2K23DB21', 'simon', 'simon@gmail.com', '8897182017', 'DIR2K23DB21.jpeg', '2019-11-30', 3, 'Male', 'Va', 'gjhgjhbjgjj', 'student', 'cse', 'RGUKT_NUZVID'),
-(26, 'DIR2K23232A', 'hijkhui', 'vara@gmail.com', '9999999999', 'DIR2K23232A.jpeg', '2008-10-30', 14, 'Male', 'hv', 'hhjvjv', 'hvvjhvj', 'hvhvjhv', 'hjvhjv');
+(21, 'DIR2K23DB21', 'simon', 'simon@gmail.com', '8897182017', 'DIR2K23DB21.jpeg', '2019-11-30', 3, 'Male', 'OBC', 'gjhgjhbjgjj', 'student', 'cse', 'RGUKT_NUZVID'),
+(26, 'DIR2K23232A', 'hijkhui', 'vara@gmail.com', '9999999999', 'DIR2K23232A.jpeg', '2008-10-30', 14, 'Male', 'hv', 'hhjvjv', 'hvvjhvj', 'hvhvjhv', 'hjvhjv'),
+(28, 'DIR2K23A6EA', 'uhguih', 'sai@gmail.com', '8888888888', 'DIR2K23A6EA.jpeg', '2005-02-19', 18, 'Male', 'ST', 'hvuyvhj', 'bgyhvjhg', 'gjhghjg', 'gjhghbjh');
 
 -- --------------------------------------------------------
 
@@ -172,7 +173,10 @@ INSERT INTO `qualifications` (`sno`, `ApplicationId`, `qualification`, `year`, `
 (6, 'DIR2K23BD93', 'Ph.D', '2020', 'mechcivilnothin', 'unniuninothing'),
 (7, 'DIR2K23DB21', 'Under Graduation', '2020', 'kjnjk', 'bkhjbkhjb'),
 (8, 'DIR2K23DB21', 'Post Graduation', '2020', 'kjbkhj', 'bhjbhjkb'),
-(9, 'DIR2K23DB21', 'Ph.D', '2020', 'jhbhjb', 'jhbhjb');
+(9, 'DIR2K23DB21', 'Ph.D', '2020', 'jhbhjb', 'jhbhjb'),
+(10, 'DIR2K23A6EA', 'Under Graduation', '2020', 'hgjghhj', 'hghj'),
+(11, 'DIR2K23A6EA', 'Post Graduation', '2020', 'jkbjhb', 'hjbhb'),
+(12, 'DIR2K23A6EA', 'Ph.D', '2020', 'jkbjhkb', 'kbjhkb');
 
 -- --------------------------------------------------------
 
@@ -198,6 +202,7 @@ INSERT INTO `reg_dir` (`email`, `phoneno`, `password`, `ApplicationId`, `stage`,
 ('a@gmail.com', '9999999999', '567a089b877eb76464d3f6052edcdcd2', 'DIR2K233FA1', 'tab1()', 'tab1()'),
 ('b@gmail.com', '8988888888', '567a089b877eb76464d3f6052edcdcd2', 'DIR2K2362CC', 'tab1()', 'tab1()'),
 ('aruntejamenda@gmail.com', '9000599108', '722279e9e630b3e731464b69968ea4b4', 'DIR2K238D10', 'tab2()', 'tab6()'),
+('sai@gmail.com', '8888888888', '567a089b877eb76464d3f6052edcdcd2', 'DIR2K23A6EA', 'tab5()', 'tab5()'),
 ('final@gmail.com', '9000599108', '2a1585a864d9e67627c6ae04c807a2c5', 'DIR2K23BD93', 'tab6()', 'tab7()'),
 ('simon@gmail.com', '9000599108', 'b30bd351371c686298d32281b337e8e9', 'DIR2K23DB21', 'tab4()', 'tab6()');
 
@@ -212,31 +217,35 @@ CREATE TABLE `researchexp` (
   `ApplicationId` varchar(255) NOT NULL,
   `num_papersPublished_Nat` int(11) NOT NULL,
   `num_papersPublished_IntNat` int(11) NOT NULL,
+  `papers_info` varchar(255) NOT NULL,
   `num_patents` int(11) NOT NULL,
   `num_booksISBN` int(11) NOT NULL,
   `num_MajResearchProjs` int(11) NOT NULL,
   `num_MinResearchProjs` int(11) NOT NULL,
   `fundsFor_MajProjs` int(11) NOT NULL,
   `fundsFor_MinProjs` int(11) NOT NULL,
+  `num_projectsCompleted` int(11) NOT NULL,
+  `num_reportsSubmitted` int(11) NOT NULL,
   `num_mphils_guided` int(11) NOT NULL,
   `num_phds_guided` int(11) NOT NULL,
-  `num_awards_S` int(11) NOT NULL,
-  `num_awards_N` int(11) NOT NULL,
-  `num_awards_IntNat` int(11) NOT NULL,
   `num_SemConfPap_Nat` int(11) NOT NULL,
   `num_SemConfPap_IntNat` int(11) NOT NULL,
   `memberships_Nat` int(11) NOT NULL,
-  `memberships_IntNat` int(11) NOT NULL
+  `memberships_IntNat` int(11) NOT NULL,
+  `num_awards_S` int(11) NOT NULL,
+  `num_awards_N` int(11) NOT NULL,
+  `num_awards_IntNat` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `researchexp`
 --
 
-INSERT INTO `researchexp` (`sno`, `ApplicationId`, `num_papersPublished_Nat`, `num_papersPublished_IntNat`, `num_patents`, `num_booksISBN`, `num_MajResearchProjs`, `num_MinResearchProjs`, `fundsFor_MajProjs`, `fundsFor_MinProjs`, `num_mphils_guided`, `num_phds_guided`, `num_awards_S`, `num_awards_N`, `num_awards_IntNat`, `num_SemConfPap_Nat`, `num_SemConfPap_IntNat`, `memberships_Nat`, `memberships_IntNat`) VALUES
-(1, 'DIR2K238D10', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(2, 'DIR2K23BD93', 1, 2, 3, 4, 55, 6, 77, 8, 9, 10, 0, 11, 12, 13, 14, 15, 166),
-(3, 'DIR2K23DB21', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 16, 17, 11, 12, 13, 14);
+INSERT INTO `researchexp` (`sno`, `ApplicationId`, `num_papersPublished_Nat`, `num_papersPublished_IntNat`, `papers_info`, `num_patents`, `num_booksISBN`, `num_MajResearchProjs`, `num_MinResearchProjs`, `fundsFor_MajProjs`, `fundsFor_MinProjs`, `num_projectsCompleted`, `num_reportsSubmitted`, `num_mphils_guided`, `num_phds_guided`, `num_SemConfPap_Nat`, `num_SemConfPap_IntNat`, `memberships_Nat`, `memberships_IntNat`, `num_awards_S`, `num_awards_N`, `num_awards_IntNat`) VALUES
+(1, 'DIR2K238D10', 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(2, 'DIR2K23BD93', 1, 2, '', 3, 4, 55, 6, 77, 8, 0, 0, 9, 10, 13, 14, 15, 166, 0, 11, 12),
+(3, 'DIR2K23DB21', 1, 2, '3', 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 17, 18, 19, 20, 14, 15, 16),
+(4, 'DIR2K23A6EA', 1, 2, '3', 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20);
 
 -- --------------------------------------------------------
 
@@ -259,7 +268,8 @@ CREATE TABLE `teachingexp` (
 INSERT INTO `teachingexp` (`sno`, `ApplicationId`, `total_exp`, `len_prof_service`, `leftover_service`) VALUES
 (1, 'DIR2K238D10', 0, 0, 0),
 (2, 'DIR2K23BD93', 0, 0, 0),
-(3, 'DIR2K23DB21', 9, 9, 9);
+(3, 'DIR2K23DB21', 4.2, 9, 9),
+(4, 'DIR2K23A6EA', 4.5, 8, 9);
 
 -- --------------------------------------------------------
 
@@ -271,8 +281,9 @@ CREATE TABLE `worked_universities` (
   `sno` int(11) NOT NULL,
   `ApplicationId` varchar(255) NOT NULL,
   `designation` varchar(255) NOT NULL,
-  `university` varchar(255) NOT NULL,
   `dateOfAppointment` varchar(255) NOT NULL,
+  `upto` varchar(255) DEFAULT NULL,
+  `university` varchar(255) NOT NULL,
   `privateCollege` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -280,16 +291,19 @@ CREATE TABLE `worked_universities` (
 -- Dumping data for table `worked_universities`
 --
 
-INSERT INTO `worked_universities` (`sno`, `ApplicationId`, `designation`, `university`, `dateOfAppointment`, `privateCollege`) VALUES
-(1, 'DIR2K238D10', 'Professor', '', '', ''),
-(2, 'DIR2K238D10', 'Associate Professor', '', '', ''),
-(3, 'DIR2K238D10', 'Assistant Professor', '-', '2023-07-31', 'True'),
-(4, 'DIR2K23BD93', 'Professor', '', '', ''),
-(5, 'DIR2K23BD93', 'Associate Professor', 'uni', '2023-07-30', 'True'),
-(6, 'DIR2K23BD93', 'Assistant Professor', 'uni', '2023-05-30', 'False'),
-(7, 'DIR2K23DB21', 'Professor', 'hjgvhj', '2023-08-07', 'False'),
-(8, 'DIR2K23DB21', 'Associate Professor', '', '', ''),
-(9, 'DIR2K23DB21', 'Assistant Professor', '', '', '');
+INSERT INTO `worked_universities` (`sno`, `ApplicationId`, `designation`, `dateOfAppointment`, `upto`, `university`, `privateCollege`) VALUES
+(1, 'DIR2K238D10', 'Professor', '', NULL, '', ''),
+(2, 'DIR2K238D10', 'Associate Professor', '', NULL, '', ''),
+(3, 'DIR2K238D10', 'Assistant Professor', '2023-07-31', NULL, '-', 'True'),
+(4, 'DIR2K23BD93', 'Professor', '', NULL, '', ''),
+(5, 'DIR2K23BD93', 'Associate Professor', '2023-07-30', NULL, 'uni', 'True'),
+(6, 'DIR2K23BD93', 'Assistant Professor', '2023-05-30', NULL, 'uni', 'False'),
+(7, 'DIR2K23DB21', 'Professor', '2023-08-03*2023-08-03', '2024-08-03*2024-08-03', 'Indian Institute of Technology Delhi*Indian Institute of Science Bengaluru', 'False*False'),
+(8, 'DIR2K23DB21', 'Associate Professor', '2023-08-03', '2024-08-10', 'Indian Institute of Science Bengaluru', 'True'),
+(9, 'DIR2K23DB21', 'Assistant Professor', '2023-08-12', '2024-11-09', 'Rajiv Gandhi University of Knowledge Technologies Nuzvid', 'False'),
+(10, 'DIR2K23A6EA', 'Professor', '', NULL, '', ''),
+(11, 'DIR2K23A6EA', 'Associate Professor', '2001-11-23', NULL, 'hgfgvh', 'True'),
+(12, 'DIR2K23A6EA', 'Assistant Professor', '', NULL, '', '');
 
 --
 -- Indexes for dumped tables
@@ -373,31 +387,31 @@ ALTER TABLE `cases`
 -- AUTO_INCREMENT for table `personneldetails`
 --
 ALTER TABLE `personneldetails`
-  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `qualifications`
 --
 ALTER TABLE `qualifications`
-  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `researchexp`
 --
 ALTER TABLE `researchexp`
-  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `teachingexp`
 --
 ALTER TABLE `teachingexp`
-  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `worked_universities`
 --
 ALTER TABLE `worked_universities`
-  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

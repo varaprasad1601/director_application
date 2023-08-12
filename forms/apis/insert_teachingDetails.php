@@ -32,9 +32,8 @@
         foreach($w as $teachingRole => $data){
             $data = explode(";",$data);
             if($count < 3){
-                if(mysqli_query($con,"INSERT INTO `worked_universities`(`ApplicationId`, `designation`, `dateOfAppointment`, `university`, `privateCollege`) VALUES ('$id','$teachingRole','".trim($data[0],"*")."','".trim($data[1],"*")."','".trim($data[2],"*")."')")){
-                    // $q2 = "UPDATE `reg_dir` SET `stage` = 'tab4()', `all_done` = 'tab4()' where `ApplicationId` = '$id'";
-                    $q2 = "UPDATE `reg_dir` SET `stage` = 'tab3()', `all_done` = 'tab3()' where `ApplicationId` = '$id'";
+                if(mysqli_query($con,"INSERT INTO `worked_universities`(`ApplicationId`, `designation`, `dateOfAppointment`,`upto`, `university`, `privateCollege`) VALUES ('$id','$teachingRole','".trim($data[0],"*")."','".trim($data[1],"*")."','".trim($data[2],"*")."','".trim($data[3],"*")."')")){
+                    $q2 = "UPDATE `reg_dir` SET `stage` = 'tab4()', `all_done` = 'tab4()' where `ApplicationId` = '$id'";
                     if(mysqli_query($con,$q2)){
                         // echo ">";
                         $status = "sub";
@@ -43,11 +42,10 @@
                     }
                 }else{echo "problem in inserting tdetails..!!";}
             }else{
-                $q = "UPDATE `worked_universities` SET `dateOfAppointment`='".trim($data[0],"*")."',`university`='".trim($data[1],"*")."',`privateCollege`='".trim($data[2],"*")."' WHERE `ApplicationId`='$id' and `designation`='$teachingRole'";
+                $q = "UPDATE `worked_universities` SET `dateOfAppointment`='".trim($data[0],"*")."',`upto`='".trim($data[1],"*")."',`university`='".trim($data[2],"*")."',`privateCollege`='".trim($data[3],"*")."' WHERE `ApplicationId`='$id' and `designation`='$teachingRole'";
                 $q1 = mysqli_query($con,$q);
                 if($q1){
-                    // $q2 = "UPDATE `reg_dir` SET `stage` = 'tab4()' where `ApplicationId` = '$id'";
-                    $q2 = "UPDATE `reg_dir` SET `stage` = 'tab3()' where `ApplicationId` = '$id'";
+                    $q2 = "UPDATE `reg_dir` SET `stage` = 'tab4()' where `ApplicationId` = '$id'";
                     if(mysqli_query($con,$q2)){
                         // echo ">";
                         $status = "upd";
