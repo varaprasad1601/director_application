@@ -6,7 +6,6 @@
         $count = mysqli_num_rows($q1);
         if($count!=0){
             $row = mysqli_fetch_row($q1);
-            print_r($row);
         }
 ?>
 <html>
@@ -30,10 +29,14 @@
                     <input type="text" class="form-control" id="papers_total" value="<?php if($row){echo $row[2]+$row[3];}else{echo "0";}?>" disabled>
                 </div>
             </div>
-            <!-- ---------ARUN EDIT---------- -->
-            <div class="col-md-12">
-                <label>Mention the Journals/Papers/Articles Published</label> <label class="err_msg" id="msg"> * </label>
-                <textarea class="form-control" id="papers_info" name="papers_info" <?php if($row != null){echo '';}?>><?php if($row != null){echo $row[4];}?></textarea>
+            <!-- ---------------------------- -->
+            <div class="form-group d-flex justify-content-between">
+                <div class="pap_info" style="width: 87.4%;">
+                    <label>Mention the Journals/Papers/Articles Published</label> <label class="err_msg" id="msg"> * </label>
+                    <textarea class="form-control" id="papers_info" name="papers_info" <?php echo(($row)) ? 'disabled' : "" ?>><?php echo(($row)) ? $row[4] : "" ?></textarea>
+                </div>
+                <div class="col-md-1">
+                </div>
             </div>
             <!-- ---------------------------- -->
             <div class="form-group d-flex justify-content-between">
@@ -78,15 +81,15 @@
                     <input type="text" class="form-control" id="funds_total" value="<?php if($row){echo $row[9]+$row[10];}else{echo "0";}?>" disabled>
                 </div>
             </div>
-            <!--------------ARUN EDIT--------------->
+            <!------------------------------------->
             <div class="form-group d-flex justify-content-between">
                 <div class="col-md-5">
                     <label>Number of Projects Completed</label> <label class="err_msg" id="msg"> * </label>
-                    <input type="number" class="form-control" placeholder="Projects Completed" id="projects_completed" <?php echo(($row)) ? 'value="'.$row[11].'"' : "" ?>>
+                    <input type="number" class="form-control" placeholder="Projects Completed" id="projects_completed" <?php echo(($row)) ? 'value="'.$row[11].'" disabled' : "" ?>>
                 </div>
                 <div class="col-md-5">
                     <label>Number of Reports Submitted for mentioned projects</label>
-                    <input type="number" class="form-control" placeholder="Reports Submitted" id="reports_submitted" <?php echo(($row)) ? 'value="'.$row[12].'"' : "" ?>>
+                    <input type="number" class="form-control" placeholder="Reports Submitted" id="reports_submitted" <?php echo(($row)) ? 'value="'.$row[12].'" disabled' : "" ?>>
                 </div>
                 <div class="col-md-1"></div>
             </div>
@@ -116,7 +119,7 @@
                 </div>
                 <div class="col-md-1">
                     <label>Total</label>
-                    <input type="text" class="form-control" id="seminars_total" value="<?php if($row){echo $row[14] +$row[15];}else{echo "0";}?>" disabled>
+                    <input type="text" class="form-control" id="seminars_total" value="<?php if($row){echo $row[15] +$row[16];}else{echo "0";}?>" disabled>
                 </div>
             </div>
 
@@ -173,10 +176,16 @@
 
     <!-- Java Script -->
     <script>
+
+        $(document).ready(function (e) {
+            $(window).scrollTop(0);
+        })
         
         var papers_national = document.getElementById("papers_national")
         var papers_international = document.getElementById("papers_international")
         var papers_total = document.getElementById("papers_total")
+
+        var papers_info = document.getElementById("papers_info")
 
         var patents = document.getElementById("patents")
         var books = document.getElementById("books")
@@ -188,6 +197,9 @@
         var funds_major = document.getElementById("funds_major")
         var funds_minor = document.getElementById("funds_minor")
         var funds_total = document.getElementById("funds_total")
+
+        var projects_completed = document.getElementById("projects_completed")
+        var reports_submitted = document.getElementById("reports_submitted")
 
         var mpg = document.getElementById("mpg")
         var pdg = document.getElementById("pdg")
@@ -239,6 +251,30 @@
             }
         };
         // papers ==========================================================================
+
+
+        // papers info ==========================================================================
+        function papers_information(){
+            papers_info.addEventListener('change',papers)
+            if(papers_info.value.length == 0){
+                papers_info.style.border = "1px solid red"
+                fields("Enter Papers Information")
+                return false
+            }
+            else{
+                papers_info.style.border = "1px solid lightgray"
+            }
+        };
+
+        function total_papers(){
+            if(papers_national.value.length == 0 || papers_international.value.length == 0){
+                papers_total.value = 0
+            }
+            else{
+                papers_total.value = +papers_national.value + +papers_international.value
+            }
+        };
+        // papers info ==========================================================================
 
 
         // patents ==========================================================================
@@ -335,6 +371,36 @@
             }
         };
         // funds ==========================================================================
+
+
+        // Projects Completed ===============================================================
+        function projects_status(){
+            projects_completed.addEventListener('change',projects_status)
+            if(projects_completed.value.length == 0){
+                projects_completed.style.border = "1px solid red"
+                fields("Enter Number of Projects Completed")
+                return false
+            }
+            else{
+                projects_completed.style.border = "1px solid lightgray"
+            }
+        }
+        // Projects Completed ===============================================================
+
+
+        // Reports Submitted ===============================================================
+        function reports_status(){
+            reports_submitted.addEventListener('change',reports_status)
+            if(reports_submitted.value.length == 0){
+                reports_submitted.style.border = "1px solid red"
+                fields("Enter Number of Reports Submitted")
+                return false
+            }
+            else{
+                reports_submitted.style.border = "1px solid lightgray"
+            }
+        }
+        // Reports Submitted ===============================================================
 
 
         // M.Phils ==========================================================================
@@ -491,10 +557,13 @@
         // Validation ======================================================================
         function rvalidation(){
             if(papers() == false){return false}
+            if(papers_information() == false){return false}
             if(patents_function() == false){return false}
             if(books_function() == false){return false}
             if(projects() == false){return false}
             if(funds() == false){return false}
+            if(projects_status() == false){return false}
+            if(reports_status() == false){return false}
             if(mpg_function() == false){return false}
             if(pdg_function() == false){return false}
             if(seminars() == false){return false}
@@ -514,12 +583,15 @@
             agr.removeAttribute("checked");
             papers_national.removeAttribute("disabled");
             papers_international.removeAttribute("disabled");
+            papers_info.removeAttribute("disabled");
             patents.removeAttribute("disabled");
             books.removeAttribute("disabled");
             projects_major.removeAttribute("disabled");
             projects_minor.removeAttribute("disabled");
             funds_major.removeAttribute("disabled");
             funds_minor.removeAttribute("disabled");
+            projects_completed.removeAttribute("disabled");
+            reports_submitted.removeAttribute("disabled");
             mpg.removeAttribute("disabled");
             pdg.removeAttribute("disabled");
             awards_state.removeAttribute("disabled");
@@ -553,12 +625,11 @@
                         $("#seminars_national").val().trim()+";"+
                         $("#seminars_international").val().trim()+";"+
                         $("#bodies_national").val().trim()+";"+
-                        $("#bodies_international").val().trim()+
+                        $("#bodies_international").val().trim()+";"+
                         $("#awards_state").val().trim()+";"+
                         $("#awards_national").val().trim()+";"+
                         $("#awards_international").val().trim()+";";
                     //---------
-                    alert(rData)
                     $.ajax({
                         url: "apis/insert_researchDetails.php",
                         type: "POST",

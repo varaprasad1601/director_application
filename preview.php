@@ -432,6 +432,19 @@
                             </div>
                         </div>
 
+                        <div class="col-md-12 search">
+                            <div class="col-md-12 pdetails justify-content-between px-5 pt-4 py-2 search">
+                                <div class="col-md-12 mb-3" style="border-bottom: 1px solid lightgray;">
+                                    <h5 class="">Journals / Papers / Articles Published</h5>
+                                </div>
+                                <div class="col-md-12 d-flex mb-2" style="border-bottom: .5px solid #eeeee4">
+                                    <div class="col-md-12 d-flex qd">
+                                        <div class="col-md-12 nv"><label class="text"><?php echo $row[4] ?></label></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="col-md-12 pdetails justify-content-between px-5 pt-4 py-2 search">
                             <div class="col-md-12 mb-3" style="border-bottom: 1px solid lightgray;">
                                 <h5 class="">Number of Research Projects completed</h5>
@@ -439,15 +452,15 @@
                             <div class="col-md-12 d-flex mb-2" style="border-bottom: .5px solid #eeeee4">
                                 <div class="col-md-4 d-flex qd">
                                     <div class="col-md-5 n"><label class="text">Major:</label></div>
-                                    <div class="col-md-7 nv"><label class="text"><?php echo $row[6] ?></label></div>
+                                    <div class="col-md-7 nv"><label class="text"><?php echo $row[7] ?></label></div>
                                 </div>
                                 <div class="col-md-4 d-flex qd">
                                     <div class="col-md-6 i"><label class="text">Minor:</label></div>
-                                    <div class="col-md-6 iv"><label class="text"><?php echo $row[7] ?></label></div>
+                                    <div class="col-md-6 iv"><label class="text"><?php echo $row[8] ?></label></div>
                                 </div>
                                 <div class="col-md-4 d-flex qd">
                                     <div class="col-md-4 t"><label class="text">Total:</label></div>
-                                    <div class="col-md-8 tv"><label class="text"><?php echo $row[6] + $row[7] ?></label></div>
+                                    <div class="col-md-8 tv"><label class="text"><?php echo $row[7] + $row[8] ?></label></div>
                                 </div>
                             </div>
                         </div>
@@ -459,18 +472,29 @@
                             <div class="col-md-12 d-flex mb-2" style="border-bottom: .5px solid #eeeee4">
                                 <div class="col-md-4 d-flex qd">
                                     <div class="col-md-5 n"><label class="text">Funds for Major:</label></div>
-                                    <div class="col-md-7 nv"><label class="text"><?php echo $row[8] ?></label></div>
+                                    <div class="col-md-7 nv"><label class="text"><?php echo $row[9] ?></label></div>
                                 </div>
                                 <div class="col-md-4 d-flex qd">
                                     <div class="col-md-6 i"><label class="text">Funds for Minor:</label></div>
-                                    <div class="col-md-6 iv"><label class="text"><?php echo $row[9] ?></label></div>
+                                    <div class="col-md-6 iv"><label class="text"><?php echo $row[10] ?></label></div>
                                 </div>
                                 <div class="col-md-4 d-flex qd">
                                     <div class="col-md-4 t"><label class="text">Total:</label></div>
-                                    <div class="col-md-8 tv"><label class="text"><?php echo $row[8] + $row[9] ?></label></div>
+                                    <div class="col-md-8 tv"><label class="text"><?php echo $row[9] + $row[10] ?></label></div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 d-flex mb-2" style="border-bottom: .5px solid #eeeee4">
+                                <div class="col-md-4 d-flex qd">
+                                    <div class="col-md-5 n"><label class="text">Projects Completed:</label></div>
+                                    <div class="col-md-7 nv"><label class="text"><?php echo $row[11] ?></label></div>
+                                </div>
+                                <div class="col-md-4 d-flex qd">
+                                    <div class="col-md-6 i"><label class="text">Reports Submitted:</label></div>
+                                    <div class="col-md-6 iv"><label class="text"><?php echo $row[12] ?></label></div>
                                 </div>
                             </div>
                         </div>
+
 
                         <div class="col-md-12 pdetails justify-content-between px-5 pt-4 py-2 search">
                             <div class="col-md-12 mb-3" style="border-bottom: 1px solid lightgray;">
@@ -479,21 +503,21 @@
                             <div class="col-md-12 d-flex mb-2" style="border-bottom: .5px solid #eeeee4">
                                 <div class="col-md-4 d-flex qd">
                                     <div class="col-md-5 n"><label class="text">State:</label></div>
-                                    <div class="col-md-7 nv"><label class="text"><?php echo $row[12] ?></label></div>
+                                    <div class="col-md-7 nv"><label class="text"><?php echo $row[19] ?></label></div>
                                 </div>
                             </div>
                             <div class="col-md-12 d-flex mb-2" style="border-bottom: .5px solid #eeeee4">
                                 <div class="col-md-4 d-flex qd">
                                     <div class="col-md-5 n"><label class="text">National:</label></div>
-                                    <div class="col-md-7 nv"><label class="text"><?php echo $row[13] ?></label></div>
+                                    <div class="col-md-7 nv"><label class="text"><?php echo $row[20] ?></label></div>
                                 </div>
                                 <div class="col-md-4 d-flex qd">
                                     <div class="col-md-6 i"><label class="text">International:</label></div>
-                                    <div class="col-md-6 iv"><label class="text"><?php echo $row[14] ?></label></div>
+                                    <div class="col-md-6 iv"><label class="text"><?php echo $row[21] ?></label></div>
                                 </div>
                                 <div class="col-md-4 d-flex qd">
                                     <div class="col-md-4 t"><label class="text">Total:</label></div>
-                                    <div class="col-md-8 tv"><label class="text"><?php echo $row[12] + $row[13] + $row[14] ?></label></div>
+                                    <div class="col-md-8 tv"><label class="text"><?php echo $row[19] + $row[20] + $row[21] ?></label></div>
                                 </div>
                             </div>
                         </div>
@@ -545,21 +569,21 @@
                             <div class="col-md-12 d-flex mb-2" style="border-bottom: .5px solid #eeeee4">
                                 <div class="col-md-4 d-flex qd">
                                     <div class="col-md-5 n"><label class="text">Patents:</label></div>
-                                    <div class="col-md-7 nv"><label class="text"><?php echo $row[4] ?></label></div>
+                                    <div class="col-md-7 nv"><label class="text"><?php echo $row[5] ?></label></div>
                                 </div>
                                 <div class="col-md-4 d-flex qd">
                                     <div class="col-md-6 i"><label class="text">Books with ISBN:</label></div>
-                                    <div class="col-md-6 iv"><label class="text"><?php echo $row[5] ?></label></div>
+                                    <div class="col-md-6 iv"><label class="text"><?php echo $row[6] ?></label></div>
                                 </div>
                             </div>
                             <div class="col-md-12 d-flex mb-2" style="border-bottom: .5px solid #eeeee4">
                                 <div class="col-md-4 d-flex qd">
                                     <div class="col-md-5 n"><label class="text">M.Phils / M.Tech Projects Guided:</label></div>
-                                    <div class="col-md-7 nv"><label class="text"><?php echo $row[10] ?></label></div>
+                                    <div class="col-md-7 nv"><label class="text"><?php echo $row[13] ?></label></div>
                                 </div>
                                 <div class="col-md-4 d-flex qd">
                                     <div class="col-md-6 i"><label class="text">Ph. D's Guided:</label></div>
-                                    <div class="col-md-6 iv"><label class="text"><?php echo $row[11] ?></label></div>
+                                    <div class="col-md-6 iv"><label class="text"><?php echo $row[14] ?></label></div>
                                 </div>
                             </div>
                         </div>
@@ -688,6 +712,11 @@
     <!-- Modal ================================================== -->
 
     <script>
+
+        $(document).ready(function (e) {
+            $(window).scrollTop(0);
+        })
+
         function print_doc(){
             var sel_cam = document.getElementById("print_campus").value;
             if($("#print_campus").val() != "-----"){
@@ -706,8 +735,8 @@
             if(alert_campus == 0){
                 alert("Select Campus");
                 $("#nuzvid_campus").css("border","1px solid red !important");
-                $("#campus_focus").focus();
-                    return false
+                $(window).scrollTop(0);
+                return false
             }
             else{
                 $("#mymodal").fadeIn();
