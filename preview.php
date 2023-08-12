@@ -744,7 +744,7 @@
             var sel_cam = document.getElementById("print_campus").value;
             if($("#print_campus").val() != "-----"){
                 $("#print_campus").css("border","1px solid lightgray");
-                document.getElementById("selected_campus").innerText = "Selected Campus: "+sel_cam;
+                document.getElementById("selected_campus").innerText = "Applied Campus: "+sel_cam;
                 window.print()
             }else{
                 alert("Select Campus")
