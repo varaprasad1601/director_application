@@ -283,26 +283,54 @@
         var sc = 1;
 
 
+        // <?php
+        // if($pr_row != null){
+        //     echo 'prof_id =' . count($pda_data). ';'; 
+        //     echo 'prof_h =' . count($pda_data). ';'; 
+        //     if($pda_data[0] != null){
+        //         echo 'pc =' . count($pda_data)+1 . ';'; 
+        //     }
+        // };
+        // if($ad_row != null){
+        //     echo 'asso_id =' . count($ada_data). ';'; 
+        //     echo 'asso_h =' . count($ada_data). ';'; 
+        //     if($ada_data[0] != null){
+        //         echo 'ac =' . count($ada_data)+1 . ';';
+        //     }
+        // };
+        // if($sd_row != null){
+        //     echo 'assi_id =' . count($sda_data). ';'; 
+        //     echo 'assi_h =' . count($sda_data). ';'; 
+        //     if($sda_data[0] != null){
+        //         echo 'sc =' . count($sda_data)+1 . ';'; 
+        //     }
+        // };
+        // ?>
+
+
         <?php
         if($pr_row != null){
             echo 'prof_id =' . count($pda_data). ';'; 
             echo 'prof_h =' . count($pda_data). ';'; 
             if($pda_data[0] != null){
-                echo 'pc =' . count($pda_data)+1 . ';'; 
+                echo 'pc =' . count($pda_data) . ';
+                pc = pc+1; '; 
             }
         };
         if($ad_row != null){
             echo 'asso_id =' . count($ada_data). ';'; 
             echo 'asso_h =' . count($ada_data). ';'; 
             if($ada_data[0] != null){
-                echo 'ac =' . count($ada_data)+1 . ';';
+                echo 'ac ='.  count($pda_data) .';
+                ac = ac+1; ';
             }
         };
         if($sd_row != null){
             echo 'assi_id =' . count($sda_data). ';'; 
             echo 'assi_h =' . count($sda_data). ';'; 
             if($sda_data[0] != null){
-                echo 'sc =' . count($sda_data)+1 . ';'; 
+                echo 'sc =' . count($sda_data) . ';
+                sc = sc+1; '; 
             }
         };
         ?>
