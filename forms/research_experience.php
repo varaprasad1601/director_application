@@ -51,10 +51,10 @@
                 <div class="col-md-1">
                 </div>
             </div>
-            <hr>
+
             <div class="form-group d-flex justify-content-between">
                 <div class="col-md-5">
-                    <label>Number of Research Projects</label> <label class="err_msg" id="msg"> * </label>
+                    <label>Number of Research Projects Completed</label> <label class="err_msg" id="msg"> * </label>
                     <input type="number" class="form-control" placeholder="Major" id="projects_major" onkeyup="total_projects()" <?php echo(($row)) ? 'value="'.$row[7].'" disabled' : "" ?>>
                 </div>
                 <div class="col-md-5">
@@ -69,7 +69,7 @@
 
             <div class="form-group d-flex justify-content-between">
                 <div class="col-md-5">
-                    <label>Funds Sanctioned/Utilized for research projects in (Rs. Lakhs)</label> <label class="err_msg" id="msg"> * </label>
+                    <label>Funds Sanctioned for Completed Research Projects in (Rs. Lakhs)</label> <label class="err_msg" id="msg"> * </label>
                     <input type="number" class="form-control" placeholder="Funds for Major" id="funds_major" onkeyup="total_funds()" <?php echo(($row)) ? 'value="'.$row[9].'" disabled' : "" ?>>
                 </div>
                 <div class="col-md-5">
@@ -84,25 +84,42 @@
             <!------------------------------------->
             <div class="form-group d-flex justify-content-between">
                 <div class="col-md-5">
-                    <label>Number of Projects Completed</label> <label class="err_msg" id="msg"> * </label>
-                    <input type="number" class="form-control" placeholder="Projects Completed" id="projects_completed" <?php echo(($row)) ? 'value="'.$row[11].'" disabled' : "" ?>>
+                    <label>Number of Ongoing Research Projects</label> <label class="err_msg" id="msg"> * </label>
+                    <input type="number" class="form-control" placeholder="Major" id="ongoing_major" onkeyup="total_ongoing()" <?php echo(($row)) ? 'value="'.$row[11].'" disabled' : "" ?>>
                 </div>
                 <div class="col-md-5">
-                    <label>Number of Reports Submitted for mentioned projects</label> <label class="err_msg" id="msg"> * </label>
-                    <input type="number" class="form-control" placeholder="Reports Submitted" id="reports_submitted" <?php echo(($row)) ? 'value="'.$row[12].'" disabled' : "" ?>>
+                    <label>&nbsp;</label>
+                    <input type="number" class="form-control" placeholder="Minor" id="ongoing_minor" onkeyup="total_ongoing()" <?php echo(($row)) ? 'value="'.$row[12].'" disabled' : "" ?>>
                 </div>
-                <div class="col-md-1"></div>
+                <div class="col-md-1">
+                    <label>Total</label>
+                    <input type="text" class="form-control" id="ongoing_total" value="<?php if($row){echo $row[11]+$row[12];}else{echo "0";}?>" disabled>
+                </div>
+            </div>
+            
+            <div class="form-group d-flex justify-content-between">
+                <div class="col-md-5">
+                    <label>Funds Sanctioned for Ongoing Research Projects in (Rs. Lakhs)</label> <label class="err_msg" id="msg"> * </label>
+                    <input type="number" class="form-control" placeholder="Funds for Major" id="funds_ongoing_major" onkeyup="total_funds()" <?php echo(($row)) ? 'value="'.$row[13].'" disabled' : "" ?>>
+                </div>
+                <div class="col-md-5">
+                    <label>&nbsp;</label>
+                    <input type="number" class="form-control" placeholder="Funds for Minor" id="funds_ongoing_minor" onkeyup="total_funds()" <?php echo(($row)) ? 'value="'.$row[14].'" disabled' : "" ?>>
+                </div>
+                <div class="col-md-1">
+                    <label>Total</label>
+                    <input type="text" class="form-control" id="funds_ongoing_total" value="<?php if($row){echo $row[13]+$row[14];}else{echo "0";}?>" disabled>
+                </div>
             </div>
             <!--------------------------------------->
-            <hr>
             <div class="form-group d-flex justify-content-between">
                 <div class="col-md-5">
                     <label>Number of M. Phils/M. Tech Projects Guided</label> <label class="err_msg" id="msg"> * </label>
-                    <input type="number" class="form-control" placeholder="M.Phils Guided" id="mpg" <?php echo(($row)) ? 'value="'.$row[13].'" disabled' : "" ?>>
+                    <input type="number" class="form-control" placeholder="M.Phils Guided" id="mpg" <?php echo(($row)) ? 'value="'.$row[15].'" disabled' : "" ?>>
                 </div>
                 <div class="col-md-5">
                     <label>Number of Ph. D's Guided</label> <label class="err_msg" id="msg"> * </label>
-                    <input type="number" class="form-control" placeholder="Ph. Ds Guided" id="pdg" <?php echo(($row)) ? 'value="'.$row[14].'" disabled' : "" ?>>
+                    <input type="number" class="form-control" placeholder="Ph. Ds Guided" id="pdg" <?php echo(($row)) ? 'value="'.$row[16].'" disabled' : "" ?>>
                 </div>
                 <div class="col-md-1"></div>
             </div>
@@ -111,49 +128,49 @@
             <div class="form-group d-flex justify-content-between">
                 <div class="col-md-5">
                     <label>Seminars/Conferences attended/Papers presented</label> <label class="err_msg" id="msg"> * </label>
-                    <input type="number" class="form-control" placeholder="National" id="seminars_national" onkeyup="total_seminars()" <?php echo(($row)) ? 'value="'.$row[15].'" disabled' : "" ?>>
+                    <input type="number" class="form-control" placeholder="National" id="seminars_national" onkeyup="total_seminars()" <?php echo(($row)) ? 'value="'.$row[17].'" disabled' : "" ?>>
                 </div>
                 <div class="col-md-5">
                     <label>&nbsp;</label>
-                    <input type="number" class="form-control" placeholder="International" id="seminars_international" onkeyup="total_seminars()" <?php echo(($row)) ? 'value="'.$row[16].'" disabled' : "" ?>>
+                    <input type="number" class="form-control" placeholder="International" id="seminars_international" onkeyup="total_seminars()" <?php echo(($row)) ? 'value="'.$row[18].'" disabled' : "" ?>>
                 </div>
                 <div class="col-md-1">
                     <label>Total</label>
-                    <input type="text" class="form-control" id="seminars_total" value="<?php if($row){echo $row[15] +$row[16];}else{echo "0";}?>" disabled>
+                    <input type="text" class="form-control" id="seminars_total" value="<?php if($row){echo $row[17] +$row[18];}else{echo "0";}?>" disabled>
                 </div>
             </div>
 
             <div class="form-group d-flex justify-content-between">
                 <div class="col-md-5">
                     <label>Details of Memberships in professional Societies/Bodies</label> <label class="err_msg" id="msg"> * </label>
-                    <input type="number" class="form-control" placeholder="National" id="bodies_national" onkeyup="total_bodies()" <?php echo(($row)) ? 'value="'.$row[17].'" disabled' : "" ?>>
+                    <input type="number" class="form-control" placeholder="National" id="bodies_national" onkeyup="total_bodies()" <?php echo(($row)) ? 'value="'.$row[19].'" disabled' : "" ?>>
                 </div>
                 <div class="col-md-5">
                     <label>&nbsp;</label>
-                    <input type="number" class="form-control" placeholder="International" id="bodies_international" onkeyup="total_bodies()" <?php echo(($row)) ? 'value="'.$row[18].'" disabled' : "" ?>>
+                    <input type="number" class="form-control" placeholder="International" id="bodies_international" onkeyup="total_bodies()" <?php echo(($row)) ? 'value="'.$row[20].'" disabled' : "" ?>>
                 </div>
                 <div class="col-md-1">
                     <label>Total</label>
-                    <input type="text" class="form-control" id="bodies_total" value="<?php if($row){echo $row[17]+$row[18];}else{echo "0";}?>" disabled>
+                    <input type="text" class="form-control" id="bodies_total" value="<?php if($row){echo $row[19]+$row[20];}else{echo "0";}?>" disabled>
                 </div>
             </div>
 
             <div class="form-group d-flex justify-content-between">
                 <div class="col-md-3">
                     <label>Number of Reputed Awards</label> <label class="err_msg" id="msg"> * </label>
-                    <input type="number" class="form-control" placeholder="State" id="awards_state" onkeyup="total_awards()" <?php echo(($row)) ? 'value="'.$row[19].'" disabled' : "" ?>>
+                    <input type="number" class="form-control" placeholder="State" id="awards_state" onkeyup="total_awards()" <?php echo(($row)) ? 'value="'.$row[21].'" disabled' : "" ?>>
                 </div>
                 <div class="col-md-3 ms-3 nra">
                     <label>&nbsp;</label>
-                    <input type="number" class="form-control" placeholder="National" id="awards_national" onkeyup="total_awards()" <?php echo(($row)) ? 'value="'.$row[20].'" disabled' : "" ?>>
+                    <input type="number" class="form-control" placeholder="National" id="awards_national" onkeyup="total_awards()" <?php echo(($row)) ? 'value="'.$row[22].'" disabled' : "" ?>>
                 </div>
                 <div class="col-md-3 ms-3 nra">
                     <label>&nbsp;</label>
-                    <input type="number" class="form-control" placeholder="International" id="awards_international" onkeyup="total_awards()" <?php echo(($row)) ? 'value="'.$row[21].'" disabled' : "" ?>>
+                    <input type="number" class="form-control" placeholder="International" id="awards_international" onkeyup="total_awards()" <?php echo(($row)) ? 'value="'.$row[23].'" disabled' : "" ?>>
                 </div>
                 <div class="col-md-1">
                     <label>Total</label>
-                    <input type="text" class="form-control" id="awards_total" value="<?php if($row){echo $row[19]+$row[20]+$row[21];}else{echo "0";}?>" disabled>
+                    <input type="text" class="form-control" id="awards_total" value="<?php if($row){echo $row[21]+$row[22]+$row[23];}else{echo "0";}?>" disabled>
                 </div>
             </div>
 
@@ -198,8 +215,13 @@
         var funds_minor = document.getElementById("funds_minor")
         var funds_total = document.getElementById("funds_total")
 
-        var projects_completed = document.getElementById("projects_completed")
-        var reports_submitted = document.getElementById("reports_submitted")
+        var ongoing_major = document.getElementById("ongoing_major")
+        var ongoing_minor = document.getElementById("ongoing_minor")
+        var ongoing_total = document.getElementById("ongoing_total")
+
+        var funds_ongoing_major = document.getElementById("funds_ongoing_major")
+        var funds_ongoing_minor = document.getElementById("funds_ongoing_minor")
+        var funds_ongoing_total = document.getElementById("funds_ongoing_total")
 
         var mpg = document.getElementById("mpg")
         var pdg = document.getElementById("pdg")
@@ -371,36 +393,75 @@
             }
         };
         // funds ==========================================================================
-
-
-        // Projects Completed ===============================================================
-        function projects_status(){
-            projects_completed.addEventListener('change',projects_status)
-            if(projects_completed.value.length == 0){
-                projects_completed.style.border = "1px solid red"
-                fields("Enter Number of Projects Completed")
+        
+        
+        
+        // ongoing projects ==========================================================================
+        function ongoing_projects(){
+            ongoing_minor.addEventListener('change',projects)
+            if(ongoing_major.value.length == 0){
+                ongoing_major.style.border = "1px solid red"
+                fields("Number of Ongoing Research Projects")
                 return false
             }
             else{
-                projects_completed.style.border = "1px solid lightgray"
+                ongoing_major.style.border = "1px solid lightgray"
             }
-        }
-        // Projects Completed ===============================================================
 
-
-        // Reports Submitted ===============================================================
-        function reports_status(){
-            reports_submitted.addEventListener('change',reports_status)
-            if(reports_submitted.value.length == 0){
-                reports_submitted.style.border = "1px solid red"
-                fields("Enter Number of Reports Submitted")
+            if(ongoing_minor.value.length == 0){
+                ongoing_minor.style.border = "1px solid red"
+                fields("Number of Ongoing Research Projects")
                 return false
             }
             else{
-                reports_submitted.style.border = "1px solid lightgray"
+                ongoing_minor.style.border = "1px solid lightgray"
             }
-        }
-        // Reports Submitted ===============================================================
+        };
+
+        function total_ongoing(){
+            if(ongoing_major.value.length == 0 || ongoing_minor.value.length == 0){
+                ongoing_total.value = 0
+            }
+            else{
+                ongoing_total.value = +ongoing_major.value + +ongoing_minor.value
+            }
+        };
+        // ongoing projects ==========================================================================
+
+
+
+        // ongoing funds ==========================================================================
+        function ongoing_funds(){
+            funds_ongoing_minor.addEventListener('change',funds)
+            if(funds_ongoing_major.value.length == 0){
+                funds_ongoing_major.style.border = "1px solid red"
+                fields("Funds Sanctioned for Ongoing Research Projects")
+                return false
+            }
+            else{
+                funds_ongoing_major.style.border = "1px solid lightgray"
+            }
+
+            if(funds_ongoing_minor.value.length == 0){
+                funds_ongoing_minor.style.border = "1px solid red"
+                fields("Funds Sanctioned for Ongoing Research Projects")
+                return false
+            }
+            else{
+                funds_ongoing_minor.style.border = "1px solid lightgray"
+            }
+        };
+
+        function total_funds (){
+            if(funds_ongoing_major.value.length == 0 || funds_ongoing_minor.value.length == 0){
+                funds_ongoing_total.value = 0
+            }
+            else{
+                funds_ongoing_total.value = +funds_ongoing_major.value + +funds_ongoing_minor.value
+            }
+        };
+        // ongoing funds ==========================================================================
+
 
 
         // M.Phils ==========================================================================
@@ -562,8 +623,8 @@
             if(books_function() == false){return false}
             if(projects() == false){return false}
             if(funds() == false){return false}
-            if(projects_status() == false){return false}
-            if(reports_status() == false){return false}
+            if(ongoing_projects() == false){return false}
+            if(ongoing_funds() == false){return false}
             if(mpg_function() == false){return false}
             if(pdg_function() == false){return false}
             if(seminars() == false){return false}
@@ -590,8 +651,10 @@
             projects_minor.removeAttribute("disabled");
             funds_major.removeAttribute("disabled");
             funds_minor.removeAttribute("disabled");
-            projects_completed.removeAttribute("disabled");
-            reports_submitted.removeAttribute("disabled");
+            ongoing_minor.removeAttribute("disabled");
+            ongoing_major.removeAttribute("disabled");
+            funds_ongoing_major.removeAttribute("disabled");
+            funds_ongoing_minor.removeAttribute("disabled");
             mpg.removeAttribute("disabled");
             pdg.removeAttribute("disabled");
             awards_state.removeAttribute("disabled");
@@ -618,8 +681,10 @@
                         $("#projects_minor").val().trim()+"><"+
                         $("#funds_major").val().trim()+"><"+
                         $("#funds_minor").val().trim()+"><"+
-                        $("#projects_completed").val().trim()+"><"+
-                        $("#reports_submitted").val().trim()+"><"+
+                        $("#ongoing_major").val().trim()+"><"+
+                        $("#ongoing_minor").val().trim()+"><"+
+                        $("#funds_ongoing_major").val().trim()+"><"+
+                        $("#funds_ongoing_minor").val().trim()+"><"+
                         $("#mpg").val().trim()+"><"+
                         $("#pdg").val().trim()+"><"+
                         $("#seminars_national").val().trim()+"><"+
