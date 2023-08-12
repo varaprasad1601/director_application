@@ -13,16 +13,19 @@
 
         if($pr_row != null ){
             $pda_data = explode("*",$pr_row[4]);
+            $pto_data = explode("*",$pr_row[5]);
             $pun_data = explode("*",$pr_row[3]);
             $ppc_data = explode("*",$pr_row[5]);
         }
         if($ad_row != null ){
             $ada_data = explode("*",$ad_row[4]);
+            $ato_data = explode("*",$ad_row[5]);
             $aun_data = explode("*",$ad_row[3]);
             $apc_data = explode("*",$ad_row[5]);
         }
         if($sd_row != null ){
             $sda_data = explode("*",$sd_row[4]);
+            $sto_data = explode("*",$sd_row[5]);
             $sun_data = explode("*",$sd_row[3]);
             $spc_data = explode("*",$sd_row[5]);
         }
@@ -79,7 +82,7 @@
                                 </div>
                                 <div class="col-md-2">
                                     <label>To <label class="err_msg" id="msg"> * </label></label>
-                                    <input type="date" class="form-control" id="p_to<?php echo $i ?>" value="<?php echo $pda_data[$i]?>" disabled>
+                                    <input type="date" class="form-control" id="p_to<?php echo $i ?>" value="<?php echo $pto_data[$i]?>" disabled>
                                 </div>
                                 <div class="col-md-3">
                                     <label>University Name <label class="err_msg" id="msg"> * </label></label>
@@ -134,7 +137,7 @@
                                 </div>
                                 <div class="col-md-2">
                                     <label>To <label class="err_msg" id="msg"> * </label></label>
-                                    <input type="date" class="form-control" id="a_to<?php echo $i ?>" value="<?php echo $ada_data[$i]?>" disabled>
+                                    <input type="date" class="form-control" id="a_to<?php echo $i ?>" value="<?php echo $ato_data[$i]?>" disabled>
                                 </div>
                                 <div class="col-md-3">
                                     <label>University Name <label class="err_msg" id="msg"> * </label></label>
@@ -191,7 +194,7 @@
                                 </div>
                                 <div class="col-md-2">
                                     <label>To <label class="err_msg" id="msg"> * </label></label>
-                                    <input type="date" class="form-control" id="as_to<?php echo $i ?>" value="<?php echo $sda_data[$i]?>" disabled>
+                                    <input type="date" class="form-control" id="as_to<?php echo $i ?>" value="<?php echo $sto_data[$i]?>" disabled>
                                 </div>
                                 <div class="col-md-3">
                                     <label>University Name <label class="err_msg" id="msg"> * </label></label>
