@@ -12,22 +12,22 @@
         $sd_row = mysqli_fetch_row($sd_data);
 
         if($pr_row != null ){
-            $pda_data = explode("*",$pr_row[4]);
-            $pto_data = explode("*",$pr_row[5]);
-            $pun_data = explode("*",$pr_row[3]);
-            $ppc_data = explode("*",$pr_row[5]);
+            $pda_data = explode("*",$pr_row[3]);
+            $pto_data = explode("*",$pr_row[4]);
+            $pun_data = explode("*",$pr_row[5]);
+            $ppc_data = explode("*",$pr_row[6]);
         }
         if($ad_row != null ){
-            $ada_data = explode("*",$ad_row[4]);
-            $ato_data = explode("*",$ad_row[5]);
-            $aun_data = explode("*",$ad_row[3]);
-            $apc_data = explode("*",$ad_row[5]);
+            $ada_data = explode("*",$ad_row[3]);
+            $ato_data = explode("*",$ad_row[4]);
+            $aun_data = explode("*",$ad_row[5]);
+            $apc_data = explode("*",$ad_row[6]);
         }
         if($sd_row != null ){
-            $sda_data = explode("*",$sd_row[4]);
-            $sto_data = explode("*",$sd_row[5]);
-            $sun_data = explode("*",$sd_row[3]);
-            $spc_data = explode("*",$sd_row[5]);
+            $sda_data = explode("*",$sd_row[3]);
+            $sto_data = explode("*",$sd_row[4]);
+            $sun_data = explode("*",$sd_row[5]);
+            $spc_data = explode("*",$sd_row[6]);
         }
 
 ?>
