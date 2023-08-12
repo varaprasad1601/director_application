@@ -234,7 +234,7 @@
                             </div>
                         </div>
                         <div class="col-md-3 image">
-                            <img src="./apis/pic_uploads/<?php echo $pd_row[5];?>" class="img bg-primary border" style="width: 100%;">
+                            <img src="./apis/pic_uploads/<?php echo $pd_row[5];?>" class="img" style="width: 100%;">
                         </div>
                     </div>
                     <!-- Personal Details ================================================== -->

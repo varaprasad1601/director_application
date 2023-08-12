@@ -335,7 +335,7 @@
             <div class="form-group d-flex justify-content-between">
                 <div class="col-md-5">
                     <label>Date of Birth</label> <label class="err_msg" id="msg"> * </label>
-                    <input type="date" class="form-control" id="dob" name="dob" <?php if($pd_row != null){echo 'value="'. $pd_row[6]. '" disabled';}?>>
+                    <input type="date" class="form-control" id="dob" name="dob" onchange="date_of_birth()" <?php if($pd_row != null){echo 'value="'. $pd_row[6]. '" disabled';}?>>
                 </div>
                 <div class="col-md-5">
                     <label>Age</label> <label class="err_msg" id="msg"> * </label>
