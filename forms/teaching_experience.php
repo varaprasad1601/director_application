@@ -52,7 +52,7 @@
                     <input type="text" class="form-control" id="leftover" <?php echo (($td_row != null)) ? 'value="'.$td_row[4].'" disabled' : 'value=""' ?>>
                 </div>
             </div>
-            <label class="text" style="color: red; font-size:15px;">Note: Total Teaching Experience should be matched withthe below data.</label>
+            <label class="text" style="color: red; font-size:15px;">Note: Total Teaching Experience should be matched with the below data.</label>
 
 
             <!-- <h3 class="mt-4">Working Experience</h3> -->
@@ -874,11 +874,13 @@
                 if(tvalidation()){
                     //-------------------
                     var p_da_str = "";
+                    var p_to_str = "";
                     var p_un_str = "";
                     var p_pc_str = "";
                     for(let i=0;i<prof_id;i++){
                         if(document.getElementById("p_da"+i)){
                             p_da_str = p_da_str + $("#p_da"+i).val()+"*";
+                            p_to_str = p_to_str + $("#p_to"+i).val()+"*";
                             p_un_str = p_un_str + $("#p_un"+i).val()+"*";
                             if($("#p_pc"+i).prop("checked")){
                                 p_pc_str = p_pc_str + "True" +"*";
@@ -888,11 +890,13 @@
                         }
                     }
                     var a_da_str = "";
+                    var a_to_str = "";
                     var a_un_str = "";
                     var a_pc_str = "";
                     for(let i=0;i<asso_id;i++){
                         if(document.getElementById("a_da"+i)){
                             a_da_str = a_da_str + $("#a_da"+i).val()+"*";
+                            a_to_str = a_to_str + $("#a_to"+i).val()+"*";
                             a_un_str = a_un_str + $("#a_un"+i).val()+"*";
                             if($("#a_pc"+i).prop("checked")){
                                 a_pc_str = a_pc_str + "True" +"*";
@@ -902,11 +906,13 @@
                         }
                     }
                     var as_da_str = "";
+                    var as_to_str = "";
                     var as_un_str = "";
                     var as_pc_str = "";
                     for(let i=0;i<assi_id;i++){
                         if(document.getElementById("as_da"+i)){
                             as_da_str = as_da_str + $("#as_da"+i).val()+"*";
+                            as_to_str = as_to_str + $("#as_to"+i).val()+"*";
                             as_un_str = as_un_str + $("#as_un"+i).val()+"*";
                             if($("#as_pc"+i).prop("checked")){
                                 as_pc_str = as_pc_str + "True" +"*";
@@ -919,7 +925,7 @@
                     var lenServ = $("#service").val().trim();
                     var leftServ = $("#leftover").val().trim();
                     
-                    var tData = '{"Professor":"'+p_da_str+";"+p_un_str+";"+p_pc_str+'","Associate Professor":"'+a_da_str+";"+a_un_str+";"+a_pc_str+'","Assistant Professor":"'+as_da_str+";"+as_un_str+";"+as_pc_str+'"}';
+                    var tData = '{"Professor":"'+p_da_str+";"+p_to_str+";"+p_un_str+";"+p_pc_str+'","Associate Professor":"'+a_da_str+";"+a_to_str+";"+a_un_str+";"+a_pc_str+'","Assistant Professor":"'+as_da_str+";"+as_to_str+";"+as_un_str+";"+as_pc_str+'"}';
                     console.log(tData);
                     $.ajax({
                         url: "apis/insert_teachingDetails.php",
