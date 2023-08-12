@@ -49,7 +49,7 @@
                     <input type="text" class="form-control" id="leftover" <?php echo (($td_row != null)) ? 'value="'.$td_row[4].'" disabled' : 'value=""' ?>>
                 </div>
             </div>
-            <label class="text" style="color: red; font-size:15px;">Note: If you want to apply more than one campus, select all desired campuses.</label>
+            <label class="text" style="color: red; font-size:15px;">Note: Total Teaching Experience should be matched withthe below data.</label>
 
 
             <!-- <h3 class="mt-4">Working Experience</h3> -->
@@ -73,15 +73,19 @@
                     <div id="add_prof">
                         <?php for($i=0; $i<count($pda_data); $i++){?>
                             <div class="form-group d-flex justify-content-between mt-3" id="profdiv_<?php echo $i ?>">
-                                <div class="col-md-3">
-                                    <label>Date of Appoinment <label class="err_msg" id="msg"> * </label></label>
+                                <div class="col-md-2">
+                                    <label>From <label class="err_msg" id="msg"> * </label></label>
                                     <input type="date" class="form-control" id="p_da<?php echo $i ?>" value="<?php echo $pda_data[$i]?>" disabled>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>To <label class="err_msg" id="msg"> * </label></label>
+                                    <input type="date" class="form-control" id="p_to<?php echo $i ?>" value="<?php echo $pda_data[$i]?>" disabled>
                                 </div>
                                 <div class="col-md-3">
                                     <label>University Name <label class="err_msg" id="msg"> * </label></label>
                                     <input type="text" class="form-control" id="p_un<?php echo $i ?>" value="<?php echo $pun_data[$i]?>" disabled>
                                 </div>
-                                <div class="col-md-3 d-flex align-items-center justify-content-center pt-4 checkbox">
+                                <div class="col-md-2 d-flex align-items-center justify-content-center pt-4 checkbox">
                                 <label><input type="checkbox" id="p_pc<?php echo $i ?>" <?php echo (($ppc_data[$i] == "True")) ? "checked disabled" : "disabled"; ?>> Private College </label>
                                 </div>
                                 <div class="col-md-2 d-flex justify-content-end align-items-center" style="margin-top: 5px !important;">
@@ -124,15 +128,19 @@
                     <div class="col-md-12" id="add_asso">
                         <?php for($i=0; $i<count($ada_data); $i++){?>
                             <div class="form-group d-flex justify-content-between mt-3" id="assodiv_<?php echo $i ?>">
-                                <div class="col-md-3">
-                                    <label>Date of Appoinment <label class="err_msg" id="msg"> * </label></label>
+                                <div class="col-md-2">
+                                    <label>From <label class="err_msg" id="msg"> * </label></label>
                                     <input type="date" class="form-control" id="a_da<?php echo $i ?>" value="<?php echo $ada_data[$i]?>" disabled>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>To <label class="err_msg" id="msg"> * </label></label>
+                                    <input type="date" class="form-control" id="a_to<?php echo $i ?>" value="<?php echo $ada_data[$i]?>" disabled>
                                 </div>
                                 <div class="col-md-3">
                                     <label>University Name <label class="err_msg" id="msg"> * </label></label>
                                     <input type="text" class="form-control" id="a_un<?php echo $i ?>" value="<?php echo $aun_data[$i]?>" disabled>
                                 </div>
-                                <div class="col-md-3 d-flex align-items-center justify-content-center pt-4 checkbox">
+                                <div class="col-md-2 d-flex align-items-center justify-content-center pt-4 checkbox">
                                     <label><input type="checkbox" id="a_pc<?php echo $i ?>" <?php echo (($apc_data[$i] == "True")) ? "checked disabled" : "disabled"; ?>> Private College </label>
                                 </div>
                                 <div class="col-md-2 d-flex justify-content-end align-items-center" style="margin-top: 5px !important;">
@@ -177,15 +185,19 @@
                     <div class="col-md-12" id="add_assi">
                         <?php for($i=0; $i<count($sda_data); $i++){?>
                             <div class="form-group d-flex justify-content-between mt-3" id="assidiv_<?php echo $i ?>">
-                                <div class="col-md-3">
-                                    <label>Date of Appoinment <label class="err_msg" id="msg"> * </label></label>
+                                <div class="col-md-2">
+                                    <label>From <label class="err_msg" id="msg"> * </label></label>
                                     <input type="date" class="form-control" id="as_da<?php echo $i ?>" value="<?php echo $sda_data[$i]?>" disabled>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>To <label class="err_msg" id="msg"> * </label></label>
+                                    <input type="date" class="form-control" id="as_to<?php echo $i ?>" value="<?php echo $sda_data[$i]?>" disabled>
                                 </div>
                                 <div class="col-md-3">
                                     <label>University Name <label class="err_msg" id="msg"> * </label></label>
                                     <input type="text" class="form-control" id="as_un<?php echo $i ?>" value="<?php echo $sun_data[$i]?>" disabled>
                                 </div>
-                                <div class="col-md-3 d-flex align-items-center justify-content-center pt-4 checkbox">
+                                <div class="col-md-2 d-flex align-items-center justify-content-center pt-4 checkbox">
                                     <label><input type="checkbox" id="as_pc<?php echo $i ?>" <?php echo (($spc_data[$i] == "True")) ? "checked disabled" : "disabled"; ?>> Private College </label>
                                 </div>
                                 <div class="col-md-2 d-flex justify-content-end align-items-center" style="margin-top: 5px !important;">
@@ -420,33 +432,46 @@
         function check_professor(){
             for(var i=0; i<prof_id; i++){
                 p_da = "p_da"+i;
+                p_to = "p_to"+i;
                 p_un = "p_un"+i;
                 try{
                     pelement1 = document.getElementById(p_da)
-                    pelement2 = document.getElementById(p_un)
-                    if(pelement1.value.length == 0 || pelement2.value.length == 0){
+                    pelement2 = document.getElementById(p_to)
+                    pelement3 = document.getElementById(p_un)
+                    if(pelement1.value.length == 0 || pelement2.value.length == 0 || pelement3.value.length == 0){
                         pelement1.style.border = "1px solid red";
                         pelement2.style.border = "1px solid red";
+                        pelement3.style.border = "1px solid red";
                         alert("Enter Professor Details")
                         return false
                     }
                     else{
                         ptoday = new Date()
                         penterdate = new Date(pelement1.value)
+                        pexitdate = new Date(pelement2.value)
                         if(penterdate.getTime() > ptoday.getTime() | penterdate.getTime() == ptoday.getTime()){
                             alert("Professor: Enter Valid Date")
                             pelement1.style.border = "1px solid red";
                             return false
                         }
                         else{
-                            var regex = /^[a-z A-Z,\-_]+$/;
-                            if(regex.test((pelement2.value))){
+                            if(penterdate.getTime() > pexitdate.getTime() | penterdate.getTime() == pexitdate.getTime()){
+                                alert("Professor: Enter Valid From & To Date")
+                                pelement1.style.border = "1px solid red";
+                                pelement2.style.border = "1px solid red";
+                                return false
+                            }
+                            else{
                                 pelement1.style.border = "1px solid lightgray";
                                 pelement2.style.border = "1px solid lightgray";
-                            }else{
-                                pelement2.style.border = "1px solid red";
-                                alert("Only these (Alphabets, '-' '_' and ',') are allowed")
-                                return false
+                                var regex = /^[a-z A-Z,\-_]+$/;
+                                if(regex.test((pelement3.value))){
+                                    pelement3.style.border = "1px solid lightgray";
+                                }else{
+                                    pelement3.style.border = "1px solid red";
+                                    alert("Only these (Alphabets, '-' '_' and ',') are allowed")
+                                    return false
+                                }
                             }
                         }
                     };
@@ -458,33 +483,46 @@
         function check_associate(){
             for(var i=0; i<=asso_id; i++){
                 a_da = "a_da"+i;
+                a_to = "a_to"+i;
                 a_un = "a_un"+i;
                 try{
                     aelement1 = document.getElementById(a_da)
-                    aelement2 = document.getElementById(a_un)
-                    if(aelement1.value.length == 0 || aelement2.value.length == 0){
+                    aelement2 = document.getElementById(a_to)
+                    aelement3 = document.getElementById(a_un)
+                    if(aelement1.value.length == 0 || aelement2.value.length == 0 || aelement3.value.length == 0){
                         aelement1.style.border = "1px solid red";
                         aelement2.style.border = "1px solid red";
+                        aelement3.style.border = "1px solid red";
                         alert("Enter Associate Professor Details")
                         return false
                     }
                     else{
                         atoday = new Date()
                         aenterdate = new Date(aelement1.value)
+                        aexitdate = new Date(aelement2.value)
                         if(aenterdate.getTime() > atoday.getTime() | aenterdate.getTime() == atoday.getTime()){
                             alert("Associate Professor: Enter Valid Date")
                             aelement1.style.border = "1px solid red";
                             return false
                         }
                         else{
-                            var regex = /^[a-z A-Z,\-_]+$/;
-                            if(regex.test((aelement2.value))){
+                            if(aenterdate.getTime() > aexitdate.getTime() | aenterdate.getTime() == aexitdate.getTime()){
+                                alert("Associate Professor: Enter Valid From & To Date")
+                                aelement1.style.border = "1px solid red";
+                                aelement2.style.border = "1px solid red";
+                                return false
+                            }
+                            else{
                                 aelement1.style.border = "1px solid lightgray";
                                 aelement2.style.border = "1px solid lightgray";
-                            }else{
-                                aelement2.style.border = "1px solid red";
-                                alert("Only these (Alphabets, '-' '_' and ',') are allowed")
-                                return false
+                                var regex = /^[a-z A-Z,\-_]+$/;
+                                if(regex.test((aelement3.value))){
+                                    aelement3.style.border = "1px solid lightgray";
+                                }else{
+                                    aelement3.style.border = "1px solid red";
+                                    alert("Only these (Alphabets, '-' '_' and ',') are allowed")
+                                    return false
+                                }
                             }
                         }
                     };
@@ -496,33 +534,46 @@
         function check_assisstant(){
             for(var i=0; i<assi_id; i++){
                 s_da = "as_da"+i;
+                s_to = "as_to"+i;
                 s_un = "as_un"+i;
                 try{
                     selement1 = document.getElementById(s_da)
-                    selement2 = document.getElementById(s_un)
-                    if(selement1.value.length == 0 || selement2.value.length == 0){
+                    selement2 = document.getElementById(s_to)
+                    selement3 = document.getElementById(s_un)
+                    if(selement1.value.length == 0 || selement2.value.length == 0 || selement3.value.length == 0){
                         selement1.style.border = "1px solid red";
                         selement2.style.border = "1px solid red";
+                        selement3.style.border = "1px solid red";
                         alert("Enter Assisstant Professor Details")
                         return false
                     }
                     else{
                         stoday = new Date()
                         senterdate = new Date(selement1.value)
+                        sexitdate = new Date(selement2.value)
                         if(senterdate.getTime() > stoday.getTime() | senterdate.getTime() == stoday.getTime()){
                             alert("Assisstant Professor: Enter Valid Date")
                             selement1.style.border = "1px solid red";
                             return false
                         }
                         else{
-                            var regex = /^[a-z A-Z,\-_]+$/;
-                            if(regex.test((selement2.value))){
+                            if(senterdate.getTime() > sexitdate.getTime() | senterdate.getTime() == sexitdate.getTime()){
+                                alert("Assisstant Professor: Enter Valid From & To Date")
+                                selement1.style.border = "1px solid red";
+                                selement2.style.border = "1px solid red";
+                                return false
+                            }
+                            else{
                                 selement1.style.border = "1px solid lightgray";
                                 selement2.style.border = "1px solid lightgray";
-                            }else{
-                                selement2.style.border = "1px solid red";
-                                alert("Only these (Alphabets, '-' '_' and ',') are allowed")
-                                return false
+                                var regex = /^[a-z A-Z,\-_]+$/;
+                                if(regex.test((selement3.value))){
+                                    selement3.style.border = "1px solid lightgray";
+                                }else{
+                                    selement3.style.border = "1px solid red";
+                                    alert("Only these (Alphabets, '-' '_' and ',') are allowed")
+                                    return false
+                                }
                             }
                         }
                     };
@@ -542,15 +593,19 @@
             }
             else{
                 if(designationvalue == "Professor"){
-                    var string = `<div class="col-md-3">
-                                    <label>Date of Appoinment <label class="err_msg" id="msg"> * </label></label>
+                    var string = `<div class="col-md-2">
+                                    <label>From <label class="err_msg" id="msg"> * </label></label>
                                     <input type="date" class="form-control" id="p_da`+prof_id+`">
+                                </div>
+                                <div class="col-md-2">
+                                    <label>To <label class="err_msg" id="msg"> * </label></label>
+                                    <input type="date" class="form-control" id="p_to`+prof_id+`">
                                 </div>
                                 <div class="col-md-3">
                                     <label>University Name <label class="err_msg" id="msg"> * </label></label>
                                     <input type="text" class="form-control" id="p_un`+prof_id+`">
                                 </div>
-                                <div class="col-md-3 d-flex align-items-center justify-content-center pt-4 checkbox">
+                                <div class="col-md-2 d-flex align-items-center justify-content-center pt-4 checkbox">
                                     <label><input type="checkbox" id="p_pc`+prof_id+`"> Private College </label>
                                 </div>
                                 <div class="col-md-2 d-flex justify-content-end align-items-center" style="margin-top: 4px !important;">
@@ -570,15 +625,19 @@
                     pc++;
                 }
                 if(designationvalue == "Associate Professor"){
-                    var string = `<div class="col-md-3">
-                                    <label>Date of Appoinment <label class="err_msg" id="msg"> * </label></label>
+                    var string = `<div class="col-md-2">
+                                    <label>From <label class="err_msg" id="msg"> * </label></label>
                                     <input type="date" class="form-control" id="a_da`+asso_id+`">
+                                </div>
+                                <div class="col-md-2">
+                                    <label>To <label class="err_msg" id="msg"> * </label></label>
+                                    <input type="date" class="form-control" id="a_to`+asso_id+`">
                                 </div>
                                 <div class="col-md-3">
                                     <label>University Name <label class="err_msg" id="msg"> * </label></label>
                                     <input type="text" class="form-control" id="a_un`+asso_id+`">
                                 </div>
-                                <div class="col-md-3 d-flex align-items-center justify-content-center pt-4 checkbox">
+                                <div class="col-md-2 d-flex align-items-center justify-content-center pt-4 checkbox">
                                     <label><input type="checkbox" id="a_pc`+asso_id+`"> Private College </label>
                                 </div>
                                 <div class="col-md-2 d-flex justify-content-end align-items-center" style="margin-top: 4px !important;">
@@ -598,15 +657,19 @@
                     ac++;
                 }                    
                 if(designationvalue == "Assistant Professor"){
-                    var string = `<div class="col-md-3">
-                                    <label>Date of Appoinment <label class="err_msg" id="msg"> * </label></label>
+                    var string = `<div class="col-md-2">
+                                    <label>From <label class="err_msg" id="msg"> * </label></label>
                                     <input type="date" class="form-control" id="as_da`+assi_id+`">
+                                </div>
+                                <div class="col-md-2">
+                                    <label>To <label class="err_msg" id="msg"> * </label></label>
+                                    <input type="date" class="form-control" id="as_to`+assi_id+`">
                                 </div>
                                 <div class="col-md-3">
                                     <label>University Name <label class="err_msg" id="msg"> * </label></label>
                                     <input type="text" class="form-control" id="as_un`+assi_id+`">
                                 </div>
-                                <div class="col-md-3 d-flex align-items-center justify-content-center pt-4 checkbox">
+                                <div class="col-md-2 d-flex align-items-center justify-content-center pt-4 checkbox">
                                     <label><input type="checkbox" id="as_pc`+assi_id+`"> Private College </label>
                                 </div>
                                 <div class="col-md-2 d-flex justify-content-end align-items-center" style="margin-top: 6px !important;">
@@ -767,6 +830,7 @@
                 if($pda_data[0] != null){
                     for($i=0; $i<count($pda_data); $i++){
                         echo 'document.getElementById("p_da'.$i.'").removeAttribute("disabled");';
+                        echo 'document.getElementById("p_to'.$i.'").removeAttribute("disabled");';
                         echo 'document.getElementById("p_un'.$i.'").removeAttribute("disabled");';
                         echo 'document.getElementById("p_pc'.$i.'").removeAttribute("disabled");';
                         echo 'document.getElementById("prof_btn'.$i.'").removeAttribute("disabled");';
@@ -777,6 +841,7 @@
                 if($ada_data[0] != null){
                     for($i=0; $i<count($ada_data); $i++){
                         echo 'document.getElementById("a_da'.$i.'").removeAttribute("disabled");';
+                        echo 'document.getElementById("a_to'.$i.'").removeAttribute("disabled");';
                         echo 'document.getElementById("a_un'.$i.'").removeAttribute("disabled");';
                         echo 'document.getElementById("a_pc'.$i.'").removeAttribute("disabled");';
                         echo 'document.getElementById("asso_btn'.$i.'").removeAttribute("disabled");';
@@ -787,6 +852,7 @@
                 if($sda_data[0] != null){
                     for($i=0; $i<count($sda_data); $i++){
                         echo 'document.getElementById("as_da'.$i.'").removeAttribute("disabled");';
+                        echo 'document.getElementById("as_to'.$i.'").removeAttribute("disabled");';
                         echo 'document.getElementById("as_un'.$i.'").removeAttribute("disabled");';
                         echo 'document.getElementById("as_pc'.$i.'").removeAttribute("disabled");';
                         echo 'document.getElementById("assi_btn'.$i.'").removeAttribute("disabled");';
