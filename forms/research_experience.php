@@ -609,26 +609,27 @@
                 e.preventDefault();
                 if(rvalidation()){
                     //---------
-                    var rData = $("#papers_national").val().trim()+";"+
-                        $("#papers_international").val().trim()+";"+
-                        $("#papers_info").val().trim()+";"+
-                        $("#patents").val().trim()+";"+
-                        $("#books").val().trim()+";"+
-                        $("#projects_major").val().trim()+";"+
-                        $("#projects_minor").val().trim()+";"+
-                        $("#funds_major").val().trim()+";"+
-                        $("#funds_minor").val().trim()+";"+
-                        $("#projects_completed").val().trim()+";"+
-                        $("#reports_submitted").val().trim()+";"+
-                        $("#mpg").val().trim()+";"+
-                        $("#pdg").val().trim()+";"+
-                        $("#seminars_national").val().trim()+";"+
-                        $("#seminars_international").val().trim()+";"+
-                        $("#bodies_national").val().trim()+";"+
-                        $("#bodies_international").val().trim()+";"+
-                        $("#awards_state").val().trim()+";"+
-                        $("#awards_national").val().trim()+";"+
-                        $("#awards_international").val().trim()+";";
+                    var rData = $("#papers_national").val().trim()+"><"+
+                        $("#papers_international").val().trim()+"><"+
+                        $("#papers_info").val().trim()+"><"+
+                        $("#patents").val().trim()+"><"+
+                        $("#books").val().trim()+"><"+
+                        $("#projects_major").val().trim()+"><"+
+                        $("#projects_minor").val().trim()+"><"+
+                        $("#funds_major").val().trim()+"><"+
+                        $("#funds_minor").val().trim()+"><"+
+                        $("#projects_completed").val().trim()+"><"+
+                        $("#reports_submitted").val().trim()+"><"+
+                        $("#mpg").val().trim()+"><"+
+                        $("#pdg").val().trim()+"><"+
+                        $("#seminars_national").val().trim()+"><"+
+                        $("#seminars_international").val().trim()+"><"+
+                        $("#bodies_national").val().trim()+"><"+
+                        $("#bodies_international").val().trim()+"><"+
+                        $("#awards_state").val().trim()+"><"+
+                        $("#awards_national").val().trim()+"><"+
+                        $("#awards_international").val().trim();
+                        // alert(rData);
                     //---------
                     $.ajax({
                         url: "apis/insert_researchDetails.php",
