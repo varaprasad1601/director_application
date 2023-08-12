@@ -236,7 +236,7 @@
                                 <div class="col-md-8 a"><label class="text"><?php echo $pd_row[12] ?></label></div>
                             </div>
                             <div class="col-md-12 d-flex mb-2" style="border-bottom: .5px solid #eeeee4">
-                                <div class="col-md-4 q"><label class="text">University Name</label></div>
+                                <div class="col-md-4 q"><label class="text">Organization Name</label></div>
                                 <div class="col-md-8 a"><label class="text"><?php echo $pd_row[13] ?></label></div>
                             </div>
                         </div>
@@ -292,14 +292,14 @@
                         </div>
                         <div class="col-md-12 d-flex justify-content-between mb-2" style="border-bottom: .5px solid #eeeee4">
                             <div class="col-md-3 qd qyc"><label class="text"><b>Year of Completion</b></label></div>
-                            <div class="col-md-4 qd"><label class="text"><b>Specialization</b></label></div>
-                            <div class="col-md-4 qd"><label class="text"><b>Awarded University</b></label></div>
+                            <div class="col-md-4 qd qpg"><label class="text"><b>Specialization</b></label></div>
+                            <div class="col-md-4 qd qpg"><label class="text"><b>Awarded University</b></label></div>
                         </div>
                         <?php for ($i=0; $i<count($dcy_data); $i++){?>
                             <div class="col-md-12 d-flex justify-content-between mb-2" style="border-bottom: .5px solid #eeeee4">
                                 <div class="col-md-3 qd qyc"><label class="text"><?php echo $dcy_data[$i] ?></label></div>
-                                <div class="col-md-4 qd"><label class="text"><?php echo $dsp_data[$i] ?></label></div>
-                                <div class="col-md-4 qd"><label class="text"><?php echo $dau_data[$i] ?></label></div>
+                                <div class="col-md-4 qd qpg"><label class="text"><?php echo $dsp_data[$i] ?></label></div>
+                                <div class="col-md-4 qd qpg"><label class="text"><?php echo $dau_data[$i] ?></label></div>
                             </div>
                         <?php } ?>
                     </div>

@@ -83,7 +83,7 @@ $stage_num = mysqli_fetch_row($sta);
         </div>
         <div class="che_che">
         <div class="che_box">
-            <div class="col-md-12 px-4 d-flex flex-column"><label class="text" style="margin-bottom:0px;"><b>Name of the Campus or Campuses Applied for</b></label><label class="text" style="color: red; font-size:15px;">Note: If you want to apply more than one campus, select all desired campuses.</label></div>
+            <div class="col-md-12 px-4 d-flex flex-column"><label class="text" style="margin-bottom:0px;"><b>Select the Campus or Campuses Applied for</b></label><label class="text" style="color: red; font-size:15px;">Note: If you want to apply more than one campus, select all desired campuses.</label></div>
                 <div class="col-md-12 px-4 field d-flex justify-content-between">
                     <div class="check_boxes" style="display: none;">
                         <input type="checkbox" class ="camp" name="campus" id="n_c" value="Nuzvid" <?php echo (($campus_data[0] == 'Nuzvid')) ? 'checked' : '' ?>>
