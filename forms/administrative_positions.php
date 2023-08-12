@@ -237,7 +237,7 @@
                 }else{
                     pos_num = pos+1;
                     var position_string = `<div class="col-md-3">
-                                            <label>Name of the Position</label>`+pos+`
+                                            <label>Name of the Position</label>
                                             <input type="text" class="form-control" id="position`+pos+`" placeholder="Position">
                                         </div>
                                         <div class="col-md-3">

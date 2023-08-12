@@ -41,7 +41,7 @@
             <div class="form-group d-flex justify-content-between mt-4">
                 <div class="col-md-3">
                     <label>Total Teaching Experience (in Years)<label class="err_msg" id="msg"> * </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                    <input type="text" class="form-control" id="teaching_experience" <?php echo (($td_row != null)) ? 'value="'.$td_row[2].'" disabled' : 'value=""' ?>>
+                    <input type="text" class="form-control" id="teaching_experience" <?php echo (($td_row != null)) ? 'value="'.$td_row[2].'" disabled' : 'value=" " disabled' ?>>
                 </div>
                 <div class="col-md-3">
                     <label>Total Length of service as professor as on date (in Years)<label class="err_msg" id="msg"> * </label></label>
@@ -52,7 +52,7 @@
                     <input type="text" class="form-control" id="leftover" <?php echo (($td_row != null)) ? 'value="'.$td_row[4].'" disabled' : 'value=""' ?>>
                 </div>
             </div>
-            <label class="text" style="color: red; font-size:15px;">Note: Total Teaching Experience should be matched with the below data.</label>
+            <!-- <label class="text" style="color: red; font-size:15px;">Note: Total Teaching Experience should be matched with the below data.</label> -->
 
 
             <!-- <h3 class="mt-4">Working Experience</h3> -->
@@ -309,24 +309,24 @@
 
 
         // Experience ===============================================================================
-        function fun_1(){
-            teaching_experience.addEventListener('blur',fun_1);
-            if(teaching_experience.value.length == 0){
-                teaching_experience.style.border = "1px solid red"
-                fields("Enter Teaching Experience")
-                return false
-            }
-            else{
-                var regex = /^[0-9]*(\.[0-9]*)?$/;
-                if(regex.test(teaching_experience.value)){
-                    teaching_experience.style.border = "1px solid lightgray" 
-                }else{
-                    teaching_experience.style.border = "1px solid red"
-                    fields("Enter Valid Teaching Experience")
-                    return false
-                }
-            }
-        };
+        // function fun_1(){
+        //     teaching_experience.addEventListener('blur',fun_1);
+        //     if(teaching_experience.value.length == 0){
+        //         teaching_experience.style.border = "1px solid red"
+        //         fields("Enter Teaching Experience")
+        //         return false
+        //     }
+        //     else{
+        //         var regex = /^[0-9]*(\.[0-9]*)?$/;
+        //         if(regex.test(teaching_experience.value)){
+        //             teaching_experience.style.border = "1px solid lightgray" 
+        //         }else{
+        //             teaching_experience.style.border = "1px solid red"
+        //             fields("Enter Valid Teaching Experience")
+        //             return false
+        //         }
+        //     }
+        // };
         // Experience ===============================================================================
 
 
@@ -458,7 +458,7 @@
                             return false
                         }
                         else{
-                            if(penterdate.getTime() > pexitdate.getTime() | penterdate.getTime() == pexitdate.getTime()){
+                            if(penterdate.getTime() > pexitdate.getTime() | penterdate.getTime() == pexitdate.getTime() | pexitdate.getTime() > ptoday.getTime()){
                                 alert("Professor: Enter Valid From & To Date")
                                 pelement1.style.border = "1px solid red";
                                 pelement2.style.border = "1px solid red";
@@ -509,7 +509,7 @@
                             return false
                         }
                         else{
-                            if(aenterdate.getTime() > aexitdate.getTime() | aenterdate.getTime() == aexitdate.getTime()){
+                            if(aenterdate.getTime() > aexitdate.getTime() | aenterdate.getTime() == aexitdate.getTime() | aexitdate.getTime() > atoday.getTime()){
                                 alert("Associate Professor: Enter Valid From & To Date")
                                 aelement1.style.border = "1px solid red";
                                 aelement2.style.border = "1px solid red";
@@ -560,7 +560,7 @@
                             return false
                         }
                         else{
-                            if(senterdate.getTime() > sexitdate.getTime() | senterdate.getTime() == sexitdate.getTime()){
+                            if(senterdate.getTime() > sexitdate.getTime() | senterdate.getTime() == sexitdate.getTime() | sexitdate.getTime() > stoday.getTime()){
                                 alert("Assisstant Professor: Enter Valid From & To Date")
                                 selement1.style.border = "1px solid red";
                                 selement2.style.border = "1px solid red";
@@ -839,10 +839,12 @@
 
 
             total_years = +p_totalyears.toFixed(1) + +a_totalyears.toFixed(1) + +as_totalyears.toFixed(1)
-            if(teaching_experience.value != total_years){
-                alert("Total Teaching Experience not matched with the mentioned data")
-                return false
-            }
+            teaching_experience.value = total_years;
+
+            // if(teaching_experience.value != total_years){
+            //     alert("Total Teaching Experience not matched with the mentioned data")
+            //     return false
+            // }
         }
         //Calculate Experience ===============================================================================
 
@@ -864,7 +866,7 @@
 
         // Validation ===============================================================================
         function tvalidation(){
-            if(fun_1() == false){return false}
+            // if(fun_1() == false){return false}
             if(fun_2() == false){return false}
             if(fun_3() == false){return false}
             if(fun_4() == false){return false}

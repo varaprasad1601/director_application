@@ -88,7 +88,7 @@
                     <input type="number" class="form-control" placeholder="Projects Completed" id="projects_completed" <?php echo(($row)) ? 'value="'.$row[11].'" disabled' : "" ?>>
                 </div>
                 <div class="col-md-5">
-                    <label>Number of Reports Submitted for mentioned projects</label>
+                    <label>Number of Reports Submitted for mentioned projects</label> <label class="err_msg" id="msg"> * </label>
                     <input type="number" class="form-control" placeholder="Reports Submitted" id="reports_submitted" <?php echo(($row)) ? 'value="'.$row[12].'" disabled' : "" ?>>
                 </div>
                 <div class="col-md-1"></div>

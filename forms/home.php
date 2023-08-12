@@ -18,7 +18,7 @@
             background:lightgray;
         }
         ::-webkit-scrollbar-thumb{
-            background-color: black;
+            background-color: gray;
             border-radius: 50px;
         }
         body{
