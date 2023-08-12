@@ -7,10 +7,10 @@
             .gov{width: 10% !important;}
             .gov_logo{width: 85%;}
             .head{padding: 0px !important; flex-direction: row !important;}
-            .heading-1{font-size: 9px !important;}
+            .heading-1{font-size: 7.5px !important;}
             .heading-2{font-size: 5px !important; margin-top: -10px !important;}
             .heading-3{font-size: 5px !important; margin-top: -13px !important;}
-            /* .main-head{padding: 0px !important;} */
+            .main-head{padding-top: 0px !important;}
         }
     </style>
 </head>

@@ -7,6 +7,9 @@
     $q = mysqli_query($con,"SELECT `all_done` from `reg_dir` where `ApplicationId` = '$uid'");
     $tab_num = mysqli_fetch_row($q);
 
+    $sta = mysqli_query($con,"SELECT `stage` from `reg_dir` where `ApplicationId` = '$uid'");
+    $stage_num = mysqli_fetch_row($sta);
+
 
     // Personal Details =======================================================================================================
     $pd_data = mysqli_query($con,"select * from `personneldetails` where `ApplicationId` = '$uid'");

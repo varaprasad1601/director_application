@@ -497,10 +497,10 @@
             if(funds() == false){return false}
             if(mpg_function() == false){return false}
             if(pdg_function() == false){return false}
-            if(awards() == false){return false}
             if(seminars() == false){return false}
             if(bodies() == false){return false}
             if(agr_function() == false){return false}
+            if(awards() == false){return false}
             else{return true}
         };
         // Validation ======================================================================

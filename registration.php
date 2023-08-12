@@ -116,6 +116,9 @@ if(isset($_SESSION['ApplicationId'])){
                         <div class="inputBox my-0 d-flex justify-content-center align-items-center">
                             <label>Already have an Account? <a href="index.php" class="link">Login</a></label>
                         </div>
+                        <div class="inputBox my-0 d-flex justify-content-center align-items-center">
+                            <label><a href="forgot1.php" class="link">forgot password?</a></label>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -233,6 +233,7 @@
 
         function preview(){
             tab6();
+            location.reload()
         }
 
         // Tabs ==========================================================================
@@ -267,6 +268,8 @@
             t4.style.display = "none"
             t5.style.display = "none"
             t6.style.display = "none"
+
+            tab_num = 0
         };
         // Tab - 1 =======================================
 
@@ -289,6 +292,8 @@
             t4.style.display = "none"
             t5.style.display = "none"
             t6.style.display = "none"
+
+            tab_num = 0
         };
         // Tab - 2 =======================================
 
@@ -312,6 +317,8 @@
             t4.style.display = "none"
             t5.style.display = "none"
             t6.style.display = "none"
+
+            tab_num = 0
         };
         // Tab - 3 =======================================
 
@@ -336,6 +343,8 @@
             t3.style.display = "none"
             t5.style.display = "none"
             t6.style.display = "none"
+
+            tab_num = 0
         };
         // Tab - 4 =======================================
 
@@ -361,6 +370,8 @@
             t3.style.display = "none"
             t4.style.display = "none"
             t6.style.display = "none"
+
+            tab_num = 0
         };
         // Tab - 5 =======================================
 
@@ -385,6 +396,8 @@
             t3.style.display = "none"
             t4.style.display = "none"
             t5.style.display = "none"
+
+            tab_num = 6
         };
         // Tab - 6 =======================================
 

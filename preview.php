@@ -92,17 +92,20 @@
             .header{padding:10px !important;}
             .pad{padding:0px !important;}
             .head{padding: 0px !important;}
-            .heading-1{font-size: 9px !important;}
-            .heading-2{font-size: 6px !important; margin-top: -10px !important;}
-            .heading-3{font-size: 6px !important; margin-top: -13px !important;}
+            .heading-1{font-size: 7px !important;}
+            .heading-2{font-size: 5px !important; margin-top: -10px !important;}
+            .heading-3{font-size: 5px !important; margin-top: -13px !important;}
             .text{font-size: 10px;}
             .form-head{font-size: 15px !important;}
             .pdetails{ flex-direction: column-reverse; padding: 20px 0px !important;}
+            .declaration{ padding: 20px 0px !important;}
             .details{ justify-content: space-between;}
             .btns{width: 100% !important;}
             .click_btn{width: 100% !important; margin-top: 30px !important; margin-bottom: 50px;}
             .print_campus{margin: 0px !important; width: 100% !important;}
             .btns_height{flex-direction: column !important;}
+            .modal_in_box{padding: 20px !important;}
+            .modal-box{padding: 10px !important;}
             .q{width: 35%;}
             .a{width: 65%;}
             .tq{width: 65%;}
@@ -173,7 +176,7 @@
                             };
                             $final_campuses = substr($final_campuse, 0, -2);
                         ?>
-                    <label class="text selected_campuses">Selected Campuses: <?php echo $final_campuses ?></label>
+                    <label class="text selected_campuses">Applied Campuses: <?php echo $final_campuses ?></label>
                     <label class="text selected_campus" id="selected_campus"></label>
                     </div>
 
@@ -314,9 +317,9 @@
                     <!-- Teaching Experience ================================================== -->
 
                     <!-- Working Experience ================================================== -->
-                    <div class="col-md-12 mt-4" style="border-bottom:1px solid lightgray;">
+                    <!-- <div class="col-md-12 mt-4" style="border-bottom:1px solid lightgray;">
                         <h3>Working Experience</h3>
-                    </div>
+                    </div> -->
                     <div class="col-md-12 pdetails justify-content-between px-5 py-4">
                         <div class="col-md-12 mb-2">
                             <?php if($pr_row){
@@ -378,6 +381,30 @@
                         </div>
                     </div>
                     <!-- Working Experience ================================================== -->
+                    
+                    
+                    <!-- Administrative Positions ================================================== -->
+                    <div class="search">
+                        <div class="col-md-12 mt-4" style="border-bottom:1px solid lightgray;">
+                            <h3>Administrative Positions</h3>
+                        </div>
+                        <div class="col-md-12 pdetails justify-content-between px-5 py-4">
+                            <div class="col-md-12 d-flex mb-2 under_g" style="border-bottom: .5px solid #eeeee4">
+                                <div class="col-md-6 ap"><label class="text"><b>Position</b></label></div>
+                                <div class="col-md-3 af"><label class="text"><b>From</b></label></div>
+                                <div class="col-md-3 at"><label class="text"><b>To</b></label></div>
+                            </div>
+                            <?php for ($i=0; $i<count($pos_data); $i++){?>
+                                <div class="col-md-12 d-flex mb-2" style="border-bottom: .5px solid #eeeee4">
+                                    <div class="col-md-6 ap"><label class="text"><?php echo $pos_data[$i] ?></label></div>
+                                    <div class="col-md-3 af"><label class="text"><?php echo $from_data[$i] ?></label></div>
+                                    <div class="col-md-3 at"><label class="text"><?php echo $to_data[$i] ?></label></div>
+                                </div>
+                            <?php } ?>
+                        </div>
+                    </div>
+                    <!-- Administrative Positions ================================================== -->
+
 
                     <!-- Research Experience ================================================== -->
                         <div class="col-md-12 search">
@@ -538,48 +565,31 @@
                         </div>
                     <!-- Research Experience ================================================== -->
 
-                    <!-- Administrative Positions ================================================== -->
+                    <!-- Cases ============================================================== -->
+                    <?php if($cname_data[0] != "" | $cstatus_data[0] != ""){ ?>
                     <div class="search">
                         <div class="col-md-12 mt-4" style="border-bottom:1px solid lightgray;">
-                            <h3>Administrative Positions</h3>
+                            <h3 class="">ACB / Vigilance / Criminal / Departmental Cases / Enquiries-Pending</h3>
                         </div>
                         <div class="col-md-12 pdetails justify-content-between px-5 py-4">
                             <div class="col-md-12 d-flex mb-2 under_g" style="border-bottom: .5px solid #eeeee4">
-                                <div class="col-md-6 ap"><label class="text"><b>Position</b></label></div>
-                                <div class="col-md-3 af"><label class="text"><b>From</b></label></div>
-                                <div class="col-md-3 at"><label class="text"><b>To</b></label></div>
+                                <div class="col-md-4 qd"><label class="text"><b>Type of Case</b></label></div>
+                                <div class="col-md-4 qd"><label class="text"><b>Name of the Case</b></label></div>
+                                <div class="col-md-4 qd"><label class="text"><b>Status of the Case</b></label></div>
                             </div>
-                            <?php for ($i=0; $i<count($pos_data); $i++){?>
-                                <div class="col-md-12 d-flex mb-2" style="border-bottom: .5px solid #eeeee4">
-                                    <div class="col-md-6 ap"><label class="text"><?php echo $pos_data[$i] ?></label></div>
-                                    <div class="col-md-3 af"><label class="text"><?php echo $from_data[$i] ?></label></div>
-                                    <div class="col-md-3 at"><label class="text"><?php echo $to_data[$i] ?></label></div>
-                                </div>
+                            <?php for ($i=0; $i<count($case_data); $i++){?>
+                                <?php if($cname_data[$i] != "" | $cstatus_data[$i] != ""){ ?>
+                                    <div class="col-md-12 d-flex mb-2" style="border-bottom: .5px solid #eeeee4">
+                                        <div class="col-md-4 qd"><label class="text"><?php echo $case_data[$i] ?></label></div>
+                                        <div class="col-md-4 qd"><label class="text"><?php echo $cname_data[$i] ?></label></div>
+                                        <div class="col-md-4 qd"><label class="text"><?php echo $cstatus_data[$i] ?></label></div>
+                                    </div>
+                                <?php } ?>
                             <?php } ?>
                         </div>
-                    </div>
-                    <?php if($cname_data[0] != "" | $cstatus_data[0] != ""){ ?>
-                    <div class="col-md-12 pdetails justify-content-between px-5 py-4">
-                        <div class="col-md-12 mb-3" style="border-bottom: 1px solid lightgray;">
-                            <h5 class="">ACB / Vigilance / Criminal / Departmental Cases / Enquiries-Pending</h5>
-                        </div>
-                        <div class="col-md-12 d-flex mb-2 under_g" style="border-bottom: .5px solid #eeeee4">
-                            <div class="col-md-4 qd"><label class="text"><b>Type of Case</b></label></div>
-                            <div class="col-md-4 qd"><label class="text"><b>Name of the Case</b></label></div>
-                            <div class="col-md-4 qd"><label class="text"><b>Status of the Case</b></label></div>
-                        </div>
-                        <?php for ($i=0; $i<count($case_data); $i++){?>
-                            <?php if($cname_data[$i] != "" | $cstatus_data[$i] != ""){ ?>
-                                <div class="col-md-12 d-flex mb-2" style="border-bottom: .5px solid #eeeee4">
-                                    <div class="col-md-4 qd"><label class="text"><?php echo $case_data[$i] ?></label></div>
-                                    <div class="col-md-4 qd"><label class="text"><?php echo $cname_data[$i] ?></label></div>
-                                    <div class="col-md-4 qd"><label class="text"><?php echo $cstatus_data[$i] ?></label></div>
-                                </div>
-                            <?php } ?>
-                        <?php } ?>
                     </div>
                     <?php } ?>
-                    <!-- Administrative Positions ================================================== -->
+                    <!-- Cases ============================================================ -->
 
                     <!-- Other Information ================================================== -->
                     <?php if($orow[2] != null){ ?>
@@ -598,7 +608,7 @@
                     <!-- Declaration ================================================== -->
                     <?php if($tab_num[0] == "tab7()"){?>
                         <div class="search mt-5" style="border-top: 1px solid lightgray; text-align:justify">
-                        <div class="col-md-12 pdetails d-flex justify-content-between px-5 py-4">
+                        <div class="col-md-12 declaration d-flex justify-content-between px-5 py-4">
                             <div class="me-3"><i class="fa fa-check-square" style="color: black;"></i></div>
                             <div><label><b>I <?php echo $pd_row[2] ?>, Hereby declare that the information entered in this application is true, complete and correct to the best of my knowledge and belief. I have read the rules and also understand that in the event of any information being found false or ineligibility is detacted before or after the selection, My Application is liable to be rejected</b></label></div>
                         </div>
@@ -651,7 +661,7 @@
     </div>
     <!-- Modal ================================================== -->
     <div class="container-fluid modal-box justify-content-center align-items-center" id="mymodal">
-        <div class="col-md-5 rounded shadow bg-light p-5" id="modal-content">
+        <div class="col-md-5 rounded shadow bg-light p-5 modal_in_box" id="modal-content">
             <div class="col-md-12 mb-4">
                 <div class="col-md-12 basic">
                     <label class="text">Application Id: <span style="color: red;"><?php echo $uid?></span></label>
@@ -660,12 +670,12 @@
                     <label class="text">Name of the Post: Director</label>
                 </div>
                 <div class="col-md-12">
-                    <label class="text">Selected Campus: <?php echo $final_campuses ?></label>
+                    <label class="text">Applied Campuses: <?php echo $final_campuses ?></label>
                 </div>
             </div>
             <h5>Declaration</h5>
             <hr>
-            <div class="col-md-12 pdetails d-flex justify-content-between pb-4">
+            <div class="col-md-12 d-flex justify-content-between pb-4">
                 <div class="me-3"><input type="checkbox" id="check_declaration"></div>
                 <div><label><b>I <?php echo $pd_row[2] ?>, Hereby declare that the information entered in this application is true, complete and correct to the best of my knowledge and belief. I have read the rules and also understand that in the event of any information being found false or ineligibility is detacted before or after the selection, My Application is liable to be rejected</b></label> <span id="err_msg" style="color: red; font-size:14px"></span></div>
             </div>
