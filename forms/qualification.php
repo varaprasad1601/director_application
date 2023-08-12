@@ -204,6 +204,11 @@
 
     <!-- Java Script -->
     <script>
+        
+        $(document).ready(function (e) {
+            $(window).scrollTop(0);
+        })
+
         var ug_cy = document.getElementById("ug_cy0")
         var ug_sp = document.getElementById("ug_sp0")
         var ug_au = document.getElementById("ug_au0")
@@ -581,6 +586,9 @@
                             ug_sp.style.border = "1px solid lightgray"
                             ug_au.style.border = "1px solid lightgray"
                         }else{    
+                            ug_cy.style.border = "1px solid red"
+                            ug_sp.style.border = "1px solid red"
+                            ug_au.style.border = "1px solid red"
                             alert("Enter Under-Graduation Valid Completed Year")
                             return false
                         }
@@ -615,6 +623,9 @@
                             pg_sp.style.border = "1px solid lightgray"
                             pg_au.style.border = "1px solid lightgray"
                         }else{
+                            pg_cy.style.border = "1px solid red"
+                            pg_sp.style.border = "1px solid red"
+                            pg_au.style.border = "1px solid red"
                             alert("Enter Post-Graduation Valid Completed Year")
                             return false
                         }
@@ -649,6 +660,9 @@
                             pd_au.style.border = "1px solid lightgray"
                         }
                         else{
+                            pd_cy.style.border = "1px solid red"
+                            pd_sp.style.border = "1px solid red"
+                            pd_au.style.border = "1px solid red"
                             alert("Enter Ph.D Valid Completed Year")
                             return false
                         }

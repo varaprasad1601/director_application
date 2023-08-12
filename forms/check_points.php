@@ -87,6 +87,9 @@
             .nra{
                 margin-left: 0px !important;
             }
+            .pap_info{
+                width: 100% !important;
+            }
 
         }
         .checkpoint{

@@ -176,6 +176,10 @@
     <!-- Java Script -->
     <script>
 
+        $(document).ready(function (e) {
+            $(window).scrollTop(0);
+        })
+
         var positions = document.getElementById("positions")
         var cases = document.getElementById("cases");
 
@@ -472,7 +476,7 @@
             if(alert_campus == 0){
                 alert("Select Campus");
                 // $("#nuzvid_campus").css("border","1px solid red !important");
-                $("#campus_focus").focus();
+                $(window).scrollTop(0);
                     return false
             }
             else{

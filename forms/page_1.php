@@ -69,6 +69,7 @@ $sta = mysqli_query($con,"SELECT `stage` from `reg_dir` where `ApplicationId` = 
 $stage_num = mysqli_fetch_row($sta);
 ?>
 
+
 <div class="container-fluid">
     <!-- PAGE - 1 -->
 <div class="row justify-content-center align-items-center " id="page-1">
@@ -82,7 +83,7 @@ $stage_num = mysqli_fetch_row($sta);
         </div>
         <div class="che_che">
         <div class="che_box">
-            <div class="col-md-12 px-4"><label class="text"><b>Name of the Campus or Campuses Applied for</b></label><input type="text" id="campus_focus" style="width: 0px; height:0px; opacity:0;"><label class="text" id="campus_msg"></label></div>
+            <div class="col-md-12 px-4 d-flex flex-column"><label class="text" style="margin-bottom:0px;"><b>Name of the Campus or Campuses Applied for</b></label><label class="text" style="color: red; font-size:15px;">Note: If you want to apply more than one campus, select all desired campuses.</label></div>
                 <div class="col-md-12 px-4 field d-flex justify-content-between">
                     <div class="check_boxes" style="display: none;">
                         <input type="checkbox" class ="camp" name="campus" id="n_c" value="Nuzvid" <?php echo (($campus_data[0] == 'Nuzvid')) ? 'checked' : '' ?>>

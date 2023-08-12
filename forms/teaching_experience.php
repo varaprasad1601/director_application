@@ -49,6 +49,7 @@
                     <input type="text" class="form-control" id="leftover" <?php echo (($td_row != null)) ? 'value="'.$td_row[4].'" disabled' : 'value=""' ?>>
                 </div>
             </div>
+            <label class="text" style="color: red; font-size:15px;">Note: If you want to apply more than one campus, select all desired campuses.</label>
 
 
             <!-- <h3 class="mt-4">Working Experience</h3> -->
@@ -233,6 +234,10 @@
 
     <!-- Java Script -->
     <script>
+
+        $(document).ready(function (e) {
+            $(window).scrollTop(0);
+        })
 
         var teaching_experience = document.getElementById("teaching_experience");
         var service = document.getElementById("service");
