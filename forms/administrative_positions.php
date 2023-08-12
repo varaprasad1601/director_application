@@ -434,7 +434,7 @@
             else{
                 presentdate = new Date()
                 todate = new Date(to.value)
-                if(presentdate.getTime() < todate.getTime() || presentdate.getTime() == fromdate.getTime()){
+                if(presentdate.getTime() < todate.getTime()){
                     to.style.border = "1px solid red"
                     alert("Enter Valid To Date")
                     return false
@@ -550,7 +550,7 @@
                     var case_s ="";
                     for (let x=0;x<=cas;x++){
                         if(document.getElementById("case"+x)){
-                            if($("#case"+x).val() != "" & $("#caseName"+x).val() != "" & $("#caseStatus"+x).val() != ""){
+                            if($("#case"+x).val() != "-----" & $("#caseName"+x).val() != "" & $("#caseStatus"+x).val() != ""){
                                 case_t = case_t + $("#case"+x).val() + "<>";
                                 case_n = case_n + $("#caseName"+x).val() + "<>";
                                 case_s = case_s + $("#caseStatus"+x).val() + "<>";
