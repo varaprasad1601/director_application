@@ -394,7 +394,7 @@
 
             <div class="form-group d-flex justify-content-between">
                 <div class="col-md-5">
-                    <label>University Name</label> <label class="err_msg" id="msg"> * </label>
+                    <label>Organization Name</label> <label class="err_msg" id="msg"> * </label>
                     <input type="text" class="form-control" id="univer" name="univer" <?php if($pd_row != null){echo 'value="'. $pd_row[13]. '" disabled';}?>>
                 </div>
             </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 12, 2023 at 12:30 PM
+-- Generation Time: Aug 12, 2023 at 02:08 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -42,7 +42,8 @@ CREATE TABLE `administrativeexp` (
 INSERT INTO `administrativeexp` (`sno`, `ApplicationId`, `position`, `fromDate`, `toDate`) VALUES
 (1, 'DIR2K238D10', 'co', '2023-07-30', '2023-08-02'),
 (2, 'DIR2K23BD93', 'coordinator', '2002-01-02', '2023-01-02'),
-(3, 'DIR2K23DB21', 'jhnkjhj', '2021-12-31', '2022-12-31');
+(3, 'DIR2K23DB21', 'jhnkjhj', '2021-12-31', '2022-12-31'),
+(4, 'DIR2K238D25', 'UG Admissions Coordinator<>CDPC Department Placement Member', '2020-07-03<>2022-10-16', '2023-08-12<>2023-08-12');
 
 -- --------------------------------------------------------
 
@@ -65,7 +66,8 @@ INSERT INTO `applied_campus` (`ApplicationId`, `appliedCampus`) VALUES
 ('DIR2K23DB21', ',,,'),
 ('DIR2K23232A', ', , , '),
 ('DIR2K233FA1', ', RK Valley, , '),
-('DIR2K2362CC', ', RK Valley, , ');
+('DIR2K2362CC', ', RK Valley, , '),
+('DIR2K238D25', 'Nuzvid,,Srikakulam,');
 
 -- --------------------------------------------------------
 
@@ -88,7 +90,8 @@ CREATE TABLE `cases` (
 INSERT INTO `cases` (`sno`, `ApplicationId`, `typeOf_case`, `CaseName`, `CaseStatus`) VALUES
 (1, 'DIR2K238D10', '-----', ' ', ' '),
 (2, 'DIR2K23BD93', '', '', ''),
-(3, 'DIR2K23DB21', '', '', '');
+(3, 'DIR2K23DB21', '', '', ''),
+(4, 'DIR2K238D25', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -108,6 +111,7 @@ CREATE TABLE `other` (
 
 INSERT INTO `other` (`sno`, `ApplicationId`, `OtherInformation`) VALUES
 (0, 'DIR2K238D10', ''),
+(0, 'DIR2K238D25', 'Vara Prasad - Final year B.Tech student at RGUKT Nuzvid. Experienced in web development and Python\nprogramming. Passionate about creating impactful solutions and eager to learn and grow. Seeking exciting\nopportunities to contribute my skills and be a part'),
 (0, 'DIR2K23BD93', 'i am nothing than good'),
 (0, 'DIR2K23DB21', '');
 
@@ -143,7 +147,8 @@ INSERT INTO `personneldetails` (`sno`, `ApplicationId`, `name`, `email`, `phone`
 (14, 'DIR2K23BD93', 'finalyes', 'final@gmail.com', '8999999999', 'DIR2K23BD93.jpeg', '2023-07-30', 0, 'Male', 'OC', 'final_add', 'final_des', 'finaldep', 'finaluni'),
 (21, 'DIR2K23DB21', 'simon', 'simon@gmail.com', '8897182017', 'DIR2K23DB21.jpeg', '2019-11-30', 3, 'Male', 'OBC', 'gjhgjhbjgjj', 'student', 'cse', 'RGUKT_NUZVID'),
 (26, 'DIR2K23232A', 'hijkhui', 'vara@gmail.com', '9999999999', 'DIR2K23232A.jpeg', '2008-10-30', 14, 'Male', 'hv', 'hhjvjv', 'hvvjhvj', 'hvhvjhv', 'hjvhjv'),
-(28, 'DIR2K23A6EA', 'uhguih', 'sai@gmail.com', '8888888888', 'DIR2K23A6EA.jpeg', '2005-02-19', 18, 'Male', 'ST', 'hvuyvhj', 'bgyhvjhg', 'gjhghjg', 'gjhghbjh');
+(28, 'DIR2K23A6EA', 'uhguih', 'sai@gmail.com', '8888888888', 'DIR2K23A6EA.jpeg', '2005-02-19', 18, 'Male', 'ST', 'hvuyvhj', 'bgyhvjhg', 'gjhghjg', 'gjhghbjh'),
+(29, 'DIR2K238D25', 'Vasamsetti Sai Siva Sankara Vara Prasad', 'saiprasadvsp1601@gmail.com', '8897182017', 'DIR2K238D25.jpeg', '2002-01-16', 21, 'Male', 'OBC', '3-404, Appanapalli, Mamidikudhuru, East Godavari, Andhra Pradesh - 533247', 'Student', 'Computer Science and Engineering', 'Rajiv Gandhi University of Knowledge Technologies - Nuzvid');
 
 -- --------------------------------------------------------
 
@@ -176,7 +181,10 @@ INSERT INTO `qualifications` (`sno`, `ApplicationId`, `qualification`, `year`, `
 (9, 'DIR2K23DB21', 'Ph.D', '2020', 'jhbhjb', 'jhbhjb'),
 (10, 'DIR2K23A6EA', 'Under Graduation', '2020', 'hgjghhj', 'hghj'),
 (11, 'DIR2K23A6EA', 'Post Graduation', '2020', 'jkbjhb', 'hjbhb'),
-(12, 'DIR2K23A6EA', 'Ph.D', '2020', 'jkbjhkb', 'kbjhkb');
+(12, 'DIR2K23A6EA', 'Ph.D', '2020', 'jkbjhkb', 'kbjhkb'),
+(13, 'DIR2K238D25', 'Under Graduation', '2013<>2015', 'Computer Science and Engineering<>Computer Science and Engineering', 'Rajiv Gandhi University of Knowledge Technologies - Srikakulam<>Rajiv Gandhi University of Knowledge Technologies - Nuzvid'),
+(14, 'DIR2K238D25', 'Post Graduation', '2019<>2020', 'Computer Science and Engineering<>Computer Science and Engineering', 'Indian Institute of Science Bengaluru<>Indian Institute of Technology Madras'),
+(15, 'DIR2K238D25', 'Ph.D', '2021', 'Computer Science and Engineering', 'Indian Institute of Technology Delhi');
 
 -- --------------------------------------------------------
 
@@ -202,6 +210,7 @@ INSERT INTO `reg_dir` (`email`, `phoneno`, `password`, `ApplicationId`, `stage`,
 ('a@gmail.com', '9999999999', '567a089b877eb76464d3f6052edcdcd2', 'DIR2K233FA1', 'tab1()', 'tab1()'),
 ('b@gmail.com', '8988888888', '567a089b877eb76464d3f6052edcdcd2', 'DIR2K2362CC', 'tab1()', 'tab1()'),
 ('aruntejamenda@gmail.com', '9000599108', '722279e9e630b3e731464b69968ea4b4', 'DIR2K238D10', 'tab2()', 'tab6()'),
+('saiprasadvsp1601@gmail.com', '8897182017', 'b067c7f0a90534d88bc35e1041330821', 'DIR2K238D25', 'tab2()', 'tab7()'),
 ('sai@gmail.com', '8888888888', '567a089b877eb76464d3f6052edcdcd2', 'DIR2K23A6EA', 'tab5()', 'tab5()'),
 ('final@gmail.com', '9000599108', '2a1585a864d9e67627c6ae04c807a2c5', 'DIR2K23BD93', 'tab6()', 'tab7()'),
 ('simon@gmail.com', '9000599108', 'b30bd351371c686298d32281b337e8e9', 'DIR2K23DB21', 'tab4()', 'tab6()');
@@ -245,7 +254,8 @@ INSERT INTO `researchexp` (`sno`, `ApplicationId`, `num_papersPublished_Nat`, `n
 (1, 'DIR2K238D10', 0, 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 (2, 'DIR2K23BD93', 1, 2, '', 3, 4, 55, 6, 77, 8, 0, 0, 9, 10, 13, 14, 15, 166, 0, 11, 12),
 (3, 'DIR2K23DB21', 1, 2, '3', 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 17, 18, 19, 20, 14, 15, 16),
-(4, 'DIR2K23A6EA', 1, 2, '3', 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20);
+(4, 'DIR2K23A6EA', 1, 2, '3', 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20),
+(5, 'DIR2K238D25', 4, 3, 'HTML, CSS, JavaScript, Advanced Python, Basics of Java, C, C++ etc.,', 9, 15, 13, 7, 17, 18, 16, 7, 6, 2, 12, 10, 9, 2, 23, 13, 4);
 
 -- --------------------------------------------------------
 
@@ -269,7 +279,8 @@ INSERT INTO `teachingexp` (`sno`, `ApplicationId`, `total_exp`, `len_prof_servic
 (1, 'DIR2K238D10', 0, 0, 0),
 (2, 'DIR2K23BD93', 0, 0, 0),
 (3, 'DIR2K23DB21', 4.2, 9, 9),
-(4, 'DIR2K23A6EA', 4.5, 8, 9);
+(4, 'DIR2K23A6EA', 4.5, 8, 9),
+(5, 'DIR2K238D25', 3.5, 8, 9);
 
 -- --------------------------------------------------------
 
@@ -303,7 +314,10 @@ INSERT INTO `worked_universities` (`sno`, `ApplicationId`, `designation`, `dateO
 (9, 'DIR2K23DB21', 'Assistant Professor', '2023-08-12', '2024-11-09', 'Rajiv Gandhi University of Knowledge Technologies Nuzvid', 'False'),
 (10, 'DIR2K23A6EA', 'Professor', '', NULL, '', ''),
 (11, 'DIR2K23A6EA', 'Associate Professor', '2001-11-23', NULL, 'hgfgvh', 'True'),
-(12, 'DIR2K23A6EA', 'Assistant Professor', '', NULL, '', '');
+(12, 'DIR2K23A6EA', 'Assistant Professor', '', NULL, '', ''),
+(13, 'DIR2K238D25', 'Professor', '2021-08-19', '2023-08-12', 'Indian Institute of Technology Delhi', 'False'),
+(14, 'DIR2K238D25', 'Associate Professor', '2020-01-16', '2021-07-31', 'Indian Institute of Science Bengaluru', 'True'),
+(15, 'DIR2K238D25', 'Assistant Professor', '', '', '', '');
 
 --
 -- Indexes for dumped tables
@@ -375,43 +389,43 @@ ALTER TABLE `worked_universities`
 -- AUTO_INCREMENT for table `administrativeexp`
 --
 ALTER TABLE `administrativeexp`
-  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `cases`
 --
 ALTER TABLE `cases`
-  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `personneldetails`
 --
 ALTER TABLE `personneldetails`
-  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `qualifications`
 --
 ALTER TABLE `qualifications`
-  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `researchexp`
 --
 ALTER TABLE `researchexp`
-  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `teachingexp`
 --
 ALTER TABLE `teachingexp`
-  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `worked_universities`
 --
 ALTER TABLE `worked_universities`
-  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `sno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
