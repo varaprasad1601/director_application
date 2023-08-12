@@ -63,11 +63,12 @@
                 <!-- Professor -->
                 <hr class="mt-5">
                 <div class="col-md-12 d-flex justify-content-between" id="prof">
-                    <h5>▸ Professor</h5>
+                    <h5>Professor</h5>
                     <div class="col-md-2">
                         <input type="button" value="Add Details" class="btn btn-dark px-5" id="add_prof_btn" style="width:100%;" onclick="add_designation('Professor')" <?php echo (($td_row != null)) ? "disabled" : "" ?>>
                     </div>
                 </div>
+                <hr>
                 <!-- <hr> -->
                 <?php
                 if($pr_row != null){
@@ -118,12 +119,12 @@
                 <!-- Associate Professor -->
                 <hr class="mt-5">
                 <div class="col-md-12  d-flex justify-content-between" id="asso_prof">
-                    <h5>▸ Associate Professor</h5>
+                    <h5>Associate Professor</h5>
                     <div class="col-md-2">
                         <input type="button" value="Add Details" class="btn btn-dark px-5" style="width:100%;" id="add_asso_btn" onclick="add_designation('Associate Professor')" <?php echo (($td_row != null)) ? "disabled" : "" ?>>
                     </div>
                 </div>
-                <!-- <hr> -->
+                <hr>
                 <?php
                 if($ad_row != null){
                     if($ada_data[0] != null){
@@ -175,12 +176,12 @@
                 <!-- Assistant Professor -->
                 <hr class="mt-5">
                 <div class="col-md-12  d-flex justify-content-between" id="assi_prof">
-                    <h5>▸ Assistant Professor</h5>
+                    <h5>Assistant Professor</h5>
                     <div class="col-md-2">
                         <input type="button" value="Add Details" class="btn btn-dark px-5" id="add_assi_btn" style="width:100%;" onclick="add_designation('Assistant Professor')" <?php echo (($td_row != null)) ? "disabled" : "" ?>>
                     </div>
                 </div>
-                <!-- <hr> -->
+                <hr>
                 <?php
                 if($sd_row != null){
                     if($sda_data[0] != null){
@@ -788,6 +789,64 @@
         }
         // Delete Assisstant =============================================================================
 
+
+
+
+        //Calculate Experience ===============================================================================
+        var p_totalyears = 0
+        var a_totalyears = 0
+        var as_totalyears = 0
+        function fun_5(){
+            for(let i=0;i<prof_id;i++){
+                if(document.getElementById("p_da"+i)){
+                    pfrom = new Date($("#p_da"+i).val())
+                    pto = new Date($("#p_to"+i).val())
+
+                    p_dms = pto - pfrom;
+                    p_msy = 1000 * 60 * 60 * 24 * 365.25;
+
+                    p_total = p_dms/p_msy;
+                    p_totalyears = p_totalyears + p_total;
+                } 
+            }
+
+            for(let i=0;i<asso_id;i++){
+                if(document.getElementById("a_da"+i)){
+                    afrom = $("#a_da"+i).val();
+                    ato = $("#a_to"+i).val();
+
+                    a_dms = ato - afrom;
+                    a_msy = 1000 * 60 * 60 * 24 * 365.25;
+
+                    a_total = a_dms / a_msy;
+                    a_totalyears = a_totalyears + a_total
+                }
+            }
+
+
+
+            for(let i=0;i<assi_id;i++){
+                if(document.getElementById("as_da"+i)){
+                    asfrom = $("#as_da"+i).val();
+                    asto = $("#as_to"+i).val();
+
+                    as_dms = asto - asfrom;
+                    as_msy = 1000 * 60 * 60 * 24 * 365.25;
+
+                    as_total = as_dms / as_msy;
+                    as_totalyears = as_totalyears + as_total
+                }
+            }
+
+
+            total_years = (+p_totalyears + +a_totalyears + +as_totalyears)
+            alert(p_totalyears.toFixed(1))
+            alert(a_totalyears.toFixed(1))
+            alert(as_totalyears.toFixed(1))
+            // if(teaching_experience.value == )
+        }
+        //Calculate Experience ===============================================================================
+
         
 
 
@@ -810,6 +869,7 @@
             if(fun_2() == false){return false}
             if(fun_3() == false){return false}
             if(fun_4() == false){return false}
+            if(fun_5() == false){return false}
             if(agree_fun() == false){return false}
             else{return true}
         };
