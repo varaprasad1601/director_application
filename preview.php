@@ -23,8 +23,8 @@
         }
         @page {
             size: A4; /* or 'letter', 'legal', 'A3', etc. */
-            margin: 20px 0px; /* Set your desired margin values here */
-            margin-top: 32px;
+            margin: 20px 0px !important; /* Set your desired margin values here */
+            margin-top: 32px !important;
         }
         .modal-box{
             position: fixed;
@@ -64,13 +64,20 @@
             .left-line{width: 42% !important;}
             .right-line{width: 42% !important;}
             .end-line{display: flex !important;}
+            .texp{margin-top: 0px !important;}
+            .otinf{margin-top: 0px !important;}
             .q{width: 30%;}
             .a{width: 65%;}
             .tq{width: 45%;}
             .ta{width: 55%;}
             .qd{width: 33.3%;}
-            .qu{width: 45%;}
-            .qc{width: 22%;}
+            .qyc{width: 25%;}
+            .qpg{width: 37.5%;}
+            .qpg{width: 37.5%;}
+            .qf{width: 20%;}
+            .qt{width: 20%;}
+            .qu{width: 40%;}
+            .qc{width: 20%;}
             .n{width: 50%;}
             .nv{width: 50%;}
             .i{width: 50%;}
@@ -80,7 +87,7 @@
             .ap{width: 50%;}
             .af{width: 25%;}
             .at{width: 25%;}
-            <?php if(count($ucy_data)<5){ echo ".pgg{margin-top: 15px !important;}"; }?>
+            <?php if(count($ucy_data)<2){ echo ".pgg{margin-top: 25px !important;}"; }?>
         }
         @media screen and (max-width:600px){
             .heading{width:80%; padding-top: 15px !important;}
@@ -243,52 +250,54 @@
                     <div class="col-md-12 mt-4" style="border-bottom:1px solid lightgray;">
                         <h3>Qualification Details</h3>
                     </div>
-                    <div class="col-md-12 pdetails justify-content-between px-5 py-4">
-                        <div class="col-md-12 mb-3" style="border-bottom: 1px solid lightgray;">
-                            <h5 class="">Under Graduation</h5>
-                        </div>
-                        <div class="col-md-12 d-flex mb-2 under_g" style="border-bottom: .5px solid #eeeee4">
-                            <div class="col-md-4 qd"><label class="text"><b>Year of Completion</b></label></div>
-                            <div class="col-md-4 qd"><label class="text"><b>Specialization</b></label></div>
-                            <div class="col-md-4 qd"><label class="text"><b>Awarded University</b></label></div>
-                        </div>
-                        <?php for ($i=0; $i<count($ucy_data); $i++){?>
-                            <div class="col-md-12 d-flex mb-2" style="border-bottom: .5px solid #eeeee4">
-                                <div class="col-md-4 qd"><label class="text"><?php echo $ucy_data[$i] ?></label></div>
-                                <div class="col-md-4 qd"><label class="text"><?php echo $usp_data[$i] ?></label></div>
-                                <div class="col-md-4 qd"><label class="text"><?php echo $uau_data[$i] ?></label></div>
+                    <div class="col-md-12 pdetails justify-content-between px-5 py-4 pb-5">
+                        <div class="col-md-12 pdetails justify-content-between">
+                            <div class="col-md-12 mb-3" style="border-bottom: 1px solid lightgray;">
+                                <h5 class="">Under Graduation</h5>
                             </div>
-                        <?php } ?>
-                        
+                            <div class="col-md-12 d-flex justify-content-between mb-2 under_g" style="border-bottom: .5px solid #eeeee4">
+                                <div class="col-md-3 qd qyc"><label class="text"><b>Year of Completion</b></label></div>
+                                <div class="col-md-4 qd qpg"><label class="text"><b>Specialization</b></label></div>
+                                <div class="col-md-4 qd qpg"><label class="text"><b>Awarded University</b></label></div>
+                            </div>
+                            <?php for ($i=0; $i<count($ucy_data); $i++){?>
+                                <div class="col-md-12 d-flex justify-content-between mb-2" style="border-bottom: .5px solid #eeeee4">
+                                    <div class="col-md-3 qd qyc"><label class="text"><?php echo $ucy_data[$i] ?></label></div>
+                                    <div class="col-md-4 qd qpg"><label class="text"><?php echo $usp_data[$i] ?></label></div>
+                                    <div class="col-md-4 qd qpg"><label class="text"><?php echo $uau_data[$i] ?></label></div>
+                                </div>
+                            <?php } ?>
+                        </div>
+
                         <div class="post_g">
                             <div class="col-md-12 pgg mt-5 mb-3" style="border-bottom:1px solid lightgray;">
                                 <h5 class="">Post Graduation</h5>
                             </div>
-                            <div class="col-md-12 d-flex mb-2" style="border-bottom: .5px solid #eeeee4">
-                                <div class="col-md-4 qd"><label class="text"><b>Year of Completion</b></label></div>
-                                <div class="col-md-4 qd"><label class="text"><b>Specialization</b></label></div>
-                                <div class="col-md-4 qd"><label class="text"><b>Awarded University</b></label></div>
+                            <div class="col-md-12 d-flex justify-content-between mb-2" style="border-bottom: .5px solid #eeeee4">
+                                <div class="col-md-3 qd qyc"><label class="text"><b>Year of Completion</b></label></div>
+                                <div class="col-md-4 qd qpg"><label class="text"><b>Specialization</b></label></div>
+                                <div class="col-md-4 qd qpg"><label class="text"><b>Awarded University</b></label></div>
                             </div>
                             <?php for ($i=0; $i<count($pcy_data); $i++){?>
-                                <div class="col-md-12 d-flex mb-2" style="border-bottom: .5px solid #eeeee4">
-                                    <div class="col-md-4 qd"><label class="text"><?php echo $pcy_data[$i] ?></label></div>
-                                    <div class="col-md-4 qd"><label class="text"><?php echo $psp_data[$i] ?></label></div>
-                                    <div class="col-md-4 qd"><label class="text"><?php echo $pau_data[$i] ?></label></div>
+                                <div class="col-md-12 d-flex justify-content-between mb-2" style="border-bottom: .5px solid #eeeee4">
+                                    <div class="col-md-3 qd qyc"><label class="text"><?php echo $pcy_data[$i] ?></label></div>
+                                    <div class="col-md-4 qd qpg"><label class="text"><?php echo $psp_data[$i] ?></label></div>
+                                    <div class="col-md-4 qd qpg"><label class="text"><?php echo $pau_data[$i] ?></label></div>
                                 </div>
                             <?php } ?>
                         </div>
 
                         <div class="col-md-12 mt-5 mb-3" style="border-bottom:1px solid lightgray;">
-                                <h5 class="">Ph. D</h5>
-                            </div>
-                            <div class="col-md-12 d-flex mb-2" style="border-bottom: .5px solid #eeeee4">
-                                <div class="col-md-4 qd"><label class="text"><b>Year of Completion</b></label></div>
-                                <div class="col-md-4 qd"><label class="text"><b>Specialization</b></label></div>
-                                <div class="col-md-4 qd"><label class="text"><b>Awarded University</b></label></div>
-                            </div>
+                            <h5 class="">Ph. D</h5>
+                        </div>
+                        <div class="col-md-12 d-flex justify-content-between mb-2" style="border-bottom: .5px solid #eeeee4">
+                            <div class="col-md-3 qd qyc"><label class="text"><b>Year of Completion</b></label></div>
+                            <div class="col-md-4 qd"><label class="text"><b>Specialization</b></label></div>
+                            <div class="col-md-4 qd"><label class="text"><b>Awarded University</b></label></div>
+                        </div>
                         <?php for ($i=0; $i<count($dcy_data); $i++){?>
-                            <div class="col-md-12 d-flex mb-2" style="border-bottom: .5px solid #eeeee4">
-                                <div class="col-md-4 qd"><label class="text"><?php echo $dcy_data[$i] ?></label></div>
+                            <div class="col-md-12 d-flex justify-content-between mb-2" style="border-bottom: .5px solid #eeeee4">
+                                <div class="col-md-3 qd qyc"><label class="text"><?php echo $dcy_data[$i] ?></label></div>
                                 <div class="col-md-4 qd"><label class="text"><?php echo $dsp_data[$i] ?></label></div>
                                 <div class="col-md-4 qd"><label class="text"><?php echo $dau_data[$i] ?></label></div>
                             </div>
@@ -297,10 +306,10 @@
                     <!-- Qualification Details ================================================== -->
 
                     <!-- Teaching Experience ================================================== -->
-                    <div class="col-md-12 mt-4" style="border-bottom:1px solid lightgray;">
+                    <div class="col-md-12 mt-4 texp" style="border-bottom:1px solid lightgray;">
                         <h3>Teaching Experience</h3>
                     </div>
-                    <div class="col-md-12 pdetails justify-content-between px-5 py-4">
+                    <div class="col-md-12 pdetails justify-content-between px-5 py-4 search">
                         <div class="col-md-12 mb-2">
                             <div class="col-md-12 d-flex mb-2" style="border-bottom: .5px solid #eeeee4">
                                 <div class="col-md-5 tq"><label class="text">Total Teaching Experience</label></div>
@@ -324,6 +333,7 @@
                     </div> -->
                     <div class="col-md-12 pdetails justify-content-between px-5 py-4">
                         <div class="col-md-12 mb-2">
+                            <div class="search">
                             <?php if($pr_row){
                                 if($pda_data[0] != null){?>
                                 <div class="col-md-12 mb-3" style="border-bottom: 1px solid lightgray;">
@@ -344,7 +354,9 @@
                                     </div>
                                 <?php } } ?>
                             <?php  } ?>
+                            </div>
 
+                            <div class="search">
                             <?php if($pr_row){
                                 if($ada_data[0] != null){ ?>
                                 <div class="col-md-12 mb-3 mt-5" style="border-bottom: 1px solid lightgray;">
@@ -365,7 +377,9 @@
                                     </div>
                                 <?php } } ?>
                             <?php  } ?>
+                            </div>
                             
+                            <div class="search">
                             <?php if($sd_row){
                                 if($sda_data[0] != null){ ?>
                                 <div class="col-md-12 mb-3 mt-5" style="border-bottom: 1px solid lightgray;">
@@ -386,6 +400,7 @@
                                     </div>
                                 <?php } } ?>
                             <?php  } ?>
+                            </div>
                         </div>
                     </div>
                     <!-- Working Experience ================================================== -->
@@ -629,7 +644,7 @@
                         <div class="col-md-12 mt-4" style="border-bottom:1px solid lightgray;">
                             <h3>Other Information</h3>
                         </div>
-                        <div class="col-md-12 pdetails justify-content-between px-5 py-4">
+                        <div class="col-md-12 pdetails justify-content-between px-5 py-4" style="text-align: justify;">
                             <label><?php echo $orow[2] ?></label>
                         </div>
                     </div>
@@ -639,7 +654,7 @@
 
                     <!-- Declaration ================================================== -->
                     <?php if($tab_num[0] == "tab7()"){?>
-                        <div class="search mt-5" style="border-top: 1px solid lightgray; text-align:justify">
+                        <div class="search mt-4" style="border-top: 1px solid lightgray; text-align:justify">
                         <div class="col-md-12 declaration d-flex justify-content-between px-5 py-4">
                             <div class="me-3"><i class="fa fa-check-square" style="color: black;"></i></div>
                             <div><label><b>I <?php echo $pd_row[2] ?>, Hereby declare that the information entered in this application is true, complete and correct to the best of my knowledge and belief. I have read the rules and also understand that in the event of any information being found false or ineligibility is detacted before or after the selection, My Application is liable to be rejected</b></label></div>
@@ -651,7 +666,7 @@
 
 
                     <!-- Signature ================================================== -->
-                    <div class="col-md-12 justify-content-end signature" style="display: none; margin-top: 150px; padding-right:100px;">
+                    <div class="col-md-12 justify-content-end signature" style="display: none; margin-top: 125px; padding-right:100px;">
                         <label class="text">Signature</label>
                     </div>
                     <div class="col-md-12 justify-content-between align-items-center end-line mt-5 px-5" style="display: none;">
