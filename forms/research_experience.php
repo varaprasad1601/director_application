@@ -567,14 +567,15 @@
                             // Extra
                         },
                         success: function(data){
-                            // alert(data);
+                            alert(data);
+                            /*
                             if(data.trim()[data.length-1] =="y"){
                                 localStorage.setItem('myParameterValue', data);
                                 location.reload();
                                 $("#campus_focus").focus();
                             }else{
                                 alert("tryagain");
-                            }
+                            }*/
                         }
                     });
                 }
