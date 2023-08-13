@@ -100,15 +100,29 @@
             <div class="form-group d-flex justify-content-between">
                 <div class="col-md-5">
                     <label>Funds Sanctioned for Ongoing Research Projects in (Rs. Lakhs)</label> <label class="err_msg" id="msg"> * </label>
-                    <input type="number" class="form-control" placeholder="Funds for Major" id="funds_ongoing_major" onkeyup="total_funds()" <?php echo(($row)) ? 'value="'.$row[13].'" disabled' : "" ?>>
+                    <input type="number" class="form-control" placeholder="Funds for Major" id="funds_ongoing_major" onkeyup="total_ongoing_funds()" <?php echo(($row)) ? 'value="'.$row[13].'" disabled' : "" ?>>
                 </div>
                 <div class="col-md-5">
                     <label>&nbsp;</label>
-                    <input type="number" class="form-control" placeholder="Funds for Minor" id="funds_ongoing_minor" onkeyup="total_funds()" <?php echo(($row)) ? 'value="'.$row[14].'" disabled' : "" ?>>
+                    <input type="number" class="form-control" placeholder="Funds for Minor" id="funds_ongoing_minor" onkeyup="total_ongoing_funds()" <?php echo(($row)) ? 'value="'.$row[14].'" disabled' : "" ?>>
                 </div>
                 <div class="col-md-1">
                     <label>Total</label>
                     <input type="text" class="form-control" id="funds_ongoing_total" value="<?php if($row){echo $row[13]+$row[14];}else{echo "0";}?>" disabled>
+                </div>
+            </div>
+            <!------------------------------------->
+            <div class="form-group d-flex justify-content-between">
+                <div class="col-md-5">
+                    <label>Number of Consultancy Projects</label> <label class="err_msg" id="msg"> * </label>
+                    <input type="number" class="form-control" placeholder="Number of consultancy projects" id="no_consultancy" <?php echo(($row)) ? 'value="'.$row[24].'" disabled' : "" ?>>
+                </div>
+            </div>
+            
+            <div class="form-group d-flex justify-content-between">
+                <div class="col-md-5">
+                    <label>Amount of consultancy amount generated (In Rs. Lakhs)</label> <label class="err_msg" id="msg"> * </label>
+                    <input type="number" class="form-control" placeholder="Amount of consultancy amount generated" id="amount_consultancy"<?php echo(($row)) ? 'value="'.$row[25].'" disabled' : "" ?>>
                 </div>
             </div>
             <!--------------------------------------->
@@ -222,6 +236,10 @@
         var funds_ongoing_major = document.getElementById("funds_ongoing_major")
         var funds_ongoing_minor = document.getElementById("funds_ongoing_minor")
         var funds_ongoing_total = document.getElementById("funds_ongoing_total")
+        
+        
+        var number_consultancy = document.getElementById("no_consultancy")
+        var total_amount_consultancy = document.getElementById("amount_consultancy")
 
         var mpg = document.getElementById("mpg")
         var pdg = document.getElementById("pdg")
@@ -452,7 +470,7 @@
             }
         };
 
-        function total_funds (){
+        function total_ongoing_funds (){
             if(funds_ongoing_major.value.length == 0 || funds_ongoing_minor.value.length == 0){
                 funds_ongoing_total.value = 0
             }
@@ -462,6 +480,34 @@
         };
         // ongoing funds ==========================================================================
 
+
+        // Number of Consultancy ==========================================================================
+        function consultancy_function(){
+            number_consultancy.addEventListener('change',consultancy_function)
+            if(number_consultancy.value.length == 0){
+                number_consultancy.style.border = "1px solid red"
+                fields("Enter Number of consultancy projects")
+                return false
+            }
+            else{
+                number_consultancy.style.border = "1px solid lightgray"
+            }
+        };
+        // Number of Consultancy ==========================================================================
+
+        // total amount of Consultancy ==========================================================================
+        function total_consultancy_function(){
+            total_amount_consultancy.addEventListener('change',total_consultancy_function)
+            if(total_amount_consultancy.value.length == 0){
+                total_amount_consultancy.style.border = "1px solid red"
+                fields("Enter total amount of consultancy projects")
+                return false
+            }
+            else{
+                total_amount_consultancy.style.border = "1px solid lightgray"
+            }
+        };
+        // total amount of Consultancy ==========================================================================
 
 
         // M.Phils ==========================================================================
@@ -625,6 +671,8 @@
             if(funds() == false){return false}
             if(ongoing_projects() == false){return false}
             if(ongoing_funds() == false){return false}
+            if(consultancy_function() == false){return false}
+            if(total_consultancy_function() == false){return false}
             if(mpg_function() == false){return false}
             if(pdg_function() == false){return false}
             if(seminars() == false){return false}
@@ -655,6 +703,8 @@
             ongoing_major.removeAttribute("disabled");
             funds_ongoing_major.removeAttribute("disabled");
             funds_ongoing_minor.removeAttribute("disabled");
+            number_consultancy.removeAttribute("disabled");
+            total_amount_consultancy.removeAttribute("disabled");
             mpg.removeAttribute("disabled");
             pdg.removeAttribute("disabled");
             awards_state.removeAttribute("disabled");
@@ -693,7 +743,9 @@
                         $("#bodies_international").val().trim()+"><"+
                         $("#awards_state").val().trim()+"><"+
                         $("#awards_national").val().trim()+"><"+
-                        $("#awards_international").val().trim();
+                        $("#awards_international").val().trim()+"><"+
+                        $("#no_consultancy").val().trim()+"><"+
+                        $("#amount_consultancy").val().trim();
                         // alert(rData);
                     //---------
                     $.ajax({
