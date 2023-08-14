@@ -69,7 +69,7 @@
 
             <div class="form-group d-flex justify-content-between">
                 <div class="col-md-5">
-                    <label>Funds Sanctioned for Completed Research Projects in (Rs. Lakhs)</label> <label class="err_msg" id="msg"> * </label>
+                    <label>Funds Sanctioned for Completed Research Projects (in Rs. Lakhs)</label> <label class="err_msg" id="msg"> * </label>
                     <input type="number" class="form-control" placeholder="Funds for Major" id="funds_major" onkeyup="total_funds()" <?php echo(($row)) ? 'value="'.$row[9].'" disabled' : "" ?>>
                 </div>
                 <div class="col-md-5">
@@ -99,7 +99,7 @@
             
             <div class="form-group d-flex justify-content-between">
                 <div class="col-md-5">
-                    <label>Funds Sanctioned for Ongoing Research Projects in (Rs. Lakhs)</label> <label class="err_msg" id="msg"> * </label>
+                    <label>Funds Sanctioned for Ongoing Research Projects (in Rs. Lakhs)</label> <label class="err_msg" id="msg"> * </label>
                     <input type="number" class="form-control" placeholder="Funds for Major" id="funds_ongoing_major" onkeyup="total_ongoing_funds()" <?php echo(($row)) ? 'value="'.$row[13].'" disabled' : "" ?>>
                 </div>
                 <div class="col-md-5">
@@ -117,12 +117,11 @@
                     <label>Number of Consultancy Projects</label> <label class="err_msg" id="msg"> * </label>
                     <input type="number" class="form-control" placeholder="Number of consultancy projects" id="no_consultancy" <?php echo(($row)) ? 'value="'.$row[24].'" disabled' : "" ?>>
                 </div>
-            </div>
-            
-            <div class="form-group d-flex justify-content-between">
                 <div class="col-md-5">
                     <label>Amount of consultancy amount generated (In Rs. Lakhs)</label> <label class="err_msg" id="msg"> * </label>
                     <input type="number" class="form-control" placeholder="Amount of consultancy amount generated" id="amount_consultancy"<?php echo(($row)) ? 'value="'.$row[25].'" disabled' : "" ?>>
+                </div>
+                <div class="col-md-1">
                 </div>
             </div>
             <!--------------------------------------->

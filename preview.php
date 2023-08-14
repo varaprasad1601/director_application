@@ -462,8 +462,8 @@
                                     <h5 class="">Journals / Papers / Articles Published</h5>
                                 </div>
                                 <div class="col-md-12 d-flex mb-2" style="border-bottom: .5px solid #eeeee4">
-                                    <div class="col-md-12 d-flex qd">
-                                        <div class="col-md-12 nv"><label class="text"><?php echo $row[4] ?></label></div>
+                                    <div class="col-md-12 d-flex">
+                                        <div class="col-md-12"><label class="text"><?php echo $row[4] ?></label></div>
                                     </div>
                                 </div>
                             </div>
@@ -491,7 +491,7 @@
 
                         <div class="col-md-12 pdetails justify-content-between px-5 pt-4 py-2 search">
                             <div class="col-md-12 mb-3" style="border-bottom: 1px solid lightgray;">
-                                <h5 class="">Funds Sanctioned/Utilized for Completed Research Projects in (Rs. Lakhs)</h5>
+                                <h5 class="">Funds Sanctioned/Utilized for Completed Research Projects (in Rs. Lakhs)</h5>
                             </div>
                             <div class="col-md-12 d-flex mb-2" style="border-bottom: .5px solid #eeeee4">
                                 <div class="col-md-4 d-flex qd">
@@ -532,7 +532,7 @@
 
                         <div class="col-md-12 pdetails justify-content-between px-5 pt-4 py-2 search">
                             <div class="col-md-12 mb-3" style="border-bottom: 1px solid lightgray;">
-                                <h5 class="">Funds Sanctioned/Utilized for Ongoing Research Projects in (Rs. Lakhs)</h5>
+                                <h5 class="">Funds Sanctioned/Utilized for Ongoing Research Projects (in Rs. Lakhs)</h5>
                             </div>
                             <div class="col-md-12 d-flex mb-2" style="border-bottom: .5px solid #eeeee4">
                                 <div class="col-md-4 d-flex qd">
@@ -556,14 +556,12 @@
                             </div>
                             <div class="col-md-12 d-flex mb-2" style="border-bottom: .5px solid #eeeee4">
                                 <div class="col-md-4 d-flex qd">
-                                    <div class="col-md-8 n"><label class="text">Number of consultancy projects:</label></div>
-                                    <div class="col-md-4 nv"><label class="text"><?php echo $row[24] ?></label></div>
+                                    <div class="col-md-5 n"><label class="text">Number of Consultancy Projects:</label></div>
+                                    <div class="col-md-7 nv"><label class="text"><?php echo $row[24] ?></label></div>
                                 </div>
-                            </div>
-                            <div class="col-md-12 d-flex mb-2" style="border-bottom: .5px solid #eeeee4">
                                 <div class="col-md-4 d-flex qd">
-                                    <div class="col-md-10 n"><label class="text">Amount of consultancy amount generated:</label></div>
-                                    <div class="col-md-2 nv"><label class="text"><?php echo $row[25] ?></label></div>
+                                    <div class="col-md-6 n"><label class="text">Amount of Consultancy Amount Generated:</label></div>
+                                    <div class="col-md-6 nv"><label class="text"><?php echo $row[25] ?></label></div>
                                 </div>
                             </div>
                         </div>
