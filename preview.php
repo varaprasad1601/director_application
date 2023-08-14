@@ -781,7 +781,7 @@
             <hr>
             <div class="col-md-12 d-flex justify-content-between pb-4">
                 <div class="me-3"><input type="checkbox" id="check_declaration"></div>
-                <div><label><b>I <?php echo $pd_row[2] ?>, Hereby declare that the information entered in this application is true, complete and correct to the best of my knowledge and belief. I have read the rules and also understand that in the event of any information being found false or ineligibility is detacted before or after the selection, My Application is liable to be rejected</b></label> <span id="err_msg" style="color: red; font-size:14px"></span></div>
+                <div><label style="text-align:justify"><b>I <?php echo $pd_row[2] ?>, Hereby declare that the information entered in this application is true, complete and correct to the best of my knowledge and belief. I have read the rules and also understand that in the event of any information being found false or ineligibility is detacted before or after the selection, My Application is liable to be rejected</b></label> <span id="err_msg" style="color: red; font-size:14px"></span></div>
             </div>
             <div class="footer d-flex justify-content-end align-items-end mt-2" id="footer">
                 <button class="btn btn-success me-3" onclick="agree_model()">I Agree</button>
