@@ -118,7 +118,7 @@
                     <input type="number" class="form-control" placeholder="Number of consultancy projects" id="no_consultancy" <?php echo(($row)) ? 'value="'.$row[24].'" disabled' : "" ?>>
                 </div>
                 <div class="col-md-5">
-                    <label>Amount of consultancy amount generated (In Rs. Lakhs)</label> <label class="err_msg" id="msg"> * </label>
+                    <label>Amount of Consultancy Amount Generated (In Rs. Lakhs)</label> <label class="err_msg" id="msg"> * </label>
                     <input type="number" class="form-control" placeholder="Amount of consultancy amount generated" id="amount_consultancy"<?php echo(($row)) ? 'value="'.$row[25].'" disabled' : "" ?>>
                 </div>
                 <div class="col-md-1">
