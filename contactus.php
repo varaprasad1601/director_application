@@ -94,25 +94,19 @@ else{
                         <img src="rgukt.png" class="image" width="100">
                     </div>
                     <div class="col-md-6 px-5 py-5 inner-box">
-                        <h2 style="font-family: Calibri;"><b>Login</b></h2>
+                        <h2 style="font-family: Calibri;"><b><u>CONTACT US</u></b></h2>
                         <label id="message"></label>
                         <div class="f">
                             <div class="inputBox">
-                                <input type="email" name="u" class="form-control" placeholder="email id" id="id" required>
+                                Password related queries, send email to <b style='color:blue;'> xxxx@rgukt.in</b>
                             </div>
                             <div class="inputBox mt-3">
-                                <input type="password" name="p" placeholder="password" class="form-control" id="password" required>
-                                <i class="fa fa-eye eye" id="pas_eye" onclick="pas_show()"></i>
+                                AnyOther queries, send email to <b style='color:blue;'>cao@rgukt.in</b>
                             </div>
-                            <div class="inputBox my-2 mb-3">
-                                <button id="login" type="button" style="width: 100%;" class="btn btn-outline-dark rounded-pill">Login</button>
+
+                            <div class="inputBox mt-3">
+                                Take me to: <a href="index.php" class="navbar-brand text-dark" style="font-family: Calibri;"><b><i style='color:green;'> Login page</i></b></a>
                             </div>
-                            <div class="inputBox my-0 d-flex justify-content-center align-items-center">
-                                <label>Dont have an Account? <a href="registration.php" class="link">Register</a></label>
-                            </div>
-                            <!-- <div class="inputBox my-0 d-flex justify-content-center align-items-center">
-                                <label style="color:rgb(13, 110, 253);cursor:pointer;text-decoration:underline;text-decoration-color:rgb(13, 110, 253);" onclick="alert('Contact Technical Team: ***@rguktn.ac.in');"class="link">Forgot password?</label>
-                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -120,45 +114,7 @@ else{
         <div class="mt-3"><?php include './forms/footer.php'; ?></div>
     </div>
 </body>
-<script type="text/javascript">
-    function pas_show(){
-        if(password.type == "password"){
-            password.type = "text";
-            pas_eye.removeAttribute("class","fa fa-eye eye")
-            pas_eye.setAttribute("class","fa fa-eye-slash eye")
-        }else{
-            password.type = "password";
-            pas_eye.removeAttribute("class","fa fa-eye-slash eye")
-            pas_eye.setAttribute("class","fa fa-eye eye")
-        }
-    }
-
-    $(document).ready(function(){
-        $("#login").click(function(){
-            var id=$('#id').val();
-            var password=$('#password').val();
-            $.ajax({
-                type:"POST",
-                url:"authentication.php",
-                data:{u:id,p:password},
-                beforeSend:function(){
-                    $('#message').html("<p style='color:blue;font-size:14px;'>processing...<p>");
-                },
-                success:function(data){
-                    //alert(data);
-                    if(data=="S"){
-                        $('#message').html("<p style='color:green;font-size:14px;'>Login Success..!!<p>");
-                        setTimeout(location.reload(),10000);
-                    }else{
-                        $('#message').html("<p style='color:red;font-size:14px;'>Invalid Credentials..!!<p>");
-                    }
-                }
-            });
-        })
-    });
-    </script>
 </html>
-
 <?php
-    }
-?>
+
+    }?>
