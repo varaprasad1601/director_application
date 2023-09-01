@@ -5,7 +5,8 @@
 <body>
 
 <?php
-if(isset($_GET['code']) && $_GET['code'] =="1601/2811"){
+if(isset($_GET['code']) && ($_GET['code'] =="1601/2811" || $_GET['code'] =="2811/1601")){
+    $path = $_GET['code'];
     // Create an empty global array
     $global_array = array();
 
@@ -175,7 +176,12 @@ if(isset($_GET['code']) && $_GET['code'] =="1601/2811"){
     // print_r($global_array);
 
     // Define the CSV file path
-    $csvFilePath = 'directorapp_data.csv';
+    if ($path == '2811/1601'){
+        $csvFilePath = 'C:/directorapp_data.csv';
+        
+    }else{
+        $csvFilePath = 'directorapp_data.csv';
+    }
 
     // Open the CSV file for writing
     $csvFile = fopen($csvFilePath, 'w');
@@ -218,7 +224,7 @@ if(isset($_GET['code']) && $_GET['code'] =="1601/2811"){
     <div class="container">
         <div class="row">
             <div class="col-md-12 d-flex justify-content-center align-items-center" style="height: 97vh;">
-                <center><h2>CSV file created successfully at directorapp/<?php echo $csvFilePath ?></h2></center>
+                <center><h2>CSV file created successfully at <?php echo ($path == '2811/1601') ? $csvFilePath : 'directorapp/'.$csvFilePath ?></h2></center>
             </div>
         </div>
     </div>
