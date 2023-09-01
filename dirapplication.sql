@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 14, 2023 at 08:45 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Generation Time: Sep 02, 2023 at 01:10 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -68,7 +68,7 @@ CREATE TABLE `cases` (
 
 CREATE TABLE `other` (
   `ApplicationId` varchar(255) NOT NULL,
-  `OtherInformation` varchar(255) NOT NULL
+  `OtherInformation` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -88,7 +88,7 @@ CREATE TABLE `personneldetails` (
   `age` int(11) NOT NULL,
   `gender` varchar(6) NOT NULL,
   `category` varchar(255) NOT NULL,
-  `address` varchar(255) NOT NULL,
+  `address` varchar(555) NOT NULL,
   `designation` varchar(255) NOT NULL,
   `department` varchar(255) NOT NULL,
   `university` varchar(255) NOT NULL
@@ -135,7 +135,7 @@ CREATE TABLE `researchexp` (
   `ApplicationId` varchar(255) NOT NULL,
   `num_papersPublished_Nat` int(11) NOT NULL,
   `num_papersPublished_IntNat` int(11) NOT NULL,
-  `papers_info` varchar(255) NOT NULL,
+  `papers_info` longtext NOT NULL,
   `num_patents` int(11) NOT NULL,
   `num_booksISBN` int(11) NOT NULL,
   `num_MajResearchProjs` int(11) NOT NULL,

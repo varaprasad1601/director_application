@@ -735,7 +735,7 @@
                     <div>
                     <?php if($tab_num[0] == "tab7()"){?>
                     <div class="col-md-12 btns_height mt-5 note_label">
-                        <div class="col-md-12"><center><label class="text" style="color: red;">Note: Print this Application Separately for each Applied Campus</label></center></div>
+                        <div class="col-md-12"><center><label class="text" style="color: red;">Note: Your application saved successfully and Print this Application Separately for each Applied Campus</label></center></div>
                         <div class="col-md-12 d-flex justify-content-end btns_height">
                             <label id="print_heading" for="camp" style="font-size:1em;display:flex;align-items:end;"> Print Application Form for &nbsp&nbsp</label>
                             <select class="form-control me-3 mb-0 mt-5 print_campus" id="print_campus" style="width: 175px;" name = "camp">
