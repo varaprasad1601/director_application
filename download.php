@@ -190,16 +190,8 @@ if(isset($_GET['code']) && ($_GET['code'] =="1601/2811" || $_GET['code'] =="2811
     };
     // print_r($global_array); echo '<br><br><br>';
 
-//     // Define the CSV file path
-    if ($path == '2811/1601'){
-        $csvFilePath = 'C:/directorapp_data.csv';
-        
-    }else{
-        $csvFilePath = 'directorapp_data.csv';
-    }
-
-//     // Open the CSV file for writing
-    $csvFile = fopen($csvFilePath, 'w');
+    // Define the CSV file path
+    $csvFilePath = "directorapp_data.csv";
 
 
     $columnHeadings = array(
@@ -219,8 +211,9 @@ if(isset($_GET['code']) && ($_GET['code'] =="1601/2811" || $_GET['code'] =="2811
         'Other Information', 'Applied Campus'
     );
 
-//     // Open the CSV file for writing
+    // Open the CSV file for writing
     $csvFile = fopen($csvFilePath, 'w');
+
 
 
 //     // Write column headings as the first row in the CSV file
@@ -232,6 +225,7 @@ if(isset($_GET['code']) && ($_GET['code'] =="1601/2811" || $_GET['code'] =="2811
         fputcsv($csvFile, $row);
     }
 
+
 //     // Close the CSV file
     fclose($csvFile);
 
@@ -239,8 +233,9 @@ if(isset($_GET['code']) && ($_GET['code'] =="1601/2811" || $_GET['code'] =="2811
     ?>
     <div class="container">
         <div class="row">
-            <div class="col-md-12 d-flex justify-content-center align-items-center" style="height: 97vh;">
-                <center><h2>CSV file created successfully at <?php echo ($path == '2811/1601') ? $csvFilePath : 'directorapp/'.$csvFilePath ?></h2></center>
+            <div class="col-md-12 d-flex justify-content-center flex-column align-items-center" style="height: 97vh;">
+                <center><h2>CSV file created successfully at directorapp/directorapp_data.csv</h2></center>                
+                <?php echo ($path == '2811/1601') ? '<a href="'.$csvFilePath.'" download><button class="btn btn-success">Download</button></a>' : '' ?>                
             </div>
         </div>
     </div>
